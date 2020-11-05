@@ -1,0 +1,12 @@
+Vou listar alguns comandos pra todo mundo poder usar no projeto
+
+1) Para clonar o repositorio:
+git clone <URL>
+
+2) quando fizerem mudanças e quiserem submeter:
+git add . (o ponto significa para adicionar todos os arquivos alterados)
+git commit -m "seu comentario" (coloque entre aspas as mudanças que vc fez)
+git push
+
+3) quando quiserem atualizar seu repositorio local com a versao mais atual do repositório remoto:
+git pull
