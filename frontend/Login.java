@@ -1,4 +1,5 @@
 package frontend;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,9 +28,9 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        NaoMexerNisso = new javax.swing.JPanel();
+        naoMexerNisso = new javax.swing.JPanel();
         nome_l = new javax.swing.JLabel();
-        Nome_l_e = new javax.swing.JTextField();
+        nome_l_e = new javax.swing.JTextField();
         idade_l = new javax.swing.JLabel();
         idade_l_e = new javax.swing.JTextField();
         endereco_l = new javax.swing.JLabel();
@@ -38,16 +39,16 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        NaoMexerNisso.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
+        naoMexerNisso.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
         nome_l.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nome_l.setText("Nome competo:");
         nome_l.setToolTipText("");
 
-        Nome_l_e.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Nome_l_e.addActionListener(new java.awt.event.ActionListener() {
+        nome_l_e.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        nome_l_e.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Nome_l_eActionPerformed(evt);
+                nome_l_eActionPerformed(evt);
             }
         });
 
@@ -80,43 +81,43 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout NaoMexerNissoLayout = new javax.swing.GroupLayout(NaoMexerNisso);
-        NaoMexerNisso.setLayout(NaoMexerNissoLayout);
-        NaoMexerNissoLayout.setHorizontalGroup(
-            NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NaoMexerNissoLayout.createSequentialGroup()
+        javax.swing.GroupLayout naoMexerNissoLayout = new javax.swing.GroupLayout(naoMexerNisso);
+        naoMexerNisso.setLayout(naoMexerNissoLayout);
+        naoMexerNissoLayout.setHorizontalGroup(
+            naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(naoMexerNissoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(idade_l)
                     .addComponent(nome_l)
                     .addComponent(endereco_l))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(NaoMexerNissoLayout.createSequentialGroup()
-                        .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(naoMexerNissoLayout.createSequentialGroup()
+                        .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(162, Short.MAX_VALUE))
-                    .addGroup(NaoMexerNissoLayout.createSequentialGroup()
+                    .addGroup(naoMexerNissoLayout.createSequentialGroup()
                         .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(prox_l)
                         .addGap(40, 40, 40))))
         );
-        NaoMexerNissoLayout.setVerticalGroup(
-            NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NaoMexerNissoLayout.createSequentialGroup()
+        naoMexerNissoLayout.setVerticalGroup(
+            naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(naoMexerNissoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idade_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prox_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(NaoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(endereco_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(48, Short.MAX_VALUE))
@@ -126,20 +127,20 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(NaoMexerNisso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(naoMexerNisso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(NaoMexerNisso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(naoMexerNisso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(639, 337));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Nome_l_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nome_l_eActionPerformed
+    private void nome_l_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_l_eActionPerformed
 
-    }//GEN-LAST:event_Nome_l_eActionPerformed
+    }//GEN-LAST:event_nome_l_eActionPerformed
 
     private void idade_l_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idade_l_eActionPerformed
         // TODO add your handling code here:
@@ -150,13 +151,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_endereco_l_eActionPerformed
 
     private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prox_lActionPerformed
-System.out.println(Nome_l_e.getText());
+System.out.println(nome_l_e.getText());
 
-    String NomeCompletoLogin = Nome_l_e.getText();
+    String nomenCompletoLogin = nome_l_e.getText();
     String idadeLogin = idade_l_e.getText();
     String enderecoLogin =  endereco_l_e.getText();
     Home tela = new Home();
-    tela.receber(NomeCompletoLogin, idadeLogin,enderecoLogin);
+    tela.receber(nomenCompletoLogin, idadeLogin,enderecoLogin);
     tela.setVisible(true);
     dispose();
 
@@ -198,13 +199,13 @@ System.out.println(Nome_l_e.getText());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel NaoMexerNisso;
-    public javax.swing.JTextField Nome_l_e;
     private javax.swing.JLabel endereco_l;
     private javax.swing.JTextField endereco_l_e;
     private javax.swing.JLabel idade_l;
     private javax.swing.JTextField idade_l_e;
+    private javax.swing.JPanel naoMexerNisso;
     private javax.swing.JLabel nome_l;
+    public javax.swing.JTextField nome_l_e;
     private javax.swing.JButton prox_l;
     // End of variables declaration//GEN-END:variables
 }

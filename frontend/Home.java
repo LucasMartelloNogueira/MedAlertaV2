@@ -11,9 +11,9 @@ package frontend;
  * @author leosa
  */
 public class Home extends javax.swing.JFrame {
-    String Nomedapessoah;
-    String idadedapessoah;
-    String enderecodapessoah;
+    String nomeDaPessoaH;
+    String idadeDaPessoaH;
+    String enderecoDaPessoaH;
 
     /**
      * Creates new form home
@@ -22,9 +22,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     public void receber(String _nome, String _idade,String _endereco){
-        Nomedapessoah = _nome;
-        idadedapessoah = _idade;
-        enderecodapessoah = _endereco;
+        nomeDaPessoaH = _nome;
+        idadeDaPessoaH = _idade;
+        enderecoDaPessoaH = _endereco;
         initComponents();
     }
 
@@ -37,13 +37,13 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        NaoMexerNissoHome = new javax.swing.JPanel();
-        Nome_home = new javax.swing.JLabel();
+        naoMexerNissoHome = new javax.swing.JPanel();
+        nome_Home = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Nome_home1 = new javax.swing.JLabel();
+        nome_home1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         idade_home = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,10 +52,10 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        NaoMexerNissoHome.setPreferredSize(new java.awt.Dimension(625, 350));
+        naoMexerNissoHome.setPreferredSize(new java.awt.Dimension(625, 350));
 
-        Nome_home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Nome_home.setText("");
+        nome_Home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nome_Home.setText("oi");
 
         jButton1.setText("Calendario de remedio");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,26 +65,31 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton3.setText("Lista de farmacias");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuáio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
 
-        Nome_home1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Nome_home1.setText(Nomedapessoah);
+        nome_home1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nome_home1.setText(nomeDaPessoaH);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Idade:");
 
         idade_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        idade_home.setText(idadedapessoah);
+        idade_home.setText(idadeDaPessoaH);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Endereço:");
 
         endereco_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        endereco_home.setText(enderecodapessoah);
+        endereco_home.setText(enderecoDaPessoaH);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -96,7 +101,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Nome_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nome_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -113,7 +118,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Nome_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idade_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,40 +128,45 @@ public class Home extends javax.swing.JFrame {
         );
 
         jButton2.setText("Lista de contatos de emergincia");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout NaoMexerNissoHomeLayout = new javax.swing.GroupLayout(NaoMexerNissoHome);
-        NaoMexerNissoHome.setLayout(NaoMexerNissoHomeLayout);
-        NaoMexerNissoHomeLayout.setHorizontalGroup(
-            NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NaoMexerNissoHomeLayout.createSequentialGroup()
-                .addGroup(NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout naoMexerNissoHomeLayout = new javax.swing.GroupLayout(naoMexerNissoHome);
+        naoMexerNissoHome.setLayout(naoMexerNissoHomeLayout);
+        naoMexerNissoHomeLayout.setHorizontalGroup(
+            naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(naoMexerNissoHomeLayout.createSequentialGroup()
+                .addGroup(naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(NaoMexerNissoHomeLayout.createSequentialGroup()
-                        .addGroup(NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(naoMexerNissoHomeLayout.createSequentialGroup()
+                        .addGroup(naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(NaoMexerNissoHomeLayout.createSequentialGroup()
+                        .addGroup(naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(naoMexerNissoHomeLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Nome_home, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nome_Home, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NaoMexerNissoHomeLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, naoMexerNissoHomeLayout.createSequentialGroup()
                                 .addGap(132, 132, 132)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(94, 94, 94)))))
                 .addContainerGap())
         );
-        NaoMexerNissoHomeLayout.setVerticalGroup(
-            NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NaoMexerNissoHomeLayout.createSequentialGroup()
+        naoMexerNissoHomeLayout.setVerticalGroup(
+            naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(naoMexerNissoHomeLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addGroup(NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nome_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nome_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(NaoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(naoMexerNissoHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
@@ -168,13 +178,13 @@ public class Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(NaoMexerNissoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addComponent(naoMexerNissoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(NaoMexerNissoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(naoMexerNissoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addGap(65, 65, 65))
         );
 
@@ -184,10 +194,25 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     Listaremedio lista = new Listaremedio();
-    lista.receber(Nomedapessoah,idadedapessoah,enderecodapessoah);
+    lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     lista.setVisible(true);
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    Contatosemergencia emergencias = new Contatosemergencia();
+    emergencias.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    emergencias.setVisible(true);
+    dispose();
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    Contatofarmacia farmacia = new Contatofarmacia();
+    farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    farmacia.setVisible(true);
+    dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,9 +250,6 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel NaoMexerNissoHome;
-    public javax.swing.JLabel Nome_home;
-    public javax.swing.JLabel Nome_home1;
     public javax.swing.JLabel endereco_home;
     public javax.swing.JLabel idade_home;
     private javax.swing.JButton jButton1;
@@ -237,5 +259,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel naoMexerNissoHome;
+    public javax.swing.JLabel nome_Home;
+    public javax.swing.JLabel nome_home1;
     // End of variables declaration//GEN-END:variables
 }

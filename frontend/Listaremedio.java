@@ -10,9 +10,9 @@ package frontend;
  * @author leosa
  */
 public class Listaremedio extends javax.swing.JFrame {
-    String Nomedapessoah;
-    String idadedapessoah;
-    String enderecodapessoah;
+    String nomeDaPessoaH;
+    String idadeDaPessoaH;
+    String enderecoDaPessoaH;
 
     /**
      * Creates new form listaremedio
@@ -20,9 +20,9 @@ public class Listaremedio extends javax.swing.JFrame {
     public Listaremedio() {
     }
     public void receber(String _nome, String _idade,String _endereco){
-        Nomedapessoah = _nome;
-        idadedapessoah = _idade;
-        enderecodapessoah = _endereco;
+        nomeDaPessoaH = _nome;
+        idadeDaPessoaH = _idade;
+        enderecoDaPessoaH = _endereco;
         initComponents();
     }
 
@@ -40,9 +40,9 @@ public class Listaremedio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Horaremedio = new javax.swing.JComboBox<>();
-        NomeRemedio = new javax.swing.JTextField();
-        Quantidaderemedio = new javax.swing.JTextField();
+        horaRemedio = new javax.swing.JComboBox<>();
+        nomeRemedio = new javax.swing.JTextField();
+        quantidadeRemedio = new javax.swing.JTextField();
         segunda = new javax.swing.JCheckBox();
         terça = new javax.swing.JCheckBox();
         quarta = new javax.swing.JCheckBox();
@@ -50,13 +50,13 @@ public class Listaremedio extends javax.swing.JFrame {
         sexta = new javax.swing.JCheckBox();
         sabado = new javax.swing.JCheckBox();
         domingo = new javax.swing.JCheckBox();
-        Novoremedio = new javax.swing.JButton();
+        novoRemedio = new javax.swing.JButton();
         salvar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         editar = new javax.swing.JButton();
         excluir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabelaremedio = new javax.swing.JTable();
+        tabelaRemedio = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -76,15 +76,15 @@ public class Listaremedio extends javax.swing.JFrame {
 
         jLabel4.setText("Hora:");
 
-        Horaremedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00hr", "01hr", "02hr", "03hr", "04hr", "05hr", "06hr", "07hr", "08hr", "09hr", "10hr", "11hr", "12hr", "13hr", "14hr", "15hr", "16hr", "17hr", "18hr", "19hr", "20hr", "21hr", "22hr", "23hr" }));
-        Horaremedio.setEnabled(false);
+        horaRemedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00hr", "01hr", "02hr", "03hr", "04hr", "05hr", "06hr", "07hr", "08hr", "09hr", "10hr", "11hr", "12hr", "13hr", "14hr", "15hr", "16hr", "17hr", "18hr", "19hr", "20hr", "21hr", "22hr", "23hr" }));
+        horaRemedio.setEnabled(false);
 
-        NomeRemedio.setEnabled(false);
+        nomeRemedio.setEnabled(false);
 
-        Quantidaderemedio.setEnabled(false);
-        Quantidaderemedio.addActionListener(new java.awt.event.ActionListener() {
+        quantidadeRemedio.setEnabled(false);
+        quantidadeRemedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QuantidaderemedioActionPerformed(evt);
+                quantidadeRemedioActionPerformed(evt);
             }
         });
 
@@ -114,10 +114,10 @@ public class Listaremedio extends javax.swing.JFrame {
         domingo.setText("Domingo");
         domingo.setEnabled(false);
 
-        Novoremedio.setText("Novo Remedio");
-        Novoremedio.addActionListener(new java.awt.event.ActionListener() {
+        novoRemedio.setText("Novo Remedio");
+        novoRemedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoremedioActionPerformed(evt);
+                novoRemedioActionPerformed(evt);
             }
         });
 
@@ -136,16 +136,24 @@ public class Listaremedio extends javax.swing.JFrame {
 
         excluir.setText("excluir");
 
-        tabelaremedio.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaRemedio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "Remedio", "Quantidade", "Dias da semana", "Hora"
             }
-        ));
-        tabelaremedio.setToolTipText("");
-        jScrollPane2.setViewportView(tabelaremedio);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaRemedio.setToolTipText("");
+        jScrollPane2.setViewportView(tabelaRemedio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,7 +169,7 @@ public class Listaremedio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Horaremedio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(horaRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
@@ -180,12 +188,12 @@ public class Listaremedio extends javax.swing.JFrame {
                                         .addComponent(sabado)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(domingo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Quantidaderemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 104, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(voltar)
-                            .addComponent(Novoremedio)
+                            .addComponent(novoRemedio)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -194,7 +202,7 @@ public class Listaremedio extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NomeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nomeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -209,15 +217,15 @@ public class Listaremedio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(voltar)
                 .addGap(12, 12, 12)
-                .addComponent(Novoremedio)
+                .addComponent(novoRemedio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(NomeRemedio, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(nomeRemedio, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(Quantidaderemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -225,7 +233,7 @@ public class Listaremedio extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(Horaremedio, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+                            .addComponent(horaRemedio, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
                         .addGap(27, 27, 27)
                         .addComponent(cancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -255,14 +263,14 @@ public class Listaremedio extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
 
     Home tela = new Home();
-    tela.receber(Nomedapessoah, idadedapessoah,enderecodapessoah);
+    tela.receber(nomeDaPessoaH, idadeDaPessoaH,enderecoDaPessoaH);
     tela.setVisible(true);
     dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void NovoremedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoremedioActionPerformed
-        NomeRemedio.setEnabled(true);
-        Quantidaderemedio.setEnabled(true);
+    private void novoRemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoRemedioActionPerformed
+        nomeRemedio.setEnabled(true);
+        quantidadeRemedio.setEnabled(true);
         cancelar.setEnabled(true);
         segunda.setEnabled(true);
         terça.setEnabled(true);
@@ -272,13 +280,13 @@ public class Listaremedio extends javax.swing.JFrame {
         sabado.setEnabled(true);
         domingo.setEnabled(true);
         salvar.setEnabled(true);
-        Horaremedio.setEnabled(true);
+        horaRemedio.setEnabled(true);
         
-    }//GEN-LAST:event_NovoremedioActionPerformed
+    }//GEN-LAST:event_novoRemedioActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-Listaremedio lista = new Listaremedio();
-    lista.receber(Nomedapessoah,idadedapessoah,enderecodapessoah);
+    Listaremedio lista = new Listaremedio();
+    lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     lista.setVisible(true);
     dispose();
     }//GEN-LAST:event_cancelarActionPerformed
@@ -287,9 +295,9 @@ Listaremedio lista = new Listaremedio();
         // TODO add your handling code here:
     }//GEN-LAST:event_segundaActionPerformed
 
-    private void QuantidaderemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantidaderemedioActionPerformed
+    private void quantidadeRemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeRemedioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_QuantidaderemedioActionPerformed
+    }//GEN-LAST:event_quantidadeRemedioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,26 +335,26 @@ Listaremedio lista = new Listaremedio();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Horaremedio;
-    private javax.swing.JTextField NomeRemedio;
-    private javax.swing.JButton Novoremedio;
-    private javax.swing.JTextField Quantidaderemedio;
     private javax.swing.JButton cancelar;
     private javax.swing.JCheckBox domingo;
     private javax.swing.JButton editar;
     private javax.swing.JButton excluir;
+    private javax.swing.JComboBox<String> horaRemedio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField nomeRemedio;
+    private javax.swing.JButton novoRemedio;
+    private javax.swing.JTextField quantidadeRemedio;
     private javax.swing.JCheckBox quarta;
     private javax.swing.JCheckBox quinta;
     private javax.swing.JCheckBox sabado;
     private javax.swing.JButton salvar;
     private javax.swing.JCheckBox segunda;
     private javax.swing.JCheckBox sexta;
-    private javax.swing.JTable tabelaremedio;
+    private javax.swing.JTable tabelaRemedio;
     private javax.swing.JCheckBox terça;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
