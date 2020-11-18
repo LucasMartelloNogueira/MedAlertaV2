@@ -1,4 +1,4 @@
-package BackEnd.Farmacia;
+package backend.farmacia;
 
 public class AgendaFarmacia {
     

@@ -1,4 +1,4 @@
-package BackEnd;
+package backend;
 
 public interface Contactavel {
     

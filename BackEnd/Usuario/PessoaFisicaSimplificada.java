@@ -1,4 +1,4 @@
-package BackEnd.Usuario;
+package backend.usuario;
 
 public class PessoaFisicaSimplificada {
     

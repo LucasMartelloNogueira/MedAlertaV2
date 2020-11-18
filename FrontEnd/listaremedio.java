@@ -1,4 +1,4 @@
-package FrontEnd;
+package frontend;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +9,7 @@ package FrontEnd;
  *
  * @author leosa
  */
-public class listaremedio extends javax.swing.JFrame {
+public class Listaremedio extends javax.swing.JFrame {
     String Nomedapessoah;
     String idadedapessoah;
     String enderecodapessoah;
@@ -17,7 +17,7 @@ public class listaremedio extends javax.swing.JFrame {
     /**
      * Creates new form listaremedio
      */
-    public listaremedio() {
+    public Listaremedio() {
     }
     public void receber(String _nome, String _idade,String _endereco){
         Nomedapessoah = _nome;
@@ -254,7 +254,7 @@ public class listaremedio extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
 
-    home tela = new home();
+    Home tela = new Home();
     tela.receber(Nomedapessoah, idadedapessoah,enderecodapessoah);
     tela.setVisible(true);
     dispose();        // TODO add your handling code here:
@@ -277,7 +277,7 @@ public class listaremedio extends javax.swing.JFrame {
     }//GEN-LAST:event_NovoremedioActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-listaremedio lista = new listaremedio();
+Listaremedio lista = new Listaremedio();
     lista.receber(Nomedapessoah,idadedapessoah,enderecodapessoah);
     lista.setVisible(true);
     dispose();
@@ -308,20 +308,20 @@ listaremedio lista = new listaremedio();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new listaremedio().setVisible(true);
+                new Listaremedio().setVisible(true);
             }
         });
     }

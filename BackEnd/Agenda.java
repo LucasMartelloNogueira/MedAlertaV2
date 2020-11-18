@@ -1,7 +1,7 @@
-package BackEnd;
+package backend;
 
 import java.util.ArrayList;
-import BackEnd.Contactavel;
+import backend.Contactavel;
 
 public class Agenda {
     private ArrayList<Contactavel> contatos = new ArrayList<Contactavel>();

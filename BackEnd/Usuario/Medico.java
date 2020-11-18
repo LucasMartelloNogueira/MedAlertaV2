@@ -1,7 +1,7 @@
-package BackEnd.Usuario;
+package backend.usuario;
 
-import BackEnd.Endereco;
-import BackEnd.Pessoa;
+import backend.Endereco;
+import backend.Pessoa;
 
 public class Medico extends Pessoa {
     private String especialidade;

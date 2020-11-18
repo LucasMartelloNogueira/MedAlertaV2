@@ -1,8 +1,8 @@
-package BackEnd.Usuario;
+package backend.usuario;
 
 import java.util.ArrayList;
 
-import BackEnd.Medicamento;
+import backend.Medicamento;
 
 public class Uso {
     private Medicamento remedio;
