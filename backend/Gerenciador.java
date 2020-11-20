@@ -27,8 +27,6 @@ public class Gerenciador {
         }catch(InterruptedException ex){
             System.out.println(ex.getMessage());
         }
-        
-        
     }
 
     public static void emitirAlerta(){
@@ -38,7 +36,4 @@ public class Gerenciador {
     public static void atualizarListaDeUsos(){
         //alguma coisa aqui
     }
-
-    
-    
 }

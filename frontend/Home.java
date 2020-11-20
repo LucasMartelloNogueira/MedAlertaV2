@@ -193,14 +193,14 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Listaremedio lista = new Listaremedio();
+    ListaRemedios lista = new ListaRemedios();
     lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     lista.setVisible(true);
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Contatosemergencia emergencias = new Contatosemergencia();
+    ContatosMedicos emergencias = new ContatosMedicos();
     emergencias.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     emergencias.setVisible(true);
     dispose();
@@ -208,7 +208,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Contatofarmacia farmacia = new Contatofarmacia();
+    ContatosFarmacias farmacia = new ContatosFarmacias();
     farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     farmacia.setVisible(true);
     dispose();        // TODO add your handling code here:

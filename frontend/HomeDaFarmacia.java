@@ -10,14 +10,14 @@ package frontend;
  *
  * @author leosa
  */
-public class Homefarmacia extends javax.swing.JFrame {
+public class HomeDaFarmacia extends javax.swing.JFrame {
     String nomeDaFarmacia;
     String cnpjDaFarmacia;
     String enderecoDaFarmacia;
     /**
      * Creates new form Homefarmacia
      */
-    public Homefarmacia() {
+    public HomeDaFarmacia() {
     }
     
     public void receber(String _nome, String _idade,String _endereco){
@@ -162,20 +162,20 @@ public class Homefarmacia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Homefarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeDaFarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Homefarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeDaFarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Homefarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeDaFarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Homefarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeDaFarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Homefarmacia().setVisible(true);
+                new HomeDaFarmacia().setVisible(true);
             }
         });
     }

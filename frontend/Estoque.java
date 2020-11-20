@@ -209,7 +209,7 @@ public class Estoque extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
-        Homefarmacia tela = new Homefarmacia();
+        HomeDaFarmacia tela = new HomeDaFarmacia();
         tela.receber(nomeDaFarmacia, cnpjDaFarmacia,enderecoDaFarmacia);
         tela.setVisible(true);
         dispose();        // TODO add your handling code here:

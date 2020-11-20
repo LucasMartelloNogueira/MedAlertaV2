@@ -9,7 +9,7 @@ package frontend;
  *
  * @author leosa
  */
-public class Listaremedio extends javax.swing.JFrame {
+public class ListaRemedios extends javax.swing.JFrame {
     String nomeDaPessoaH;
     String idadeDaPessoaH;
     String enderecoDaPessoaH;
@@ -17,7 +17,7 @@ public class Listaremedio extends javax.swing.JFrame {
     /**
      * Creates new form listaremedio
      */
-    public Listaremedio() {
+    public ListaRemedios() {
     }
     public void receber(String _nome, String _idade,String _endereco){
         nomeDaPessoaH = _nome;
@@ -285,7 +285,7 @@ public class Listaremedio extends javax.swing.JFrame {
     }//GEN-LAST:event_novoRemedioActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-    Listaremedio lista = new Listaremedio();
+    ListaRemedios lista = new ListaRemedios();
     lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     lista.setVisible(true);
     dispose();
@@ -316,20 +316,20 @@ public class Listaremedio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaRemedios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaRemedios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaRemedios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listaremedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaRemedios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Listaremedio().setVisible(true);
+                new ListaRemedios().setVisible(true);
             }
         });
     }
