@@ -31,7 +31,7 @@ public class Medico extends Pessoa {
         setEspecialidade((String) novaParticularidade);
     }
 
-    @Override
+    /*@Override
     public int compareTo(Object outraPessoa) {
         outraPessoa = (Pessoa) outraPessoa;
         if(this.getNome().compareTo(outraPessoa.getNome()) > 0)
@@ -39,5 +39,5 @@ public class Medico extends Pessoa {
         if(this.getNome().compareTo(outraPessoa.getNome()) < 0)
               return -1;
         return 0;
-    }
+    }*/
 }
