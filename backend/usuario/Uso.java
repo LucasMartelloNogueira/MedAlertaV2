@@ -1,14 +1,16 @@
 package backend.usuario;
 
 import java.util.ArrayList;
-
 import backend.Medicamento;
 
 public class Uso {
     private Medicamento remedio;
-    private int dose;
+    private int dose; //comprimidos, ml
+    private String tipoDoRemedio; //comprimido, xarope
     private ArrayList<String> horarios = new ArrayList<>(); //a atualizar
-    private int duracaoDoTratamento;
+    private int duracaoDoTratamento; //em dias
+    private String horarioDeInicio;
+    private float intervalo;
     private int qtdDisponivel;
 
     //construtor
@@ -20,8 +22,17 @@ public class Uso {
         setQtdDisponivel(qtdDisponivel);
     }
 
+    //getters e setters
+    public Medicamento getRemedio() {
+        return remedio;
+    }
+
     public int getDose() {
         return dose;
+    }
+
+    public String getTipoDoRemedio() {
+        return tipoDoRemedio;
     }
 
     public ArrayList<String> getHorarios() {
@@ -36,16 +47,27 @@ public class Uso {
         return qtdDisponivel;
     }
 
+    public void setRemedio(Medicamento remedio) {
+        this.remedio = remedio;
+    }
+
     public void setDose(int dose) throws IllegalArgumentException{
         if(dose<0){
-            throw new IllegalArgumentException("Não é possível setar numero negativo para dose.");
+            throw new IllegalArgumentException("Não é possível setar número negativo para dose.");
         }
         this.dose = dose;
     }
 
+    public void setTipoDoRemedio(String tipoDoRemedio) throws IllegalArgumentException{
+        if(tipoDoRemedio == ""){
+            throw new IllegalArgumentException("É necessário informar tipo do remédio.");
+        }
+        this.tipoDoRemedio = tipoDoRemedio;
+    }
+
     public void setDuracaoDoTratamento(int duracaoDoTratamento) throws IllegalArgumentException{
         if(duracaoDoTratamento<0){
-            throw new IllegalArgumentException("Não é possível setar numero negativo para duração do Tratamento.");
+            throw new IllegalArgumentException("Não é possível setar número negativo para duração do Tratamento.");
         }
         this.duracaoDoTratamento = duracaoDoTratamento;
     }

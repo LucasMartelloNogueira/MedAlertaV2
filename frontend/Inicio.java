@@ -54,7 +54,7 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Fazer cadastro como farmacia.");
+        jLabel1.setText("Fazer cadastro como farmácia.");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Fazer cadastro como pessoa.");
