@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         naoMexerNisso.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
         nome_l.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nome_l.setText("Nome competo:");
+        nome_l.setText("Nome completo:");
         nome_l.setToolTipText("");
 
         nome_l_e.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

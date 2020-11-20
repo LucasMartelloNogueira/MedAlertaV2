@@ -1,7 +1,7 @@
 package backend;
 
 //pessoa no sentido de pessoa fisica ou pessoa juridica
-public abstract class Pessoa implements Contactavel, Comparable {
+public abstract class Pessoa implements Contactavel, Comparable<Pessoa> {
     private String nome; // nome da pessoa ou razao social
     private String telefone;
     private String email;
@@ -51,7 +51,6 @@ public abstract class Pessoa implements Contactavel, Comparable {
 
     @Override
     public int compareTo(Pessoa outraPessoa) {
-        //outraPessoa = (Pessoa) outraPessoa;
         if(this.getNome().compareTo(outraPessoa.getNome()) > 0)
             return 1;
         if(this.getNome().compareTo(outraPessoa.getNome()) < 0)

@@ -9,7 +9,7 @@ package frontend;
  *
  * @author leosa
  */
-public class Contatofarmacia extends javax.swing.JFrame {
+public class ContatosFarmacias extends javax.swing.JFrame {
 
     String nomeDaPessoaH;
     String idadeDaPessoaH;
@@ -17,7 +17,7 @@ public class Contatofarmacia extends javax.swing.JFrame {
     /**
      * Creates new form Contatosemergencia
      */
-    public Contatofarmacia() {
+    public ContatosFarmacias() {
     }
 public void receber(String _nome, String _idade,String _endereco){
         nomeDaPessoaH = _nome;
@@ -199,7 +199,7 @@ public void receber(String _nome, String _idade,String _endereco){
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-    Contatofarmacia farmacia = new Contatofarmacia();
+    ContatosFarmacias farmacia = new ContatosFarmacias();
     farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     farmacia.setVisible(true);
     dispose();
@@ -230,20 +230,20 @@ public void receber(String _nome, String _idade,String _endereco){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Contatofarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContatosFarmacias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Contatofarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContatosFarmacias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Contatofarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContatosFarmacias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Contatofarmacia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContatosFarmacias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Contatofarmacia().setVisible(true);
+                new ContatosFarmacias().setVisible(true);
             }
         });
     }

@@ -57,21 +57,21 @@ public class Home extends javax.swing.JFrame {
         nome_Home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nome_Home.setText("oi");
 
-        jButton1.setText("Calendario de remedio");
+        jButton1.setText("Meus remédios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Lista de farmacias");
+        jButton3.setText("Contatos das farmácias");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuáio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
@@ -127,7 +127,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(endereco_home, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jButton2.setText("Lista de contatos de emergincia");
+        jButton2.setText("Contatos dos Médicos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -193,14 +193,14 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Listaremedio lista = new Listaremedio();
+    ListaRemedios lista = new ListaRemedios();
     lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     lista.setVisible(true);
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Contatosemergencia emergencias = new Contatosemergencia();
+    ContatosMedicos emergencias = new ContatosMedicos();
     emergencias.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     emergencias.setVisible(true);
     dispose();
@@ -208,7 +208,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Contatofarmacia farmacia = new Contatofarmacia();
+    ContatosFarmacias farmacia = new ContatosFarmacias();
     farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
     farmacia.setVisible(true);
     dispose();        // TODO add your handling code here:

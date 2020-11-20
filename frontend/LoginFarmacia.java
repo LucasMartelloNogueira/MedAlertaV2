@@ -158,7 +158,7 @@ public class LoginFarmacia extends javax.swing.JFrame {
         String nomenFarmacia = nomeFarmaciaEntrada.getText();
         String cnpjFarmacia = cnpjFarmaciaEntrada.getText();
         String enderecoFarmacia =  enderecoFarmaciaEntrada.getText();
-        Homefarmacia tela = new Homefarmacia();
+        HomeDaFarmacia tela = new HomeDaFarmacia();
         tela.receber(nomenFarmacia, cnpjFarmacia, enderecoFarmacia);
         tela.setVisible(true);
         dispose();
