@@ -3,7 +3,6 @@ package backend.farmacia;
 import backend.Pessoa;
 import backend.Agenda;
 import backend.Endereco;
-import backend.Estoque;
 
 public class PessoaJuridica extends Pessoa{
     private Endereco endereco;

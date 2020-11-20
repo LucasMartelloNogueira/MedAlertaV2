@@ -1,6 +1,7 @@
-package backend;
+package backend.farmacia;
 
 import java.util.ArrayList;
+import backend.Medicamento;
 
 public class Estoque {
     public ArrayList<ItemEstoque> listaEstoque;

@@ -1,4 +1,6 @@
-package backend;
+package backend.farmacia;
+
+import backend.Medicamento;
 
 public class ItemEstoque {
     private Medicamento medicamento;
