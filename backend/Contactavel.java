@@ -9,4 +9,5 @@ public interface Contactavel {
     public abstract void setEmail(String novoEmail);
     public abstract Object getParticularidade();  //get endereco se pessoa fisica ou juridica OU get especialidade se medico
     public abstract <T> void setParticularidade(T novaParticularidade);  //set endereco se pessoa fisica ou juridica OU set especialidade se medico
+    //public abstract int compareTo(Pessoa outraPessoa);
 }
