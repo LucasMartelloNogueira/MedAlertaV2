@@ -55,7 +55,7 @@ public class Home extends javax.swing.JFrame {
         naoMexerNissoHome.setPreferredSize(new java.awt.Dimension(625, 350));
 
         nome_Home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nome_Home.setText("oi");
+        nome_Home.setText("");
 
         jButton1.setText("Meus remédios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
