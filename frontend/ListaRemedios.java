@@ -334,8 +334,10 @@ public class ListaRemedios extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {                                       
         String dias ="";
-        int hora;
-        String horaEmString;
+        int horaInt;
+
+        String hora = horaRemedio.getSelectedItem().toString();
+
         if (segunda.isSelected()){dias =  dias +"seg, ";}
         if (terca.isSelected()){dias =  dias +"ter, ";}
         if (quarta.isSelected()){dias =  dias +"qua, ";}
@@ -344,30 +346,56 @@ public class ListaRemedios extends javax.swing.JFrame {
         if (sabado.isSelected()){dias =  dias +"sab, ";}
         if (domingo.isSelected()){dias =  dias +"dom, ";}
 
-        if(horaRemedio.getSelectedItem().equals("00hr")){hora = 0; horaEmString="00hr";}
-        if(horaRemedio.getSelectedItem().equals("01hr")){hora = 1; horaEmString="01hr";}
-        if(horaRemedio.getSelectedItem().equals("02hr")){hora = 2; horaEmString="02hr";}
-        if(horaRemedio.getSelectedItem().equals("03hr")){hora = 3; horaEmString="03hr";}
-        if(horaRemedio.getSelectedItem().equals("04hr")){hora = 4; horaEmString="04hr";}
-        if(horaRemedio.getSelectedItem().equals("05hr")){hora = 5; horaEmString="05hr";}
-        if(horaRemedio.getSelectedItem().equals("06hr")){hora = 6; horaEmString="06hr";}
-        if(horaRemedio.getSelectedItem().equals("07hr")){hora = 7; horaEmString="07hr";}
-        if(horaRemedio.getSelectedItem().equals("08hr")){hora = 8; horaEmString="08hr";}
-        if(horaRemedio.getSelectedItem().equals("09hr")){hora = 9; horaEmString="09hr";}
-        if(horaRemedio.getSelectedItem().equals("10hr")){hora = 10; horaEmString="10hr";}
-        if(horaRemedio.getSelectedItem().equals("11hr")){hora = 11; horaEmString="11hr";}
-        if(horaRemedio.getSelectedItem().equals("12hr")){hora = 12; horaEmString="12hr";}
-        if(horaRemedio.getSelectedItem().equals("13hr")){hora = 13; horaEmString="13hr";}
-        if(horaRemedio.getSelectedItem().equals("14hr")){hora = 14; horaEmString="14hr";}
-        if(horaRemedio.getSelectedItem().equals("15hr")){hora = 15; horaEmString="15hr";}
-        if(horaRemedio.getSelectedItem().equals("16hr")){hora = 16; horaEmString="16hr";}
-        if(horaRemedio.getSelectedItem().equals("17hr")){hora = 17; horaEmString="17hr";}
-        if(horaRemedio.getSelectedItem().equals("18hr")){hora = 18; horaEmString="18hr";}
-        if(horaRemedio.getSelectedItem().equals("19hr")){hora = 19; horaEmString="19hr";}
-        if(horaRemedio.getSelectedItem().equals("20hr")){hora = 20; horaEmString="20hr";}
-        if(horaRemedio.getSelectedItem().equals("21hr")){hora = 21; horaEmString="21hr";}
-        if(horaRemedio.getSelectedItem().equals("22hr")){hora = 22; horaEmString="22hr";}
-        if(horaRemedio.getSelectedItem().equals("23hr")){hora = 23; horaEmString="23hr";}
+        switch (hora){
+            case "00hr": horaInt = 0; break;
+            case "01hr": horaInt = 1; break;
+            case "02hr": horaInt = 2; break;
+            case "03hr": horaInt = 3; break;
+            case "04hr": horaInt = 4; break;
+            case "05hr": horaInt = 5; break;
+            case "06hr": horaInt = 6; break;
+            case "07hr": horaInt = 7; break;
+            case "08hr": horaInt = 8; break;
+            case "09hr": horaInt = 9; break;
+            case "10hr": horaInt = 10; break;
+            case "11hr": horaInt = 11; break;
+            case "12hr": horaInt = 12; break;
+            case "13hr": horaInt = 13; break;
+            case "14hr": horaInt = 14; break;
+            case "15hr": horaInt = 15; break;
+            case "16hr": horaInt = 16; break;
+            case "17hr": horaInt = 17; break;
+            case "18hr": horaInt = 18; break;
+            case "19hr": horaInt = 19; break;
+            case "20hr": horaInt = 20; break;
+            case "21hr": horaInt = 21; break;
+            case "22hr": horaInt = 22; break;
+            case "23hr": horaInt = 23; break;
+        }
+        // if(horaRemedio.getSelectedItem().equals("00hr")){hora = 0; horaEmString="00hr";}
+        // if(horaRemedio.getSelectedItem().equals("01hr")){hora = 1; horaEmString="01hr";}
+        // if(horaRemedio.getSelectedItem().equals("02hr")){hora = 2; horaEmString="02hr";}
+        // if(horaRemedio.getSelectedItem().equals("03hr")){hora = 3; horaEmString="03hr";}
+        // if(horaRemedio.getSelectedItem().equals("04hr")){hora = 4; horaEmString="04hr";}
+        // if(horaRemedio.getSelectedItem().equals("05hr")){hora = 5; horaEmString="05hr";}
+        // if(horaRemedio.getSelectedItem().equals("06hr")){hora = 6; horaEmString="06hr";}
+        // if(horaRemedio.getSelectedItem().equals("07hr")){hora = 7; horaEmString="07hr";}
+        // if(horaRemedio.getSelectedItem().equals("08hr")){hora = 8; horaEmString="08hr";}
+        // if(horaRemedio.getSelectedItem().equals("09hr")){hora = 9; horaEmString="09hr";}
+        // if(horaRemedio.getSelectedItem().equals("10hr")){hora = 10; horaEmString="10hr";}
+        // if(horaRemedio.getSelectedItem().equals("11hr")){hora = 11; horaEmString="11hr";}
+        // if(horaRemedio.getSelectedItem().equals("12hr")){hora = 12; horaEmString="12hr";}
+        // if(horaRemedio.getSelectedItem().equals("13hr")){hora = 13; horaEmString="13hr";}
+        // if(horaRemedio.getSelectedItem().equals("14hr")){hora = 14; horaEmString="14hr";}
+        // if(horaRemedio.getSelectedItem().equals("15hr")){hora = 15; horaEmString="15hr";}
+        // if(horaRemedio.getSelectedItem().equals("16hr")){hora = 16; horaEmString="16hr";}
+        // if(horaRemedio.getSelectedItem().equals("17hr")){hora = 17; horaEmString="17hr";}
+        // if(horaRemedio.getSelectedItem().equals("18hr")){hora = 18; horaEmString="18hr";}
+        // if(horaRemedio.getSelectedItem().equals("19hr")){hora = 19; horaEmString="19hr";}
+        // if(horaRemedio.getSelectedItem().equals("20hr")){hora = 20; horaEmString="20hr";}
+        // if(horaRemedio.getSelectedItem().equals("21hr")){hora = 21; horaEmString="21hr";}
+        // if(horaRemedio.getSelectedItem().equals("22hr")){hora = 22; horaEmString="22hr";}
+        // if(horaRemedio.getSelectedItem().equals("23hr")){hora = 23; horaEmString="23hr";}
     }                                      
 
     private void horaRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                            
