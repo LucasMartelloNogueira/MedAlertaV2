@@ -377,42 +377,18 @@ public class ListaRemedios extends javax.swing.JFrame {
         switch (intervalo){
             case "1 vez po dia": intervaloInt = 24; break;
             case "de 1 em 1 hora": intervaloInt = 1; break;
-            case "de 2 em 2 horas": horaInt = 2; break;
-            case "de 3 em 3 horas": horaInt = 3; break;
-            case "de 4 em 4 horas": horaInt = 4; break;
-            case "de 5 em 5 horas": horaInt = 5; break;
-            case "de 6 em 6 horas": horaInt = 6; break;
-            case "de 7 em 7 horas": horaInt = 7; break;
-            case "de 8 em 8 horas": horaInt = 8; break;
-            case "de 9 em 9 horas": horaInt = 9; break;
-            case "de 10 em 10 horas": horaInt = 10; break;
-            case "de 11 em 11 horas": horaInt = 11; break;
-            case "de 12 em 12 horas": horaInt = 12; break;
+            case "de 2 em 2 horas": intervaloInt = 2; break;
+            case "de 3 em 3 horas": intervaloInt = 3; break;
+            case "de 4 em 4 horas": intervaloInt = 4; break;
+            case "de 5 em 5 horas": intervaloInt = 5; break;
+            case "de 6 em 6 horas": intervaloInt = 6; break;
+            case "de 7 em 7 horas": intervaloInt = 7; break;
+            case "de 8 em 8 horas": intervaloInt = 8; break;
+            case "de 9 em 9 horas": intervaloInt = 9; break;
+            case "de 10 em 10 horas": intervaloInt = 10; break;
+            case "de 11 em 11 horas": intervaloInt = 11; break;
+            case "de 12 em 12 horas": intervaloInt = 12; break;
         }
-        // if(horaRemedio.getSelectedItem().equals("00hr")){hora = 0; horaEmString="00hr";}
-        // if(horaRemedio.getSelectedItem().equals("01hr")){hora = 1; horaEmString="01hr";}
-        // if(horaRemedio.getSelectedItem().equals("02hr")){hora = 2; horaEmString="02hr";}
-        // if(horaRemedio.getSelectedItem().equals("03hr")){hora = 3; horaEmString="03hr";}
-        // if(horaRemedio.getSelectedItem().equals("04hr")){hora = 4; horaEmString="04hr";}
-        // if(horaRemedio.getSelectedItem().equals("05hr")){hora = 5; horaEmString="05hr";}
-        // if(horaRemedio.getSelectedItem().equals("06hr")){hora = 6; horaEmString="06hr";}
-        // if(horaRemedio.getSelectedItem().equals("07hr")){hora = 7; horaEmString="07hr";}
-        // if(horaRemedio.getSelectedItem().equals("08hr")){hora = 8; horaEmString="08hr";}
-        // if(horaRemedio.getSelectedItem().equals("09hr")){hora = 9; horaEmString="09hr";}
-        // if(horaRemedio.getSelectedItem().equals("10hr")){hora = 10; horaEmString="10hr";}
-        // if(horaRemedio.getSelectedItem().equals("11hr")){hora = 11; horaEmString="11hr";}
-        // if(horaRemedio.getSelectedItem().equals("12hr")){hora = 12; horaEmString="12hr";}
-        // if(horaRemedio.getSelectedItem().equals("13hr")){hora = 13; horaEmString="13hr";}
-        // if(horaRemedio.getSelectedItem().equals("14hr")){hora = 14; horaEmString="14hr";}
-        // if(horaRemedio.getSelectedItem().equals("15hr")){hora = 15; horaEmString="15hr";}
-        // if(horaRemedio.getSelectedItem().equals("16hr")){hora = 16; horaEmString="16hr";}
-        // if(horaRemedio.getSelectedItem().equals("17hr")){hora = 17; horaEmString="17hr";}
-        // if(horaRemedio.getSelectedItem().equals("18hr")){hora = 18; horaEmString="18hr";}
-        // if(horaRemedio.getSelectedItem().equals("19hr")){hora = 19; horaEmString="19hr";}
-        // if(horaRemedio.getSelectedItem().equals("20hr")){hora = 20; horaEmString="20hr";}
-        // if(horaRemedio.getSelectedItem().equals("21hr")){hora = 21; horaEmString="21hr";}
-        // if(horaRemedio.getSelectedItem().equals("22hr")){hora = 22; horaEmString="22hr";}
-        // if(horaRemedio.getSelectedItem().equals("23hr")){hora = 23; horaEmString="23hr";}
     }                                      
 
     private void horaRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                            
