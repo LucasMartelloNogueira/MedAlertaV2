@@ -335,8 +335,10 @@ public class ListaRemedios extends javax.swing.JFrame {
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {                                       
         String dias ="";
         int horaInt;
+        int intervaloInt;
 
         String hora = horaRemedio.getSelectedItem().toString();
+        String intervalo = intervaloRemedio.getSelectedItem().toString();
 
         if (segunda.isSelected()){dias =  dias +"seg, ";}
         if (terca.isSelected()){dias =  dias +"ter, ";}
@@ -371,6 +373,21 @@ public class ListaRemedios extends javax.swing.JFrame {
             case "21hr": horaInt = 21; break;
             case "22hr": horaInt = 22; break;
             case "23hr": horaInt = 23; break;
+        }
+        switch (intervalo){
+            case "1 vez po dia": intervaloInt = 24; break;
+            case "de 1 em 1 hora": intervaloInt = 1; break;
+            case "de 2 em 2 horas": horaInt = 2; break;
+            case "de 3 em 3 horas": horaInt = 3; break;
+            case "de 4 em 4 horas": horaInt = 4; break;
+            case "de 5 em 5 horas": horaInt = 5; break;
+            case "de 6 em 6 horas": horaInt = 6; break;
+            case "de 7 em 7 horas": horaInt = 7; break;
+            case "de 8 em 8 horas": horaInt = 8; break;
+            case "de 9 em 9 horas": horaInt = 9; break;
+            case "de 10 em 10 horas": horaInt = 10; break;
+            case "de 11 em 11 horas": horaInt = 11; break;
+            case "de 12 em 12 horas": horaInt = 12; break;
         }
         // if(horaRemedio.getSelectedItem().equals("00hr")){hora = 0; horaEmString="00hr";}
         // if(horaRemedio.getSelectedItem().equals("01hr")){hora = 1; horaEmString="01hr";}
