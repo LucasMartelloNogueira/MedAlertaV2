@@ -8,6 +8,7 @@ public class PessoaFisica extends Pessoa {
     private Endereco endereco;
     private Agenda contatosMedicos = new Agenda();
     private Agenda constatosFarmacias = new Agenda();
+    //lista de usos
 
     public PessoaFisica(String nome, String telefone, String email, Endereco endereco) {
         super(nome, telefone, email);

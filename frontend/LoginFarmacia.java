@@ -1,5 +1,5 @@
 package frontend;
-
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -158,6 +158,12 @@ public class LoginFarmacia extends javax.swing.JFrame {
         String nomenFarmacia = nomeFarmaciaEntrada.getText();
         String cnpjFarmacia = cnpjFarmaciaEntrada.getText();
         String enderecoFarmacia =  enderecoFarmaciaEntrada.getText();
+        if(nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()|| enderecoFarmaciaEntrada.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
+        LoginFarmacia login = new LoginFarmacia();
+        login.setVisible(true);
+        dispose();
+    }
         HomeDaFarmacia tela = new HomeDaFarmacia();
         tela.receber(nomenFarmacia, cnpjFarmacia, enderecoFarmacia);
         tela.setVisible(true);
