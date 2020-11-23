@@ -5,10 +5,10 @@ import backend.Agenda;
 import backend.Endereco;
 
 public class PessoaJuridica extends Pessoa{
+    private String cnpj;
     private Endereco endereco;
     private Estoque estoque;
     private Agenda contatosClientes;
-    private String cnpj;
 
 
     public PessoaJuridica(String nome, String telefone, String email){

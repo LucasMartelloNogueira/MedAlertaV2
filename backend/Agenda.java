@@ -100,7 +100,7 @@ public class Agenda {
 
     // ordena lista de contatos pelo nome para exibi-la na tela
     private void ordenarListaDeContatos() {
-       //Collections.sort(contatos);                              ================== > a atualizar 
+    //    Collections.sort(contatos);                              ================== > a atualizar 
     }
 
     //get contatos

@@ -1,0 +1,21 @@
+Contem os esquemas dos futuros arquivos csv das farmacias:
+
+obs: os campos marcados com "(?)" teriam que ser outros arquivos csv
+obs2: as infos seriam resgatadas com campos em comuns (no caso, usei a info nome)
+
+
+arquivo 1: arquivo farmacias registradas
+
+nome,telefone,email,cnpj,endereco,estoque(?),contatosClientes
+
+endereco = nomeDaRua,numero,complemento,nomeDoBairo,nomeDaCidade,nomeDoEstado,nomeDoPais,cep
+
+contatosClientes = ex: nomeCliente1/nomeCliente2
+
+------------------------------------------------------------------------------
+
+arquivo 2: estoque
+
+nome, nomeMedicmento, qntMedicamento
+
+------------------------------------------------------------------------------
