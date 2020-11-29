@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.ArrayList;
+
 public class Endereco {
     private String nomeDaRua;
     private String numero;
@@ -109,4 +111,86 @@ public class Endereco {
         this.cep = novoCep;
     }
 
+    @Override
+    public String toString(){
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+        listaValoresAtributos.add(this.getNomeDaRua());
+        listaValoresAtributos.add(this.getNumero());
+
+        if (this.getComplemento() != null){
+            listaValoresAtributos.add(this.getComplemento());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getNomeDoBairro() != null){
+            listaValoresAtributos.add(this.getNomeDoBairro());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getNomeDaCidade() != null){
+            listaValoresAtributos.add(this.getNomeDaCidade());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getNomeDoEstado() != null){
+            listaValoresAtributos.add(this.getNomeDoEstado());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getNomeDoPais() != null){
+            listaValoresAtributos.add(this.getNomeDoPais());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getCep() != null){
+            listaValoresAtributos.add(this.getCep());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        String enderecoString = String.join("/", listaValoresAtributos);
+        return enderecoString;
+    }
+
+    public static Endereco stringToEndereco(String enderecoString){
+        String[] dadosEndereco = enderecoString.split("/");
+        Endereco endereco = new Endereco(dadosEndereco[0], dadosEndereco[1]);
+
+        for (int i = 2; i < 8; i++){
+            if (dadosEndereco[i] != "null"){
+                switch (i){
+                    case 2:
+                        endereco.setComplemento(dadosEndereco[i]);
+                        break;
+                    case 3:
+                        endereco.setNomeDoBairro(dadosEndereco[i]);
+                        break;
+                    case 4:
+                        endereco.setNomeDaCidade(dadosEndereco[i]);
+                        break;
+                    case 5:
+                        endereco.setNomeDoEstado(dadosEndereco[i]);
+                        break;
+                    case 6:
+                        endereco.setNomeDoPais(dadosEndereco[i]);
+                        break;
+                    case 7:
+                        endereco.setCep(dadosEndereco[i]);
+                        break;
+                }
+            }
+        }
+        return endereco;
+    }
 }

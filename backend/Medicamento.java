@@ -1,10 +1,12 @@
 package backend;
 
+import java.util.ArrayList;
+
 public class Medicamento {
     private String nome;
     private String tipoDoRemedio; //comprimido? xarope?
-    private boolean restricao; // precisa de receita?
     private String condicoesDeUso; //tomar em jejum? etc
+    private boolean restricao; // precisa de receita?
 
     //construtores
     public Medicamento(String nome, String tipoDoRemedio, String condicoesDeUso){
@@ -13,26 +15,26 @@ public class Medicamento {
         this.condicoesDeUso = condicoesDeUso;
     }
 
-    public Medicamento(String nome, String tipoDoRemedio, boolean restricao, String condicoesDeUso){
+    public Medicamento(String nome, String tipoDoRemedio, String condicoesDeUso, boolean restricao){
         this.nome = nome;
         this.tipoDoRemedio = tipoDoRemedio;
-        this.restricao = restricao;
         this.condicoesDeUso = condicoesDeUso;
+        this.restricao = restricao;
     }
 
 
     //getters e setters
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getTipoDoRemedio() {
-        return tipoDoRemedio;
+        return this.tipoDoRemedio;
     }
 
     public boolean isRestricao() {
-        return restricao;
+        return this.restricao;
     }
 
     public String getCondicoesDeUso() {
@@ -53,5 +55,24 @@ public class Medicamento {
 
     public void setRestricao(boolean restricao) {
         this.restricao = restricao;
+    }
+
+    @Override
+    public String toString(){
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+        listaValoresAtributos.add(this.getNome());
+        listaValoresAtributos.add(this.getTipoDoRemedio());
+        listaValoresAtributos.add(this.getCondicoesDeUso());
+
+        if (this.isRestricao() == false){
+            listaValoresAtributos.add("false");
+        }
+        else{
+            String valorRestricao = String.valueOf(this.isRestricao());
+            listaValoresAtributos.add(valorRestricao);
+        }
+
+        String medicamentoString = String.join(",", listaValoresAtributos);
+        return medicamentoString;
     }
 }

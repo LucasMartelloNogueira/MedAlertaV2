@@ -3,6 +3,9 @@ package backend;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import backend.farmacia.PessoaJuridica;
+import backend.usuario.PessoaFisica;
+
 public class Agenda {
     private ArrayList<Pessoa> contatos = new ArrayList<Pessoa>();
 
@@ -103,5 +106,44 @@ public class Agenda {
     public ArrayList<Pessoa> getContatos() {
         ordenarListaDeContatos();
         return contatos;
+    }
+
+    @Override
+    public String toString(){
+
+        if (this.getContatos().size() == 0){
+            return "null";
+        }
+        else{
+            ArrayList<String> listaNomesAgenda = new ArrayList<String>();
+        
+        for (Pessoa pessoa : this.contatos){
+            listaNomesAgenda.add(pessoa.getNome());
+        }
+
+        String contatosString = String.join("/", listaNomesAgenda);
+        return contatosString;
+        }
+    }
+
+    public static Agenda stringToAgenda(String agendaString, String tipoContato, Boolean ignorarAgenda){
+        Agenda agenda = new Agenda();
+        String[] nomesContatos = agendaString.split("/");
+
+        for (String nome : nomesContatos){
+            if (tipoContato.equals("usuario")){
+                PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(nome, ignorarAgenda);
+                agenda.adicionarContato(contato);
+            }
+            if (tipoContato.equals("farmacia")){
+                PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(nome, ignorarAgenda);
+                agenda.adicionarContato(farmacia);
+            }
+
+            if (tipoContato.equals("medico")){
+                // a ser feito 
+            }
+        }
+        return agenda;
     }
 }

@@ -1,0 +1,2 @@
+dorflex,bla,bla,false,2
+azitromicina,bla2,bla2,false,5

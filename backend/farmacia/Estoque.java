@@ -15,9 +15,18 @@ public class Estoque {
         this.listaEstoque.add(novoEstoqueRemedio);
     }
 
+    public void addMedicamentoEstoque(ItemEstoque itemEstoque){
+        this.listaEstoque.add(itemEstoque);
+    }
+
     public void removerMedicamentoEstoque(ItemEstoque itemEstoque){
         this.listaEstoque.remove(itemEstoque);
     }
 
-    
+    public void printEstoque(){
+        for (ItemEstoque itemEstoque : this.listaEstoque){
+            System.out.println("medicamento: " + itemEstoque.getMedicamento().getNome() + " / qnt: " + itemEstoque.getQntMedicamento());
+            System.out.println("----------");
+        }
+    }
 }

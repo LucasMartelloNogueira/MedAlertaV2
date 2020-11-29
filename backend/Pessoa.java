@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.ArrayList;
+
 //pessoa no sentido de pessoa fisica ou pessoa juridica
 public abstract class Pessoa implements Comparable<Pessoa> {
     private String nome; // nome da pessoa ou razao social
@@ -54,4 +56,17 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         return 0;*/
         return this.getNome().compareTo(outraPessoa.getNome());
     }
+
+    public String PessoaToString(){
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+        
+        listaValoresAtributos.add(this.getNome());
+        listaValoresAtributos.add(this.getTelefone());
+        listaValoresAtributos.add(this.getEmail());
+        
+        String pessoaString = String.join(",", listaValoresAtributos);
+        return pessoaString;
+    }
+
+    
 }
