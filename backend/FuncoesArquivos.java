@@ -74,13 +74,6 @@ public class FuncoesArquivos {
         
         
     }
-    public static void main(String[] args) throws FileNotFoundException{
-        String linhaTeste = "Lucas,22,homem\n";
-        String[] linha = linhaTeste.split(",");
-        for (String info : linha){
-            System.out.println("info: " + info);
-        }
-    }
 
     public static String obterStringDeNullsCsv(int qntDeNulls){
         String[] arrayNulls = new String[qntDeNulls];
@@ -114,6 +107,45 @@ public class FuncoesArquivos {
         }
         catch(Exception e){
             System.out.println("erro, nao foi possivel realizar a operação");
+            e.printStackTrace();
+        }
+    }
+
+    public static void alterarInfoArquivo(String nomeArquivo, String infoReferencia, int posColunaInfo, String novaInfo){
+        File arquivoAntigo = new File(nomeArquivo);
+        File temp = new File("temp.txt");
+
+        try{
+            FileReader fr = new FileReader(arquivoAntigo);
+            BufferedReader br = new BufferedReader(fr);
+
+            FileWriter fw = new FileWriter(temp);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            String linha = br.readLine();
+
+            while (linha != null){
+                String[] dadosLinha = linha.split(",");
+                String nome = dadosLinha[0];
+    
+                if (nome.equals(infoReferencia)){
+                    dadosLinha[posColunaInfo] = novaInfo;
+                    linha = String.join(",", dadosLinha);
+                }
+                bw.write(linha);
+                bw.newLine();
+                linha = br.readLine();
+            }
+            br.close();
+            bw.close();
+
+            arquivoAntigo.delete();
+            File destino = new File(nomeArquivo);
+            temp.renameTo(destino);
+
+        }
+        catch (Exception e){
+            System.out.println("erro, não foi possivel modificar o arquivo");
             e.printStackTrace();
         }
     }

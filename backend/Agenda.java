@@ -7,12 +7,12 @@ import backend.farmacia.PessoaJuridica;
 import backend.usuario.PessoaFisica;
 
 public class Agenda {
-    private ArrayList<Pessoa> contatos = new ArrayList<Pessoa>();
+    private ArrayList<Pessoa> contatos = new ArrayList<>();
 
     // encontra a posicao do contato na agenda
     private int encontraContato(String nome) {
         int i = 0;
-        for (Pessoa contato : contatos) {
+        for (Pessoa contato : this.contatos) {
             if (contato.getNome().equals(nome))
                 return i;
             i++;
@@ -103,7 +103,7 @@ public class Agenda {
     }
 
     //get contatos
-    public ArrayList<Pessoa> getContatos() {
+    public ArrayList<Pessoa>getContatos() {
         ordenarListaDeContatos();
         return contatos;
     }
@@ -126,17 +126,17 @@ public class Agenda {
         }
     }
 
-    public static Agenda stringToAgenda(String agendaString, String tipoContato, Boolean ignorarAgenda){
+    public static Agenda stringToAgenda(String agendaString, String senhaFornecida, String tipoContato, Boolean ignorarSenha, Boolean ignorarAgenda){
         Agenda agenda = new Agenda();
         String[] nomesContatos = agendaString.split("/");
 
         for (String nome : nomesContatos){
             if (tipoContato.equals("usuario")){
-                PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(nome, ignorarAgenda);
+                PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(nome, senhaFornecida, ignorarSenha, ignorarAgenda);
                 agenda.adicionarContato(contato);
             }
             if (tipoContato.equals("farmacia")){
-                PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(nome, ignorarAgenda);
+                PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(nome, senhaFornecida, ignorarSenha, ignorarAgenda);
                 agenda.adicionarContato(farmacia);
             }
 

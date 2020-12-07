@@ -9,6 +9,11 @@ public class Medicamento {
     private boolean restricao; // precisa de receita?
 
     //construtores
+
+    public Medicamento(String nome){
+        this.nome = nome;
+    }
+
     public Medicamento(String nome, String tipoDoRemedio, String condicoesDeUso){
         this.nome = nome;
         this.tipoDoRemedio = tipoDoRemedio;

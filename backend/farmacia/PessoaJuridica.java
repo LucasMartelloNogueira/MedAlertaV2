@@ -5,55 +5,69 @@ import backend.farmacia.Estoque;
 import backend.usuario.PessoaFisica;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.*;
 
 import backend.Agenda;
 import backend.Endereco;
+import backend.FuncoesArquivos;
+import backend.Medicamento;
 
 public class PessoaJuridica extends Pessoa{
 
-    public static final String nomeArquivoFarmacias = "RegistroFarmacias.txt";
-
+    public static final String nomeArquivoFarmacias = "backend\\farmacia\\RegistroFarmacias.txt";
+    
     private String cnpj;
     private Endereco endereco;
     private Estoque estoque;
     private Agenda contatosClientes;
 
-
-    public PessoaJuridica(String nome, String telefone, String email){
-        super(nome, telefone, email);
+    public PessoaJuridica(String nome, String telefone, String email, String senha){
+        super(nome, telefone, email, senha);
     }
 
     public String getCnpj(){
         return this.cnpj;
     }
 
-    public void setCnpj(String novoCnpj){
+    public void setCnpj(String novoCnpj, boolean modificarArquivo){
         this.cnpj = novoCnpj;
+        if (modificarArquivo == true){
+            FuncoesArquivos.alterarInfoArquivo(nomeArquivoFarmacias, this.getNome(), 4, novoCnpj);
+        }
     }
 
     public Endereco getEndereco(){
         return this.endereco;
     }
 
-    public void setEndereco(Endereco endereco){
-        this.endereco = endereco;
+    public void setEndereco(Endereco novoEndereco, boolean modificarArquivo){
+        this.endereco = novoEndereco;
+        if (modificarArquivo == true){
+            FuncoesArquivos.alterarInfoArquivo(nomeArquivoFarmacias, this.getNome(), 5, novoEndereco.toString());
+        }
     }
 
     public Estoque getEstoque(){
         return this.estoque;
     }
 
-    public void setEstoque(Estoque novoEstoque){
+    public void setEstoque(Estoque novoEstoque, boolean modificarArquivo){
         this.estoque = novoEstoque;
+        if (modificarArquivo == true){
+            this.salvarEstoqueArquivo();
+        }
     }
 
     public Agenda getContatosClientes(){
         return this.contatosClientes;
     }
 
-    public void setContatosClientes(Agenda novaAgenda){
+    public void setContatosClientes(Agenda novaAgenda, boolean modificarArquivo){
         this.contatosClientes = novaAgenda;
+        if (modificarArquivo == true){
+            FuncoesArquivos.alterarInfoArquivo(nomeArquivoFarmacias, this.getNome(), 7, this.getContatosClientes().toString());
+        }
     }
 
     public void addUsuarioAosContatos(PessoaFisica usuario){
@@ -67,7 +81,7 @@ public class PessoaJuridica extends Pessoa{
         }
         
         agendaTemp.adicionarContato(usuario);
-        this.setContatosClientes(agendaTemp);
+        this.setContatosClientes(agendaTemp, true);
     }
 
     //get e set particularidade 
@@ -78,16 +92,16 @@ public class PessoaJuridica extends Pessoa{
 
     @Override
     public <T> void setParticularidade(T novaParticularidade) {
-        setEndereco((Endereco)novaParticularidade);
+        setEndereco((Endereco)novaParticularidade, false);
     }
 
     @Override
     public String toString(){
-        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
-        listaValoresAtributos.add(this.getNome());
-        listaValoresAtributos.add(this.getTelefone());
-        listaValoresAtributos.add(this.getEmail());
 
+        String farmaciaString = this.PessoaToString();
+
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+        
         if (this.getCnpj() != null){
             listaValoresAtributos.add(this.getCnpj());
         }
@@ -99,13 +113,12 @@ public class PessoaJuridica extends Pessoa{
             listaValoresAtributos.add(this.getEndereco().toString());
         }
         else{
-            // classe Endereco tem 8 atributos, entao precisamos botar 8 nulls na lista
             String enderecoNull = "null";
             listaValoresAtributos.add(enderecoNull);
         }
 
         if (this.getEstoque() != null){
-            listaValoresAtributos.add(this.getEstoque().toString());
+            listaValoresAtributos.add(this.getNomeArquivoEstoque());
         }
         else{
             // a string que iria para lista seria o nome do arquivo do estoque, so precisa de um null
@@ -120,7 +133,8 @@ public class PessoaJuridica extends Pessoa{
             listaValoresAtributos.add("null");
         }
         
-        String farmaciaString = String.join(",", listaValoresAtributos);
+        String outrosValores = String.join(",", listaValoresAtributos);
+        farmaciaString += "," + outrosValores;
         return farmaciaString;
 
     }
@@ -141,14 +155,14 @@ public class PessoaJuridica extends Pessoa{
     }
 
     public String getNomeArquivoEstoque(){
-        String nomeArquivoEstoque = "Estoque" + this.getCnpj() + ".txt";
+        String nomeArquivoEstoque = "backend\\farmacia\\estoquesFarmacias\\" + "Estoque" + this.getCnpj() + ".txt";
         return nomeArquivoEstoque;
     }
 
     public void salvarEstoqueArquivo(){
         try{
             String nomeArquivoEstoque = getNomeArquivoEstoque();
-            FileWriter fw = new FileWriter(nomeArquivoEstoque, true);
+            FileWriter fw = new FileWriter(nomeArquivoEstoque);
             BufferedWriter bw = new BufferedWriter(fw); 
             
             Estoque estoqueTemp = this.getEstoque();
@@ -162,6 +176,46 @@ public class PessoaJuridica extends Pessoa{
         catch(IOException e){
             System.out.println("erro nao foi possivel salvar no arquivo");
             e.printStackTrace();
+        }
+    }
+
+    public void adicionarMedicamentoEstoque(String nomeMedicamento, int quantidade){
+        Estoque estoqueTemp = this.getEstoque();
+
+        if (estoqueTemp == null){
+            estoqueTemp = new Estoque();
+        }
+
+        estoqueTemp.addMedicamentoEstoque(new Medicamento(nomeMedicamento), quantidade);
+        this.setEstoque(estoqueTemp, true);
+    }
+
+    public void retirarMedicamentoEstoque(String nomeMedicamento){
+        if (this.getEstoque() == null){
+            return;
+        }
+        Estoque estoqueTemp = this.getEstoque();
+
+        for (ItemEstoque itemEstoque : estoqueTemp.listaEstoque){
+            if (itemEstoque.getMedicamento().getNome().equals(nomeMedicamento)){
+                estoqueTemp.removerMedicamentoEstoque(itemEstoque);
+                this.setEstoque(estoqueTemp, true);
+            }
+        }
+    }
+
+    public void atualizarQntMedicamentoEstoque(String nomeMedicamento, int novaQuantidade){
+        if (this.getEstoque() == null){
+            this.adicionarMedicamentoEstoque(nomeMedicamento, novaQuantidade);
+        }
+
+        Estoque estoqueTemp = this.getEstoque();
+
+        for (ItemEstoque itemEstoque : estoqueTemp.listaEstoque){
+            if (itemEstoque.getMedicamento().getNome().equals(nomeMedicamento)){
+                estoqueTemp.atualizarQntMedicamento(nomeMedicamento, novaQuantidade);
+                this.setEstoque(estoqueTemp, true);
+            }
         }
     }
 
@@ -190,7 +244,7 @@ public class PessoaJuridica extends Pessoa{
         }
     }
 
-    public static PessoaJuridica resgatarFarmaciaArquivo(String nomeFarmacia, Boolean ignorarAgenda){
+    public static PessoaJuridica resgatarFarmaciaArquivo(String nomeFarmacia, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
         try{
             FileReader fr = new FileReader(nomeArquivoFarmacias);
             BufferedReader br = new BufferedReader(fr);
@@ -199,32 +253,37 @@ public class PessoaJuridica extends Pessoa{
             while (linha != null){
                 String[] dadosLinha = linha.split(",");
                 String nome = dadosLinha[0];
+                String senha = dadosLinha[3];
 
-                if (nome.equals(nomeFarmacia)){
-                    PessoaJuridica farmacia = new PessoaJuridica(dadosLinha[0], dadosLinha[1], dadosLinha[2]);
+                if (nome.equals(nomeFarmacia) && (ignorarSenha == true || senhaFornecida.equals(senha))){
+                    String telefone = dadosLinha[1];
+                    String email = dadosLinha[2];
 
-                    if (!dadosLinha[3].equals("null")){
-                        farmacia.setCnpj(dadosLinha[3]);
-                    }
+                    PessoaJuridica farmacia = new PessoaJuridica(nome, telefone, email, senha);
 
                     if (!dadosLinha[4].equals("null")){
-                        Endereco endereco = Endereco.stringToEndereco(dadosLinha[4]);
-                        farmacia.setEndereco(endereco);
+                        farmacia.setCnpj(dadosLinha[4], false);
                     }
 
                     if (!dadosLinha[5].equals("null")){
-                        String nomeArquivoEstoque = dadosLinha[5];
-                        Estoque estoque = resgatarEstoqueArquivo(nomeArquivoEstoque);
-                        farmacia.setEstoque(estoque);
+                        Endereco endereco = Endereco.stringToEndereco(dadosLinha[5]);
+                        farmacia.setEndereco(endereco, false);
                     }
 
-                    if (!dadosLinha[6].equals("null") && ignorarAgenda == false){
-                        Agenda agenda = Agenda.stringToAgenda(dadosLinha[6], "usuario", true);
-                        farmacia.setContatosClientes(agenda);
+                    if (!dadosLinha[6].equals("null")){
+                        String nomeArquivoEstoque = dadosLinha[6];
+                        Estoque estoque = resgatarEstoqueArquivo(nomeArquivoEstoque);
+                        farmacia.setEstoque(estoque, false);
+                    }
+
+                    if (!dadosLinha[7].equals("null") && ignorarAgenda == false){
+                        Agenda agenda = Agenda.stringToAgenda(dadosLinha[7], senha, "usuario", true, true);
+                        farmacia.setContatosClientes(agenda, false);
                     }
                     br.close();
                     return farmacia;
                 }
+                
                 linha = br.readLine();
             }
             System.out.println("erro, n foi possivel resgatar uma farmacia com esse nome");

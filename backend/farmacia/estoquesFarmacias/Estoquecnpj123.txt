@@ -1,0 +1,2 @@
+dorflex,comprimido,nenhuma,false,10
+repoflor,comprimido,nenhuma,false,20

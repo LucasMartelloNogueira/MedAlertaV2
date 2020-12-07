@@ -9,6 +9,7 @@ import backend.Medicamento;
 import backend.Pessoa;
 import backend.usuario.PessoaFisica;
 import backend.Agenda;
+import backend.Contactavel;
 
 import java.io.*;
 
@@ -16,109 +17,73 @@ public class TesteFarmaciaMain {
     
     public static void main(String[] args) {
 
-        // TESTE PARA RESGATAR INFO DE FARMACIAS DO ARQUIVO
-        // PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo("Raia");
-        // System.out.println("CONTATOS: ");
-        // for (Pessoa contato : farmacia.getContatosClientes().getContatos()){
-        //     System.out.println("nome: " + contato.getNome());
+        // TESTANDO SALVAR FARMACIAS E USUARIOS EM ARQUIVOS
+        PessoaJuridica farmacia1 = new PessoaJuridica("Raia", "tel123", "raia@gmail.com", "senha1");
+        farmacia1.setCnpj("cnpj123", false);
+
+        Endereco enderecoFarmacia = new Endereco("joao pessoa", "18");
+        farmacia1.setEndereco(enderecoFarmacia, false);
+
+        Endereco enderecoLucas = new Endereco("Jao Pessoa", "95");
+        PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@gmail.com", "senha2", enderecoLucas);
+
+        Endereco enderecoLeo = new Endereco("Herotides", "70");
+        PessoaFisica pessoaFisica2 = new PessoaFisica("Leo", "456", "leo@gmail.com", "senha3", enderecoLeo);
+
+        Agenda agendaFarmacia = new Agenda();
+        agendaFarmacia.adicionarContato(pessoaFisica1);
+        agendaFarmacia.adicionarContato(pessoaFisica2);
+        farmacia1.setContatosClientes(agendaFarmacia, false);
+        farmacia1.salvarDadosArquivo();
+
+        pessoaFisica1.addFarmaciaAosContatos(farmacia1);
+        pessoaFisica1.salvarDadosArquivo();
+
+        pessoaFisica2.addFarmaciaAosContatos(farmacia1);
+        pessoaFisica2.salvarDadosArquivo();
+
+
+        // TESTANDO RESGATAR AS FARMACIAS E USUARIOS DOS ARQUIVOS
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senha1", false, false);
+        // for (Pessoa usuario : farmacia1.getContatosClientes().getContatos()){
+        //     System.out.println("nome: " + usuario.getNome());
+        //     System.out.println("endereco: " + usuario.getNome());
+        //     System.out.println("-------------------------");
         // }
+
+
+        // TESTANDO MODIFICAR OS ARQUIVOS DA FARMACIA
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senha1", false, false);
+        // farmacia1.setCnpj("cnpj999", true);
+
+
+        // TESTANDO A CRIACAO DO ESTOQUE E GRAVANDO NO ARQUIVO
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senha1", false, false);
+        // Estoque estoque1 = new Estoque();
+
+        // Medicamento medicamento1 = new Medicamento("dorflex", "comprimido", "nenhuma");
+        // ItemEstoque itemEstoque1 = new ItemEstoque(medicamento1, 10);
+
+        // Medicamento medicamento2 = new Medicamento("repoflor", "comprimido", "nenhuma");
+        // ItemEstoque itemEstoque2 = new ItemEstoque(medicamento2, 20);
+
+        // estoque1.addMedicamentoEstoque(itemEstoque1);
+        // estoque1.addMedicamentoEstoque(itemEstoque2);
+
+        // farmacia1.setSenha("senhaGenerica");
+        // farmacia1.setEstoque(estoque1, true);
+        // farmacia1.salvarDadosArquivo();
+
+
+        // TESTANDO RESGATAR A FARMACIA DO ARQUIVO COM ESTOQUE                
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senhaGenerica", false, false);
+        // farmacia1.getEstoque().printEstoque();
         
-        // TESTE PARA RESGATAR USUARIOS DO ARQUIVO
-        // PessoaFisica pessoaFisica = PessoaFisica.resgatarUsuarioArquivo("Lucas", false);
-        // System.out.println("nome: " + pessoaFisica.getNome() + "/ telefone: " + pessoaFisica.getTelefone());
-        // System.out.println("FARMACIAS:");
-        // for (Pessoa farmacia : pessoaFisica.getContatosFarmacias().getContatos()){
-        //     System.out.println("nome: " + farmacia.getNome());
-        //     System.out.println("---------------");
-        // }
 
-        // PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo("Raia", false);
-        // System.out.println("nome: " + farmacia.getNome() + "/ cnpj: " + farmacia.getCnpj());
-        // System.out.println("CONTATOS");
-        // for (Pessoa contato : farmacia.getContatosClientes().getContatos()){
-        //     System.out.println("nome: " + contato.getNome());
-        //     System.out.println("---------------");
-        // }
-
-        // PessoaJuridica farmacia = new PessoaJuridica("Raia", "123", "bla@gmail.com");
-        // farmacia.setCnpj("182");
-
-        // Estoque estoqueTeste = new Estoque();
-
-        // Medicamento medicamento1 = new Medicamento("dorflex", "bla", "bla");
-        // estoqueTeste.addMedicamentoEstoque(medicamento1, 2);
-
-        // Medicamento medicamento2 = new Medicamento("azitromicina", "bla2", "bla2");
-        // estoqueTeste.addMedicamentoEstoque(medicamento2, 5);
-
-        // farmacia.setEstoque(estoqueTeste);
-        // farmacia.salvarEstoqueArquivo();
+        // TESTANDO RESGATAR O ESTOQUE, EFETURAR MUDANÇAS NELE E VER SE FOI ATUALIZADO NO ARQUIVO
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senhaGenerica", false, false);
+        // farmacia1.adicionarMedicamentoEstoque("repoflor", 10);
+        // farmacia1.atualizarQntMedicamentoEstoque("Diosmin", 1000);
         
-        // String nomeArquivoEstoque = farmacia.getNomeArquivoEstoque();
-        // Estoque estoque = PessoaJuridica.resgatarEstoqueArquivo(nomeArquivoEstoque);
-        // farmacia.setEstoque(estoque);
-        // farmacia.getEstoque().printEstoque();
-
-        // String nullString6 = FuncoesArquivos.obterStringDeNullsCsv(6);
-        // System.out.println(nullString6);
-
-        
-        // Endereco endereco1 = new Endereco("jao pessoa", "95");
-        // PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@email.com", endereco1);
-        // pessoaFisica1.salvarDadosArquivo();
-
-        // for (String s : listaTeste){
-        //     System.out.println("elemento: " + s);
-        // }
-
-        // Endereco endereco2 = new Endereco("bla bla", "90");
-        // PessoaFisica pessoaFisica2 = new PessoaFisica("Leo", "456", "leo@email.com", endereco2);
-
-        // farmacia.addUsuarioAosContatos(pessoaFisica1);
-        // farmacia.addUsuarioAosContatos(pessoaFisica2);
-        // farmacia.salvarDadosArquivo();
-
-        // pessoaFisica1.addFarmaciaAosContatos(farmacia);
-        // pessoaFisica1.salvarDadosArquivo();
-
-        // pessoaFisica2.addFarmaciaAosContatos(farmacia);
-        // pessoaFisica2.salvarDadosArquivo();
-
-        // Endereco endereco3 = new Endereco("rua sg", "70");
-        // PessoaFisica pessoaFisica3 = new PessoaFisica("Valesca", "789", "Valesca@email.com", endereco3);
-
-        // String[] listaTeste = pessoaFisica1.toString().split(",");
-
-        // for (String s : listaTeste){
-        //     System.out.println("elemento: " + s);
-        // }
-
-        // Agenda agenda = new Agenda();
-        // agenda.adicionarContato(pessoaFisica1);
-        // agenda.adicionarContato(pessoaFisica2);
-
-        // farmacia.setContatosClientes(agenda);
-
-        // farmacia.setCnpj("aaaaaaa");
-        // Endereco endereco = new Endereco("jao Pessoa", "95");
-        // farmacia.setEndereco(endereco);
-
-        // String f = farmacia.toString();
-        // System.out.println("string farmaica csv: " + f);
-        // farmacia.salvarDadosArquivo();
-        // Field[] atributos = farmacia.getClass().getDeclaredFields();
-        // System.out.println("qnt de atributos: " + atributos.length);
-
-        // for (Field f : atributos){
-        //     System.out.println("nome atributo: " + f.getName() + " / mod: " + f.getModifiers());
-            // System.out.println(f);
-        
-        // String f = farmacia.toString();
-        // System.out.println(f);
-
-        // PessoaFisica usuario = PessoaFisica.resgatarUsuarioArquivo("Lucas");
-        // System.out.println("telefone: " + usuario.getTelefone());
-        // System.out.println("email: " + usuario.getEmail());
-        // System.out.println("endereco: " + usuario.getEndereco().getNomeDaRua() + ", " + usuario.getEndereco().getNumero());
     }
 }

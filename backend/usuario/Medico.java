@@ -6,8 +6,8 @@ public class Medico extends Pessoa {
     private String especialidade;
 
     // construtor
-    public Medico(String nome, String telefone, String email, String especialidade) {
-        super(nome, telefone, email);
+    public Medico(String nome, String telefone, String email, String senha, String especialidade) {
+        super(nome, telefone, email, senha);
         this.especialidade = especialidade;
     }
 

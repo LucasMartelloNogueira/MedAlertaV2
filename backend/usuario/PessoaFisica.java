@@ -8,21 +8,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import backend.Agenda;
+import backend.Contactavel;
 import backend.Endereco;
 import backend.Pessoa;
 import backend.farmacia.PessoaJuridica;
 
 public class PessoaFisica extends Pessoa {
 
-    public static final String nomeArquivoUsuarios = "RegistroUsuarios.txt";
-
+    public static final String nomeArquivoUsuarios = "backend\\usuario\\RegistroUsuarios.txt";
+    
     private Endereco endereco;
     private Agenda contatosMedicos = new Agenda();
     private Agenda contatosFarmacias = new Agenda();
     //lista de usos
 
-    public PessoaFisica(String nome, String telefone, String email, Endereco endereco) {
-        super(nome, telefone, email);
+    public PessoaFisica(String nome, String telefone, String email, String senha, Endereco endereco) {
+        super(nome, telefone, email, senha);
         this.endereco = endereco;
     }
 
@@ -125,7 +126,7 @@ public class PessoaFisica extends Pessoa {
         }
     }
 
-    public static PessoaFisica resgatarUsuarioArquivo(String nomePessoa, Boolean ignorarAgenda){
+    public static PessoaFisica resgatarUsuarioArquivo(String nomePessoa, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
         try{
             FileReader fr = new FileReader(getNomeArquivoUsuarios());
             BufferedReader br = new BufferedReader(fr);
@@ -135,20 +136,21 @@ public class PessoaFisica extends Pessoa {
             while(linha != null){
                 String[] dadosLinha = linha.split(",");
                 String nome = dadosLinha[0];
+                String senha = dadosLinha[3];
 
-                if (nome.equals(nomePessoa)){
+                if (nome.equals(nomePessoa) && (ignorarSenha == true || senhaFornecida.equals(senha))){
                     String telefone = dadosLinha[1];
                     String email = dadosLinha[2];
-                    String enderecoString = dadosLinha[3];
+                    String enderecoString = dadosLinha[4];
                     Endereco endereco = Endereco.stringToEndereco(enderecoString);
-                    PessoaFisica usuario = new PessoaFisica(nome, telefone, email, endereco);
+                    PessoaFisica usuario = new PessoaFisica(nome, telefone, email, senha, endereco);
                     
-                    if (!dadosLinha[4].equals("null") && ignorarAgenda == false){
-                        usuario.setContatosMedicos(Agenda.stringToAgenda(dadosLinha[4], "medico", true));
+                    if (!dadosLinha[5].equals("null") && ignorarAgenda == false){
+                        usuario.setContatosMedicos(Agenda.stringToAgenda(dadosLinha[5], senha, "medico", true, true));
                     }
 
-                    if (!dadosLinha[5].equals("null")){
-                        usuario.setContatosFarmacias(Agenda.stringToAgenda(dadosLinha[5], "farmacia", true));
+                    if (!dadosLinha[6].equals("null")){
+                        usuario.setContatosFarmacias(Agenda.stringToAgenda(dadosLinha[6], senha, "farmacia", true, true));
                     }
 
                     br.close();

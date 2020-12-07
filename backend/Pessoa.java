@@ -3,16 +3,18 @@ package backend;
 import java.util.ArrayList;
 
 //pessoa no sentido de pessoa fisica ou pessoa juridica
-public abstract class Pessoa implements Comparable<Pessoa> {
+public abstract class Pessoa implements Comparable<Pessoa>{
     private String nome; // nome da pessoa ou razao social
     private String telefone;
     private String email;
+    private String senha;
 
     // construtores
-    public Pessoa(String nome, String telefone, String email) {
+    public Pessoa(String nome, String telefone, String email, String senha) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
+        this.senha = senha;
     }
 
     // get Nome
@@ -45,6 +47,14 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         this.email = novoEmail;
     }
 
+    public String getSenha(){
+        return this.senha;
+    }
+
+    public void setSenha(String novaSenha){
+        this.senha = novaSenha;
+    }
+
     public abstract Object getParticularidade();  //get endereco se pessoa fisica ou juridica OU get especialidade se medico
     public abstract <T> void setParticularidade(T novaParticularidade);  //set endereco se pessoa fisica ou juridica OU set especialidade se medico
 
@@ -63,10 +73,10 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         listaValoresAtributos.add(this.getNome());
         listaValoresAtributos.add(this.getTelefone());
         listaValoresAtributos.add(this.getEmail());
+        listaValoresAtributos.add(this.getSenha());
         
         String pessoaString = String.join(",", listaValoresAtributos);
         return pessoaString;
     }
 
-    
 }

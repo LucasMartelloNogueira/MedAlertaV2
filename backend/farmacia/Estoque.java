@@ -23,6 +23,14 @@ public class Estoque {
         this.listaEstoque.remove(itemEstoque);
     }
 
+    public void atualizarQntMedicamento(String nomeMedicamento, int novaQuantidade){
+        for (ItemEstoque itemEstoque : this.listaEstoque){
+            if (itemEstoque.getMedicamento().getNome().equals(nomeMedicamento)){
+                itemEstoque.setQntMedicamento(novaQuantidade);
+            }
+        }
+    }
+
     public void printEstoque(){
         for (ItemEstoque itemEstoque : this.listaEstoque){
             System.out.println("medicamento: " + itemEstoque.getMedicamento().getNome() + " / qnt: " + itemEstoque.getQntMedicamento());
