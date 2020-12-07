@@ -3,7 +3,7 @@ package backend;
 import java.util.ArrayList;
 import backend.usuario.Uso;
 
-public class Gerenciador {
+public class Gerenciador implements Runnable{
     ArrayList<Uso> listaDeUsos = new ArrayList<>(); //lista ordenada por horários de uso
 
     public static void main(String[] args) throws InterruptedException {
@@ -35,5 +35,11 @@ public class Gerenciador {
 
     public static void atualizarListaDeUsos(){
         //alguma coisa aqui
+    }
+
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+
     }
 }
