@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 import backend.Agenda;
 import backend.Endereco;
+import backend.Gerenciador;
 import backend.Pessoa;
 import backend.usuario.PessoaFisica;
 import frontend.Inicio;
@@ -14,6 +15,10 @@ public class Main {
         Inicio telaInicial = new Inicio();
         Thread interfaceComUsuario = new Thread(telaInicial);
         interfaceComUsuario.start();
+
+        Gerenciador g = new Gerenciador();
+        Thread gerenciador = new Thread(g);
+        gerenciador.start();
 
         //linhas de teste
         Agenda agenda = new Agenda();
