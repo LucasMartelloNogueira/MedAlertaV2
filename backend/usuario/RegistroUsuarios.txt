@@ -1,1 +1,2 @@
-nome,telefone,email,senha,endereco,agendaContatosMedicos,agendaContatosFarmacias
+nome,telefone,email,senha,cpf,endereco,nomeArquivoUsosMedicamentos,agendaContatosMedicos,agendaContatosFarmacias
+Lucas,123,lucas@gmail.com,senha2,cpf1,Jao Pessoa/95/null/null/null/null/null/null,backend\usuario\arquivosUsosUsuarios\Usocpf1.txt,null,null

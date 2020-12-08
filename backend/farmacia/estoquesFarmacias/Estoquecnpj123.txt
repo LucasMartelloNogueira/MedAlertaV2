@@ -1,2 +1,3 @@
 dorflex,comprimido,nenhuma,false,10
-repoflor,comprimido,nenhuma,false,20
+repoflor,comprimido,nenhuma,false,1000
+betaserc,null,null,false,10

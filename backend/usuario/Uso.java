@@ -82,4 +82,47 @@ public class Uso {
         }
         this.qtdDisponivel = qtdDisponivel;
     }
+
+    public String horariosToString(){
+        String horariosString = String.join("/", this.getHorarios());
+        return horariosString;
+    }
+
+    public static ArrayList<String> horariosStringToList(String horariosString){
+        ArrayList<String> listaHorarios = new ArrayList<>();
+        
+        String[] horariosArray =  horariosString.split("/");
+        
+        for (String horario : horariosArray){
+            listaHorarios.add(horario);
+        }
+
+        return listaHorarios;
+    }
+
+    @Override
+    public String toString(){
+        ArrayList<String> listaValoresAtributos = new ArrayList<>();
+        listaValoresAtributos.add(this.getRemedio().getNome());
+        listaValoresAtributos.add(Integer.toString(this.getDose()));
+        listaValoresAtributos.add(this.horariosToString());
+        listaValoresAtributos.add(Integer.toString(this.getDuracaoDoTratamento()));
+        listaValoresAtributos.add(Integer.toString(this.getQtdDisponivel()));
+
+        String usoString = String.join(",", listaValoresAtributos);
+        return usoString;
+        
+    }
+
+    public static Uso stringToUso(String usoString){
+        String[] dadosLinha = usoString.split(",");
+        Medicamento remedio = new Medicamento(dadosLinha[0]);
+        int dose = Integer.parseInt(dadosLinha[1]);
+        ArrayList<String> horarios = horariosStringToList(dadosLinha[2]);
+        int duracaoDoTratamento = Integer.parseInt(dadosLinha[3]);
+        int qtdDisponivel = Integer.parseInt(dadosLinha[4]);
+
+        Uso uso = new Uso(remedio, dose, horarios, duracaoDoTratamento, qtdDisponivel);
+        return uso;
+    }
 }

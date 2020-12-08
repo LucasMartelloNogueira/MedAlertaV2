@@ -218,7 +218,7 @@ public class PessoaJuridica extends Pessoa{
             }
         }
     }
-
+    
     public static Estoque resgatarEstoqueArquivo(String nomeArquivoEstoque){
         try{
             FileReader fr = new FileReader(nomeArquivoEstoque);

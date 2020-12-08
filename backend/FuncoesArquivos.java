@@ -3,6 +3,7 @@ package backend;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FuncoesArquivos {
 
@@ -33,6 +34,7 @@ public class FuncoesArquivos {
             e.printStackTrace();
         }
     }
+
 
     public static void lerArquivo(String nomeArquivo){
         try{
@@ -72,7 +74,29 @@ public class FuncoesArquivos {
             return listaLinhas;
         }
         
-        
+    }
+
+    public static List<String> obterListaLinhas(String nomeArquivo){
+        List<String> listaLinhas = new ArrayList<String>();
+
+        try{
+            FileReader fr = new FileReader(nomeArquivo);
+            BufferedReader br = new BufferedReader(fr);
+
+            String linha = br.readLine();
+
+            while (linha != null){
+                listaLinhas.add(linha);
+                linha = br.readLine();
+            }
+            br.close();
+            return listaLinhas;
+        }
+        catch (IOException e){
+            System.out.println("erro");
+            e.printStackTrace();
+            return listaLinhas;
+        }
     }
 
     public static String obterStringDeNullsCsv(int qntDeNulls){
@@ -107,6 +131,23 @@ public class FuncoesArquivos {
         }
         catch(Exception e){
             System.out.println("erro, nao foi possivel realizar a operação");
+            e.printStackTrace();
+        }
+    }
+
+    public static void salvarListaEmArquivo(String nomeArquivo, List<String> listaLinhas, boolean append){
+        try{
+            FileWriter fw = new FileWriter(nomeArquivo, append);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (String linha : listaLinhas){
+                bw.write(linha);
+                bw.newLine();
+            }
+            bw.close();
+        }
+        catch (Exception e){
+            System.out.println("erro, n foi possivel escrever no arquivo: " + nomeArquivo);
             e.printStackTrace();
         }
     }
