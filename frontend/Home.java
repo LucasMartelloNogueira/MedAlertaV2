@@ -19,6 +19,7 @@ public class Home extends javax.swing.JFrame {
      * Creates new form home
      */
     public Home() {
+        initComponents();
     }
 
     public void receber(String _nome, String _idade,String _endereco){

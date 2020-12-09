@@ -18,6 +18,7 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
      * Creates new form Homefarmacia
      */
     public HomeDaFarmacia() {
+        initComponents();
     }
     
     public void receber(String _nome, String _idade,String _endereco){

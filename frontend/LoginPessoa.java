@@ -37,6 +37,10 @@ public class LoginPessoa extends javax.swing.JFrame {
         endereco_l = new javax.swing.JLabel();
         endereco_l_e = new javax.swing.JTextField();
         prox_l = new javax.swing.JButton();
+        emailL = new javax.swing.JLabel();
+        senhaL = new javax.swing.JLabel();
+        emailLPE = new javax.swing.JTextField();
+        senhaLPE = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,46 +86,90 @@ public class LoginPessoa extends javax.swing.JFrame {
             }
         });
 
+        emailL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailL.setText("Email:");
+        emailL.setToolTipText("");
+
+        senhaL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        senhaL.setText("Senha");
+        senhaL.setToolTipText("");
+
+        emailLPE.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        emailLPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailLPEActionPerformed(evt);
+            }
+        });
+
+        senhaLPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaLPEActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout naoMexerNissoLayout = new javax.swing.GroupLayout(naoMexerNisso);
         naoMexerNisso.setLayout(naoMexerNissoLayout);
         naoMexerNissoLayout.setHorizontalGroup(
             naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(naoMexerNissoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(idade_l)
-                    .addComponent(nome_l)
-                    .addComponent(endereco_l))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(naoMexerNissoLayout.createSequentialGroup()
                         .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(162, Short.MAX_VALUE))
+                            .addGroup(naoMexerNissoLayout.createSequentialGroup()
+                                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idade_l)
+                                    .addComponent(nome_l))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(naoMexerNissoLayout.createSequentialGroup()
+                                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailL, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(senhaL))
+                                .addGap(67, 67, 67)
+                                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(senhaLPE, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailLPE, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(158, Short.MAX_VALUE))
                     .addGroup(naoMexerNissoLayout.createSequentialGroup()
-                        .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(endereco_l)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(prox_l)
-                        .addGap(40, 40, 40))))
+                        .addGap(51, 51, 51))))
         );
         naoMexerNissoLayout.setVerticalGroup(
             naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(naoMexerNissoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(55, 55, 55)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(emailL)
+                    .addComponent(emailLPE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nome_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaL)
+                    .addComponent(senhaLPE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nome_l)
                     .addComponent(nome_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idade_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(prox_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(endereco_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(idade_l)
+                    .addComponent(idade_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(naoMexerNissoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(naoMexerNissoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(endereco_l, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(endereco_l_e, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, naoMexerNissoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(prox_l, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,7 +203,9 @@ public class LoginPessoa extends javax.swing.JFrame {
     String nomenCompletoLogin = nome_l_e.getText();
     String idadeLogin = idade_l_e.getText();
     String enderecoLogin =  endereco_l_e.getText();
-    if(idade_l_e.getText().trim().isEmpty()|| nome_l_e.getText().trim().isEmpty()|| endereco_l_e.getText().trim().isEmpty()){
+    String email = emailLPE.getText();
+    char[] senha = senhaLPE.getPassword();
+    if(emailLPE.getText().trim().isEmpty()||idade_l_e.getText().trim().isEmpty()|| nome_l_e.getText().trim().isEmpty()|| endereco_l_e.getText().trim().isEmpty()){
         JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
         LoginPessoa login = new LoginPessoa();
         login.setVisible(true);
@@ -169,6 +219,14 @@ public class LoginPessoa extends javax.swing.JFrame {
     
 
     }                                      
+
+    private void emailLPEActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void senhaLPEActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
 
     /**
      * @param args the command line arguments
@@ -196,6 +254,7 @@ public class LoginPessoa extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -206,6 +265,8 @@ public class LoginPessoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JLabel emailL;
+    public javax.swing.JTextField emailLPE;
     private javax.swing.JLabel endereco_l;
     private javax.swing.JTextField endereco_l_e;
     private javax.swing.JLabel idade_l;
@@ -214,5 +275,7 @@ public class LoginPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel nome_l;
     public javax.swing.JTextField nome_l_e;
     private javax.swing.JButton prox_l;
+    private javax.swing.JLabel senhaL;
+    private javax.swing.JPasswordField senhaLPE;
     // End of variables declaration                   
 }
