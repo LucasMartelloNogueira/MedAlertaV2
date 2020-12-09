@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author leosa
  */
-public class Login extends javax.swing.JFrame {
+public class LoginPessoa extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public Login() {
+    public LoginPessoa() {
         initComponents();
     }
 
@@ -157,7 +157,7 @@ public class Login extends javax.swing.JFrame {
     String enderecoLogin =  endereco_l_e.getText();
     if(idade_l_e.getText().trim().isEmpty()|| nome_l_e.getText().trim().isEmpty()|| endereco_l_e.getText().trim().isEmpty()){
         JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
-        Login login = new Login();
+        LoginPessoa login = new LoginPessoa();
         login.setVisible(true);
         dispose();
     }
@@ -187,20 +187,20 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginPessoa().setVisible(true);
             }
         });
     }

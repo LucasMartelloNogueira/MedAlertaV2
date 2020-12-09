@@ -123,7 +123,6 @@ public class teste extends javax.swing.JFrame {
     nome.setText("");
     idade.setText("");
     numero.setText("");
-        
     }                                    
 
     private void apagarActionPerformed(java.awt.event.ActionEvent evt) {

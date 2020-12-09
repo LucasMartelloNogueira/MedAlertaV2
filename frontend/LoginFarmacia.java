@@ -159,15 +159,17 @@ public class LoginFarmacia extends javax.swing.JFrame {
         String cnpjFarmacia = cnpjFarmaciaEntrada.getText();
         String enderecoFarmacia =  enderecoFarmaciaEntrada.getText();
         if(nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()|| enderecoFarmaciaEntrada.getText().trim().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
-        LoginFarmacia login = new LoginFarmacia();
-        login.setVisible(true);
-        dispose();
-    }
-        HomeDaFarmacia tela = new HomeDaFarmacia();
-        tela.receber(nomenFarmacia, cnpjFarmacia, enderecoFarmacia);
-        tela.setVisible(true);
-        dispose();
+            JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
+            LoginFarmacia login = new LoginFarmacia();
+            login.setVisible(true);
+            dispose();
+        }
+        else{
+            HomeDaFarmacia tela = new HomeDaFarmacia();
+            tela.receber(nomenFarmacia, cnpjFarmacia, enderecoFarmacia);
+            tela.setVisible(true);
+            dispose();
+        }
     }                                               
 
     /**
