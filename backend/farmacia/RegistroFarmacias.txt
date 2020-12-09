@@ -1,1 +1,2 @@
 nome,telefone,email,senha,cnpj,endereco,nomeArquivoEstoque,AgendaContatosClientes
+Raia,tel123,raia@gmail.com,F55DAA0B19228CE8E1481A3931E3E2FFA481E5BDE27B755C348D6496280BF314,cnpj123,joao pessoa/18/null/null/null/null/null/null,null,leo@gmail.com/lucas@gmail.com

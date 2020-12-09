@@ -5,10 +5,12 @@ import backend.farmacia.Estoque;
 import backend.usuario.PessoaFisica;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.io.*;
 
 import backend.Agenda;
+import backend.Autenticacao;
 import backend.Endereco;
 import backend.FuncoesArquivos;
 import backend.Medicamento;
@@ -140,18 +142,10 @@ public class PessoaJuridica extends Pessoa{
     }
 
     public void salvarDadosArquivo(){
-        try{
-            FileWriter fw = new FileWriter(nomeArquivoFarmacias, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(this.toString());
-            bw.newLine();
-            bw.close();
-            System.out.println("farmacia salva no arquivo com sucesso!");
-        }
-        catch (IOException e){
-            System.out.println("erro, n foi possivel salvar os dados da farmacia no arquivo");
-            e.printStackTrace();
-        }
+        List<String> listaLinha = new ArrayList<>();
+        listaLinha.add(this.toString());
+        FuncoesArquivos.salvarListaEmArquivo(nomeArquivoFarmacias, listaLinha, true);
+
     }
 
     public String getNomeArquivoEstoque(){
@@ -244,7 +238,7 @@ public class PessoaJuridica extends Pessoa{
         }
     }
 
-    public static PessoaJuridica resgatarFarmaciaArquivo(String nomeFarmacia, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
+    public static PessoaJuridica resgatarFarmaciaArquivo(String emailFarmacia, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
         try{
             FileReader fr = new FileReader(nomeArquivoFarmacias);
             BufferedReader br = new BufferedReader(fr);
@@ -252,12 +246,12 @@ public class PessoaJuridica extends Pessoa{
 
             while (linha != null){
                 String[] dadosLinha = linha.split(",");
-                String nome = dadosLinha[0];
+                String email = dadosLinha[2];
                 String senha = dadosLinha[3];
 
-                if (nome.equals(nomeFarmacia) && (ignorarSenha == true || senhaFornecida.equals(senha))){
+                if (email.equals(emailFarmacia) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
                     String telefone = dadosLinha[1];
-                    String email = dadosLinha[2];
+                    String nome = dadosLinha[0];
 
                     PessoaJuridica farmacia = new PessoaJuridica(nome, telefone, email, senha);
 
@@ -290,7 +284,7 @@ public class PessoaJuridica extends Pessoa{
             br.close();
             return null;
         }
-        catch(IOException e){
+        catch(Exception e){
             System.out.println("Erro, n foi possivel recuperar a farmacia do arquivo");
             e.printStackTrace();
             return null;

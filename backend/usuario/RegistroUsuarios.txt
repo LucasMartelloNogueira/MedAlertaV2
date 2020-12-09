@@ -1,2 +1,3 @@
 nome,telefone,email,senha,cpf,endereco,nomeArquivoUsosMedicamentos,agendaContatosMedicos,agendaContatosFarmacias
-Lucas,123,lucas@gmail.com,senha2,cpf1,Jao Pessoa/95/null/null/null/null/null/null,backend\usuario\arquivosUsosUsuarios\Usocpf1.txt,null,null
+Lucas,123,lucas@gmail.com,027DB0090319C8FC079CDD33CF5550F5C02CA8FD4614F7D3DE4324C026F83589,cpf1,Jao Pessoa/95/null/null/null/null/null/null,null,null,raia@gmail.com
+Leo,456,leo@gmail.com,D93FF1F48EC9D03AD1E381866705FAA7A3173748C7A1F7B37CD49A6145D750ED,cpf2,Herotides/70/null/null/null/null/null/null,null,null,raia@gmail.com

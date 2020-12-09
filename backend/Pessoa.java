@@ -1,9 +1,11 @@
 package backend;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 //pessoa no sentido de pessoa fisica ou pessoa juridica
-public abstract class Pessoa implements Comparable<Pessoa>{
+public abstract class Pessoa implements Comparable<Pessoa> {
     private String nome; // nome da pessoa ou razao social
     private String telefone;
     private String email;
@@ -47,33 +49,41 @@ public abstract class Pessoa implements Comparable<Pessoa>{
         this.email = novoEmail;
     }
 
-    public String getSenha(){
+    public String getSenha() {
         return this.senha;
     }
 
-    public void setSenha(String novaSenha){
+    public void setSenha(String novaSenha) {
         this.senha = novaSenha;
     }
 
-    public abstract Object getParticularidade();  //get endereco se pessoa fisica ou juridica OU get especialidade se medico
-    public abstract <T> void setParticularidade(T novaParticularidade);  //set endereco se pessoa fisica ou juridica OU set especialidade se medico
+    public abstract Object getParticularidade(); // get endereco se pessoa fisica ou juridica OU get especialidade se
+                                                 // medico
+
+    public abstract <T> void setParticularidade(T novaParticularidade); // set endereco se pessoa fisica ou juridica OU
+                                                                        // set especialidade se medico
 
     public int compareTo(Pessoa outraPessoa) {
-        /*if(this.getNome().compareTo(outraPessoa.getNome()) > 0)
-            return 1;
-        if(this.getNome().compareTo(outraPessoa.getNome()) < 0)
-              return -1;
-        return 0;*/
+        /*
+         * if(this.getNome().compareTo(outraPessoa.getNome()) > 0) return 1;
+         * if(this.getNome().compareTo(outraPessoa.getNome()) < 0) return -1; return 0;
+         */
         return this.getNome().compareTo(outraPessoa.getNome());
     }
 
-    public String PessoaToString(){
+    public String PessoaToString() {
         ArrayList<String> listaValoresAtributos = new ArrayList<String>();
-        
+
         listaValoresAtributos.add(this.getNome());
         listaValoresAtributos.add(this.getTelefone());
         listaValoresAtributos.add(this.getEmail());
-        listaValoresAtributos.add(this.getSenha());
+        String senhaEncriptada = "";
+        try {
+            senhaEncriptada = Autenticacao.encriptarSenha(this.getEmail(), this.getSenha());
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        listaValoresAtributos.add(senhaEncriptada);
         
         String pessoaString = String.join(",", listaValoresAtributos);
         return pessoaString;

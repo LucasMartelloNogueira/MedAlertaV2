@@ -118,7 +118,7 @@ public class Agenda {
             ArrayList<String> listaNomesAgenda = new ArrayList<String>();
         
         for (Pessoa pessoa : this.contatos){
-            listaNomesAgenda.add(pessoa.getNome());
+            listaNomesAgenda.add(pessoa.getEmail());
         }
 
         String contatosString = String.join("/", listaNomesAgenda);

@@ -32,11 +32,11 @@ public class Autenticacao {
     //método utilizado para fazer login no sistema.
     //este método criptografa a senha fornecida pelo usuário e a 
     //compara com a senha salva em arquivo que deve ser passada como parâmetro deste método
-    public static boolean autenticar(String email, String senha)
+    public static boolean autenticar(String email, String senha, String senhaArquivo)
             throws NoSuchAlgorithmException, UnsupportedEncodingException {
         boolean autenticado = false;
-        String senhaCriptografada = encriptarSenha(email, senha), senhaSalva = "";
-        if(senhaCriptografada.equals(senhaSalva)){ //modificar para pegar senha do arquivo
+        String senhaCriptografada = encriptarSenha(email, senha);
+        if(senhaCriptografada.equals(senhaArquivo)){ //modificar para pegar senha do arquivo
             autenticado = true;
         }
         return autenticado;
@@ -55,7 +55,7 @@ public class Autenticacao {
         }
 
         try {
-            autenticar = autenticar("valesca", "123");
+            autenticar = autenticar("valesca", "123", "182734");
             System.out.println("Autenticado: "+ autenticar);
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block

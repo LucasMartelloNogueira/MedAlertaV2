@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backend.Agenda;
+import backend.Autenticacao;
 import backend.Contactavel;
 import backend.Endereco;
 import backend.FuncoesArquivos;
@@ -219,18 +220,9 @@ public class PessoaFisica extends Pessoa {
     }
 
     public void salvarDadosArquivo(){
-        try{
-            FileWriter fw = new FileWriter(getNomeArquivoUsuarios(), true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(this.toString());
-            bw.newLine();
-            bw.close();
-            System.out.println("usuario salvo com sucesso!");
-        }
-        catch (IOException e){
-            System.out.println("erro, não foi possível salvar os dados no arquivo");
-            e.printStackTrace();
-        }
+        List<String> listaLinha = new ArrayList<>();
+        listaLinha.add(this.toString());
+        FuncoesArquivos.salvarListaEmArquivo(nomeArquivoUsuarios, listaLinha, true);
     }
 
     public static List<Uso> resgatarListaUsoMedicamentosArquivo(String nomeArquivo){
@@ -247,7 +239,7 @@ public class PessoaFisica extends Pessoa {
         return listaUsoMedicamentos;
     }
 
-    public static PessoaFisica resgatarUsuarioArquivo(String nomePessoa, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
+    public static PessoaFisica resgatarUsuarioArquivo(String emailFornecido, String senhaFornecida, Boolean ignorarSenha, Boolean ignorarAgenda){
         try{
             FileReader fr = new FileReader(nomeArquivoUsuarios);
             BufferedReader br = new BufferedReader(fr);
@@ -256,12 +248,12 @@ public class PessoaFisica extends Pessoa {
 
             while(linha != null){
                 String[] dadosLinha = linha.split(",");
-                String nome = dadosLinha[0];
+                String email = dadosLinha[2];
                 String senha = dadosLinha[3];
 
-                if (nome.equals(nomePessoa) && (ignorarSenha == true || senhaFornecida.equals(senha))){
+                if (emailFornecido.equals(email) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
                     String telefone = dadosLinha[1];
-                    String email = dadosLinha[2];
+                    String nome = dadosLinha[0];
                     String cpf = dadosLinha[4];
                     String enderecoString = dadosLinha[5];
                     Endereco endereco = Endereco.stringToEndereco(enderecoString);

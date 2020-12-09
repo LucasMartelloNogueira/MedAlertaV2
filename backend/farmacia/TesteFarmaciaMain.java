@@ -27,10 +27,10 @@ public class TesteFarmaciaMain {
         // farmacia1.setEndereco(enderecoFarmacia, false);
 
         // Endereco enderecoLucas = new Endereco("Jao Pessoa", "95");
-        // PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@gmail.com", "senha2", enderecoLucas);
+        // PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@gmail.com", "cpf1", "senha2", enderecoLucas);
 
         // Endereco enderecoLeo = new Endereco("Herotides", "70");
-        // PessoaFisica pessoaFisica2 = new PessoaFisica("Leo", "456", "leo@gmail.com", "senha3", enderecoLeo);
+        // PessoaFisica pessoaFisica2 = new PessoaFisica("Leo", "456", "leo@gmail.com", "cpf2", "senha3", enderecoLeo);
 
         // Agenda agendaFarmacia = new Agenda();
         // agendaFarmacia.adicionarContato(pessoaFisica1);
@@ -46,7 +46,7 @@ public class TesteFarmaciaMain {
 
 
         // TESTANDO RESGATAR AS FARMACIAS E USUARIOS DOS ARQUIVOS
-        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("Raia", "senha1", false, false);
+        // PessoaJuridica farmacia1 = PessoaJuridica.resgatarFarmaciaArquivo("raia@gmail.com", "senha1", false, false);
         // for (Pessoa usuario : farmacia1.getContatosClientes().getContatos()){
         //     System.out.println("nome: " + usuario.getNome());
         //     System.out.println("endereco: " + usuario.getNome());
@@ -99,10 +99,11 @@ public class TesteFarmaciaMain {
         // pessoaFisica2.salvarDadosArquivo();
 
         // TESTANDO RECUPERAR OS USUARIOS DO ARQUIVO
-        // PessoaFisica pessoaFisica1 = PessoaFisica.resgatarUsuarioArquivo("Lucas", "senha2", false, false);
-        // System.out.println("email: " + pessoaFisica1.getEmail());
+        // PessoaFisica pessoaFisica1 = PessoaFisica.resgatarUsuarioArquivo("lucas@gmail.com", "senha2", false, false);
+        // System.out.println("nome: " + pessoaFisica1.getNome());
         // System.out.println("cpf: " + pessoaFisica1.getCpf());
 
+        
         // TESTANDO CRIAR UMA LISTA DE USOS E SALVAR NO ARQUIVO
         // Endereco enderecoLucas = new Endereco("Jao Pessoa", "95");
         // PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@gmail.com", "cpf1", "senha2", enderecoLucas);

@@ -35,7 +35,6 @@ public class FuncoesArquivos {
         }
     }
 
-
     public static void lerArquivo(String nomeArquivo){
         try{
             File arquivo = new File(nomeArquivo);
@@ -76,6 +75,7 @@ public class FuncoesArquivos {
         
     }
 
+    // importante
     public static List<String> obterListaLinhas(String nomeArquivo){
         List<String> listaLinhas = new ArrayList<String>();
 
@@ -110,6 +110,7 @@ public class FuncoesArquivos {
         return stringDeNulls;
     }
 
+    // n ta funcionando
     public void salvarObjetoParaArquivo(ArrayList<String> listaValoresAtributos, String nomeArquivo){
         
         /*
@@ -135,6 +136,7 @@ public class FuncoesArquivos {
         }
     }
 
+    // importante
     public static void salvarListaEmArquivo(String nomeArquivo, List<String> listaLinhas, boolean append){
         try{
             FileWriter fw = new FileWriter(nomeArquivo, append);
@@ -152,6 +154,7 @@ public class FuncoesArquivos {
         }
     }
 
+    // importante
     public static void alterarInfoArquivo(String nomeArquivo, String infoReferencia, int posColunaInfo, String novaInfo){
         File arquivoAntigo = new File(nomeArquivo);
         File temp = new File("temp.txt");
