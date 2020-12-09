@@ -11,19 +11,17 @@ package frontend;
  * @author leosa
  */
 public class ListaRemedios extends javax.swing.JFrame {
-    String nomeDaPessoaH;
-    String idadeDaPessoaH;
-    String enderecoDaPessoaH;
+    String emailDaPessoa;
+    String senhaDaPessoa;
 
     /**
      * Creates new form listaremedio
      */
     public ListaRemedios() {
     }
-    public void receber(String _nome, String _idade,String _endereco){
-        nomeDaPessoaH = _nome;
-        idadeDaPessoaH = _idade;
-        enderecoDaPessoaH = _endereco;
+    public void receber( String _email, String _senha){
+        emailDaPessoa = _email;
+        senhaDaPessoa = _senha;
         initComponents();
     }
 
@@ -292,7 +290,7 @@ public class ListaRemedios extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
     Home tela = new Home();
-    tela.receber(nomeDaPessoaH, idadeDaPessoaH,enderecoDaPessoaH);
+    tela.receber(emailDaPessoa, senhaDaPessoa);
     tela.setVisible(true);
     dispose();        // TODO add your handling code here:
     }                                      
@@ -315,7 +313,7 @@ public class ListaRemedios extends javax.swing.JFrame {
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
     ListaRemedios lista = new ListaRemedios();
-    lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    lista.receber(emailDaPessoa, senhaDaPessoa);
     lista.setVisible(true);
     dispose();
     }                                        

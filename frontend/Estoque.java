@@ -11,19 +11,16 @@ package frontend;
  * @author leosa
  */
 public class Estoque extends javax.swing.JFrame {
-
-    String nomeDaFarmacia;
-    String cnpjDaFarmacia;
-    String enderecoDaFarmacia;
+    String email;
+    String senha;
     /**
      * Creates new form Estoque
      */
     public Estoque() {
     }
-    public void receber(String _nome, String _idade,String _endereco){
-        nomeDaFarmacia = _nome;
-        cnpjDaFarmacia = _idade;
-        enderecoDaFarmacia = _endereco;
+    public void receber(String _email, String _senha){
+        email = _email;
+        senha = _senha;
         initComponents();
     }
 
@@ -210,7 +207,7 @@ public class Estoque extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
         HomeDaFarmacia tela = new HomeDaFarmacia();
-        tela.receber(nomeDaFarmacia, cnpjDaFarmacia,enderecoDaFarmacia);
+        tela.receber(email,senha);
         tela.setVisible(true);
         dispose();        // TODO add your handling code here:
     }                                      
@@ -234,7 +231,7 @@ public class Estoque extends javax.swing.JFrame {
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Estoque estoque = new Estoque();
-        estoque.receber(nomeDaFarmacia, cnpjDaFarmacia, enderecoDaFarmacia);
+        estoque.receber(email,senha);
         estoque.setVisible(true);
         dispose();
     }                                        

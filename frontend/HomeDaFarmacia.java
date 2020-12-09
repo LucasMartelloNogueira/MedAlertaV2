@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.farmacia.PessoaJuridica;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,20 +13,17 @@ package frontend;
  * @author leosa
  */
 public class HomeDaFarmacia extends javax.swing.JFrame {
-    String nomeDaFarmacia;
-    String cnpjDaFarmacia;
-    String enderecoDaFarmacia;
+    String email;
+    String senha;
     /**
      * Creates new form Homefarmacia
      */
     public HomeDaFarmacia() {
-        initComponents();
     }
     
-    public void receber(String _nome, String _idade,String _endereco){
-        nomeDaFarmacia = _nome;
-        cnpjDaFarmacia = _idade;
-        enderecoDaFarmacia = _endereco;
+    public void receber(String _email, String _senha){
+        email = _email;
+        senha = _senha;
         initComponents();
     }
     /**
@@ -45,6 +44,8 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
         enderecoFarmaciaH = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(email, senha, false, false);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Farmacia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -53,19 +54,19 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
         jLabel2.setText("Nome:");
 
         nomeFarmaciaH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nomeFarmaciaH.setText(nomeDaFarmacia);
+        nomeFarmaciaH.setText(farmacia.getNome());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("CNPJ");
 
         cnpjFarmaciaH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cnpjFarmaciaH.setText(cnpjDaFarmacia);
+        cnpjFarmaciaH.setText(farmacia.getCnpj());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Endereço:");
 
         enderecoFarmaciaH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        enderecoFarmaciaH.setText(enderecoDaFarmacia);
+        enderecoFarmaciaH.setText(farmacia.getEndereco().toString());
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -141,7 +142,7 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
     Estoque estoque = new Estoque();
-    estoque.receber(nomeDaFarmacia, cnpjDaFarmacia, enderecoDaFarmacia);
+    estoque.receber(email, senha);
     estoque.setVisible(true);
     dispose();
     }                                        

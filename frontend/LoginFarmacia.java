@@ -224,17 +224,21 @@ public class LoginFarmacia extends javax.swing.JFrame {
         String nomenFarmacia = nomeFarmaciaEntrada.getText();
         String cnpjFarmacia = cnpjFarmaciaEntrada.getText();
         String enderecoFarmacia =  enderecoFarmaciaEntrada.getText();
-        if(nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()|| enderecoFarmaciaEntrada.getText().trim().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
-        LoginFarmacia login = new LoginFarmacia();
-        login.setVisible(true);
-        dispose();
+        String email = emailLFE.getText();
+        String senha = String.copyValueOf(senhaLFE.getPassword());
+        if(senha == ""||emailLF.getText().trim().isEmpty()||nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()|| enderecoFarmaciaEntrada.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
+            LoginFarmacia login = new LoginFarmacia();
+            login.setVisible(true);
+            dispose();
+        }
+        else{
+            HomeDaFarmacia tela = new HomeDaFarmacia();
+            tela.receber(email,senha);
+            tela.setVisible(true);
+            dispose();
+        }
     }
-        HomeDaFarmacia tela = new HomeDaFarmacia();
-        tela.receber(nomenFarmacia, cnpjFarmacia, enderecoFarmacia);
-        tela.setVisible(true);
-        dispose();
-    }                                               
 
     private void senhaLFEActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:

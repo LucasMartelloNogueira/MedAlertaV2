@@ -5,6 +5,8 @@ package frontend;
  * and open the template in the editor.
  */
 
+import backend.farmacia.PessoaJuridica;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leosa
@@ -122,10 +124,21 @@ public class EntrarFarmacia extends javax.swing.JFrame {
     }                                             
 
     private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        HomeDaFarmacia tela = new HomeDaFarmacia();
-        tela.setVisible(true);
-        dispose();
-    }                                      
+        String senha = String.copyValueOf(senhaEntradaE.getPassword());
+        PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(emailEntradaE.getText(), senha, false, false);
+        if (farmacia == null){
+            JOptionPane.showMessageDialog(null,"Erro, email ou senha incorretos!");
+            EntrarFarmacia novo = new EntrarFarmacia();
+            novo.setVisible(true);
+            dispose();
+        } 
+        else{
+            HomeDaFarmacia tela = new HomeDaFarmacia();
+            tela.receber(emailEntradaE.getText(), senha);
+            tela.setVisible(true);
+            dispose();
+        }
+    }  
 
     /**
      * @param args the command line arguments

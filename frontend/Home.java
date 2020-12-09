@@ -1,5 +1,5 @@
 package frontend;
-
+import backend.usuario.PessoaFisica;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,21 +11,17 @@ package frontend;
  * @author leosa
  */
 public class Home extends javax.swing.JFrame {
-    String nomeDaPessoaH;
-    String idadeDaPessoaH;
-    String enderecoDaPessoaH;
-
+    String emailDaPessoa;
+    String senhaDaPessoa;
     /**
      * Creates new form home
      */
     public Home() {
-        initComponents();
     }
 
-    public void receber(String _nome, String _idade,String _endereco){
-        nomeDaPessoaH = _nome;
-        idadeDaPessoaH = _idade;
-        enderecoDaPessoaH = _endereco;
+    public void receber( String _email, String _senha){
+        emailDaPessoa = _email;
+        senhaDaPessoa = _senha;
         initComponents();
     }
 
@@ -50,6 +46,8 @@ public class Home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         endereco_home = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+
+        PessoaFisica pessoa = PessoaFisica.resgatarUsuarioArquivo(emailDaPessoa, senhaDaPessoa, false, false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,19 +76,19 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setText("Nome:");
 
         nome_home1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nome_home1.setText(nomeDaPessoaH);
+        nome_home1.setText(pessoa.getNome());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Idade:");
 
         idade_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        idade_home.setText(idadeDaPessoaH);
+        idade_home.setText(pessoa.getCpf());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Endereço:");
 
         endereco_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        endereco_home.setText(enderecoDaPessoaH);
+        endereco_home.setText(pessoa.getEndereco().toString());
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -195,14 +193,14 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     ListaRemedios lista = new ListaRemedios();
-    lista.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    lista.receber(emailDaPessoa, senhaDaPessoa);
     lista.setVisible(true);
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     ContatosMedicos emergencias = new ContatosMedicos();
-    emergencias.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    emergencias.receber(emailDaPessoa, senhaDaPessoa);
     emergencias.setVisible(true);
     dispose();
     // TODO add your handling code here:
@@ -210,7 +208,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     ContatosFarmacias farmacia = new ContatosFarmacias();
-    farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    farmacia.receber(emailDaPessoa, senhaDaPessoa);
     farmacia.setVisible(true);
     dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
