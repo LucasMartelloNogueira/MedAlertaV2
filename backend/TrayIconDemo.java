@@ -6,6 +6,14 @@ import java.awt.TrayIcon.MessageType;
 public class TrayIconDemo implements Runnable {
 
     public static void main(String[] args) throws AWTException {
+
+        
+
+        char[] a = {'m','n','x'};
+        String b = String.copyValueOf(a);
+        System.out.println(b);
+
+
         if (SystemTray.isSupported()) {
             TrayIconDemo td = new TrayIconDemo();
             td.displayTray();
@@ -36,6 +44,9 @@ public class TrayIconDemo implements Runnable {
 
     @Override
     public void run() {
+
+        
+
         if (SystemTray.isSupported()) {
             TrayIconDemo td = new TrayIconDemo();
             try {
