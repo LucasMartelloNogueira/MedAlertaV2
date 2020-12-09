@@ -105,7 +105,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    Login login = new Login();
+    LoginPessoa login = new LoginPessoa();
     login.setVisible(true);
     dispose();
 // TODO add your handling code here:
