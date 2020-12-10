@@ -200,16 +200,16 @@ public class PessoaJuridica extends Pessoa{
         }
     }
 
-    public void atualizarQntMedicamentoEstoque(String nomeMedicamento, int novaQuantidade){
+    public void atualizarQntMedicamentoEstoque(Medicamento medicamento, int novaQuantidade){
         if (this.getEstoque() == null){
-            this.adicionarMedicamentoEstoque(nomeMedicamento, novaQuantidade);
+            this.adicionarMedicamentoEstoque(medicamento, novaQuantidade);
         }
 
         Estoque estoqueTemp = this.getEstoque();
 
         for (ItemEstoque itemEstoque : estoqueTemp.listaEstoque){
-            if (itemEstoque.getMedicamento().getNome().equals(nomeMedicamento)){
-                estoqueTemp.atualizarQntMedicamento(nomeMedicamento, novaQuantidade);
+            if (itemEstoque.getMedicamento().getNome().equals(medicamento.getNome())){
+                estoqueTemp.atualizarQntMedicamento(medicamento, novaQuantidade);
                 this.setEstoque(estoqueTemp, true);
             }
         }

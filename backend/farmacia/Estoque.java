@@ -23,9 +23,9 @@ public class Estoque {
         this.listaEstoque.remove(itemEstoque);
     }
 
-    public void atualizarQntMedicamento(String nomeMedicamento, int novaQuantidade){
+    public void atualizarQntMedicamento(Medicamento medicamento, int novaQuantidade){
         for (ItemEstoque itemEstoque : this.listaEstoque){
-            if (itemEstoque.getMedicamento().getNome().equals(nomeMedicamento)){
+            if (itemEstoque.getMedicamento().getNome().equals(medicamento.getNome())){
                 itemEstoque.setQntMedicamento(novaQuantidade);
             }
         }
