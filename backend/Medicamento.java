@@ -40,6 +40,15 @@ public class Medicamento {
         this.condicoesDeUso = condicoesDeUso;
         this.restricao = restricao;
     }
+
+    public Medicamento(String nome, float preco, String especificacoes, String tipoDoRemedio, String condicoesDeUso, boolean restricao){
+        this.nome = nome;
+        this.preco = preco;
+        this.especificacoes = especificacoes;
+        this.tipoDoRemedio = tipoDoRemedio;
+        this.condicoesDeUso = condicoesDeUso;
+        this.restricao = restricao;
+    }
     //getters e setters
 
     public String getNome() {
@@ -95,6 +104,14 @@ public class Medicamento {
         ArrayList<String> listaValoresAtributos = new ArrayList<String>();
         listaValoresAtributos.add(this.getNome());
         listaValoresAtributos.add(String.valueOf(this.getPreco()));
+
+        if (this.getEspecificacoes() == null){
+            listaValoresAtributos.add("null");
+        }
+        else{
+            listaValoresAtributos.add(this.getEspecificacoes());
+        }
+
         listaValoresAtributos.add(this.getTipoDoRemedio());
         listaValoresAtributos.add(this.getCondicoesDeUso());
 

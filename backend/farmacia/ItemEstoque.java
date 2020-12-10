@@ -40,13 +40,14 @@ public class ItemEstoque {
         String[] dadosItemEstoque = itemEstoqueString.split(",");
         String nomeMedicamento = dadosItemEstoque[0];
         Float preco = Float.parseFloat(dadosItemEstoque[1]);
-        String tipoMedicamento = dadosItemEstoque[2];
-        String condicoesMedicamento = dadosItemEstoque[3];
-        boolean restricaoMedicamento = Boolean.parseBoolean(dadosItemEstoque[4]);
-        Medicamento medicamento = new Medicamento(nomeMedicamento,preco, tipoMedicamento, 
-                                                    condicoesMedicamento, restricaoMedicamento);
+        String especificacoes = dadosItemEstoque[2];
+        String tipoMedicamento = dadosItemEstoque[3];
+        String condicoesMedicamento = dadosItemEstoque[4];
+        boolean restricaoMedicamento = Boolean.parseBoolean(dadosItemEstoque[5]);
+        Medicamento medicamento = new Medicamento(nomeMedicamento,preco, especificacoes, 
+                                    tipoMedicamento, condicoesMedicamento, restricaoMedicamento);
         
-        int qnt = Integer.parseInt(dadosItemEstoque[5]);
+        int qnt = Integer.parseInt(dadosItemEstoque[6]);
         ItemEstoque itemEstoque = new ItemEstoque(medicamento, qnt);
         return itemEstoque;
 
