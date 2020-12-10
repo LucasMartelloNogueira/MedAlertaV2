@@ -24,8 +24,9 @@ public class PessoaJuridica extends Pessoa{
     private Estoque estoque;
     private Agenda contatosClientes;
 
-    public PessoaJuridica(String nome, String telefone, String email, String senha){
+    public PessoaJuridica(String nome, String telefone, String email, String senha, String cnpj){
         super(nome, telefone, email, senha);
+        this.cnpj = cnpj;
     }
 
     public String getCnpj(){
@@ -252,8 +253,9 @@ public class PessoaJuridica extends Pessoa{
                 if (email.equals(emailFarmacia) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
                     String telefone = dadosLinha[1];
                     String nome = dadosLinha[0];
+                    String cnpj = dadosLinha[4];
 
-                    PessoaJuridica farmacia = new PessoaJuridica(nome, telefone, email, senha);
+                    PessoaJuridica farmacia = new PessoaJuridica(nome, telefone, email, senha, cnpj);
 
                     if (!dadosLinha[4].equals("null")){
                         farmacia.setCnpj(dadosLinha[4], false);
