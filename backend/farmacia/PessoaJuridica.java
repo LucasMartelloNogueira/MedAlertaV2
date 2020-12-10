@@ -175,14 +175,14 @@ public class PessoaJuridica extends Pessoa{
         }
     }
 
-    public void adicionarMedicamentoEstoque(String nomeMedicamento, int quantidade){
+    public void adicionarMedicamentoEstoque(Medicamento medicamento, int quantidade){
         Estoque estoqueTemp = this.getEstoque();
 
         if (estoqueTemp == null){
             estoqueTemp = new Estoque();
         }
 
-        estoqueTemp.addMedicamentoEstoque(new Medicamento(nomeMedicamento), quantidade);
+        estoqueTemp.addMedicamentoEstoque(medicamento, quantidade);
         this.setEstoque(estoqueTemp, true);
     }
 
