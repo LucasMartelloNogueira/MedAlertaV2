@@ -7,6 +7,9 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
+import backend.Endereco;
+import backend.usuario.PessoaFisica;
+
 /**
  *
  * @author leosa
@@ -199,7 +202,9 @@ public class LoginPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                            
 
-    private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {
+    String telefone = "22222";
+    String cpf = "1111";
     String nomenCompletoLogin = nome_l_e.getText();
     String idadeLogin = idade_l_e.getText();
     String enderecoLogin =  endereco_l_e.getText();
@@ -212,8 +217,12 @@ public class LoginPessoa extends javax.swing.JFrame {
         dispose();
     }
     else{
+        Endereco endereco = Endereco.stringToEndereco(enderecoLogin);
+        String senha2 = String.copyValueOf(senha);
+        PessoaFisica pessoa = new PessoaFisica(nomenCompletoLogin,telefone,email,cpf,senha2,endereco);
+        pessoa.salvarDadosArquivo();
         Home tela = new Home();
-        tela.receber(nomenCompletoLogin, idadeLogin,enderecoLogin);
+        tela.receber(email, senha2);
         tela.setVisible(true);
         dispose();}
     

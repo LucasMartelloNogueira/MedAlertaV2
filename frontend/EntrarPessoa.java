@@ -1,10 +1,11 @@
 package frontend;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import javax.swing.JOptionPane;
+import backend.usuario.PessoaFisica;
 
 /**
  *
@@ -111,6 +112,7 @@ public class EntrarPessoa extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void emailEntradaEActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -121,12 +123,23 @@ public class EntrarPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                             
 
-    private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        Home tela = new Home();
-        tela.setVisible(true);
-        dispose();
-    }                                      
-
+    private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {
+        String senha = String.copyValueOf(senhaEntradaE.getPassword());
+        PessoaFisica pessoa = PessoaFisica.resgatarUsuarioArquivo(emailEntradaE.getText(), senha, false, false);
+        if (pessoa == null){
+            JOptionPane.showMessageDialog(null,"Erro, email ou senha incorretos!");
+            EntrarPessoa novo = new EntrarPessoa();
+            novo.setVisible(true);
+            dispose();
+        } 
+        else{
+            Home tela = new Home();
+            tela.receber(emailEntradaE.getText(), senha);
+            tela.setVisible(true);
+            dispose();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

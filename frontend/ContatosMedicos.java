@@ -10,18 +10,16 @@ package frontend;
  * @author leosa
  */
 public class ContatosMedicos extends javax.swing.JFrame {
-    String nomeDaPessoaH;
-    String idadeDaPessoaH;
-    String enderecoDaPessoaH;
+    String emailDaPessoa;
+    String senhaDaPessoa;
     /**
      * Creates new form Contatosemergencia
      */
     public ContatosMedicos() {
     }
-public void receber(String _nome, String _idade,String _endereco){
-        nomeDaPessoaH = _nome;
-        idadeDaPessoaH = _idade;
-        enderecoDaPessoaH = _endereco;
+    public void receber( String _email, String _senha){
+        emailDaPessoa = _email;
+        senhaDaPessoa = _senha;
         initComponents();
     }
     /**
@@ -184,7 +182,7 @@ public void receber(String _nome, String _idade,String _endereco){
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
         Home tela = new Home();
-        tela.receber(nomeDaPessoaH, idadeDaPessoaH,enderecoDaPessoaH);
+        tela.receber(emailDaPessoa,senhaDaPessoa);
         tela.setVisible(true);
         dispose();        // TODO add your handling code here:
     }                                      
@@ -198,7 +196,7 @@ public void receber(String _nome, String _idade,String _endereco){
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
     ContatosMedicos emergencias = new ContatosMedicos();
-    emergencias.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    emergencias.receber(emailDaPessoa,senhaDaPessoa);
     emergencias.setVisible(true);
     dispose();
     }                                        

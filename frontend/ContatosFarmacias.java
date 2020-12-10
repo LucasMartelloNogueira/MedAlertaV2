@@ -10,19 +10,16 @@ package frontend;
  * @author leosa
  */
 public class ContatosFarmacias extends javax.swing.JFrame {
-
-    String nomeDaPessoaH;
-    String idadeDaPessoaH;
-    String enderecoDaPessoaH;
+    String emailDaPessoa;
+    String senhaDaPessoa;
     /**
      * Creates new form Contatosemergencia
      */
     public ContatosFarmacias() {
     }
-public void receber(String _nome, String _idade,String _endereco){
-        nomeDaPessoaH = _nome;
-        idadeDaPessoaH = _idade;
-        enderecoDaPessoaH = _endereco;
+    public void receber( String _email, String _senha){
+        emailDaPessoa = _email;
+        senhaDaPessoa = _senha;
         initComponents();
     }
     /**
@@ -193,14 +190,14 @@ public void receber(String _nome, String _idade,String _endereco){
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
 
         Home tela = new Home();
-        tela.receber(nomeDaPessoaH, idadeDaPessoaH,enderecoDaPessoaH);
+        tela.receber(emailDaPessoa,senhaDaPessoa);
         tela.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
     ContatosFarmacias farmacia = new ContatosFarmacias();
-    farmacia.receber(nomeDaPessoaH,idadeDaPessoaH,enderecoDaPessoaH);
+    farmacia.receber(emailDaPessoa,senhaDaPessoa);
     farmacia.setVisible(true);
     dispose();
     }//GEN-LAST:event_cancelarActionPerformed

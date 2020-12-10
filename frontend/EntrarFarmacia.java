@@ -1,11 +1,12 @@
 package frontend;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import backend.farmacia.PessoaJuridica;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leosa
@@ -111,6 +112,7 @@ public class EntrarFarmacia extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void emailEntradaEActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -122,10 +124,21 @@ public class EntrarFarmacia extends javax.swing.JFrame {
     }                                             
 
     private void prox_lActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        HomeDaFarmacia tela = new HomeDaFarmacia();
-        tela.setVisible(true);
-        dispose();
-    }                                      
+        String senha = String.copyValueOf(senhaEntradaE.getPassword());
+        PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(emailEntradaE.getText(), senha, false, false);
+        if (farmacia == null){
+            JOptionPane.showMessageDialog(null,"Erro, email ou senha incorretos!");
+            EntrarFarmacia novo = new EntrarFarmacia();
+            novo.setVisible(true);
+            dispose();
+        } 
+        else{
+            HomeDaFarmacia tela = new HomeDaFarmacia();
+            tela.receber(emailEntradaE.getText(), senha);
+            tela.setVisible(true);
+            dispose();
+        }
+    }  
 
     /**
      * @param args the command line arguments
@@ -171,3 +184,4 @@ public class EntrarFarmacia extends javax.swing.JFrame {
     private javax.swing.JLabel senhaL;
     // End of variables declaration                   
 }
+
