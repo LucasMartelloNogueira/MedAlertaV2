@@ -115,19 +115,20 @@ public class teste extends javax.swing.JFrame {
     }                                    
 
     private void novoActionPerformed(java.awt.event.ActionEvent evt) {                                     
-    String nomeT = nome.getText().trim();
-    String idadeT = idade.getText().trim();
-    String numeroT = numero.getText().trim();
-    DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
-    val.addRow(new String[]{nomeT , idadeT, numeroT});
-    nome.setText("");
-    idade.setText("");
-    numero.setText("");
-    }                                    
+        String nomeT = nome.getText().trim();
+        String idadeT = idade.getText().trim();
+        String numeroT = numero.getText().trim();
+        DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+        val.addRow(new String[]{nomeT , idadeT, numeroT});
+        nome.setText("");
+        idade.setText("");
+        numero.setText("");
+        }                                    
 
     private void apagarActionPerformed(java.awt.event.ActionEvent evt) {
 
-		DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+        System.out.println(jTable1.getColumnModel());
 		val.removeRow(jTable1.getSelectedRow());
     }                                      
 

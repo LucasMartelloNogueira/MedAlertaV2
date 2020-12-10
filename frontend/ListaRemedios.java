@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.usuario.PessoaFisica;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,17 +13,15 @@ package frontend;
  * @author leosa
  */
 public class ListaRemedios extends javax.swing.JFrame {
-    String emailDaPessoa;
-    String senhaDaPessoa;
+    PessoaFisica pessoa;
 
     /**
      * Creates new form listaremedio
      */
     public ListaRemedios() {
     }
-    public void receber( String _email, String _senha){
-        emailDaPessoa = _email;
-        senhaDaPessoa = _senha;
+    public void receber(PessoaFisica pessoa){
+    this.pessoa = pessoa;
         initComponents();
     }
 
@@ -290,7 +290,7 @@ public class ListaRemedios extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
     Home tela = new Home();
-    tela.receber(emailDaPessoa, senhaDaPessoa);
+    tela.receber(pessoa);
     tela.setVisible(true);
     dispose();        // TODO add your handling code here:
     }                                      
@@ -313,7 +313,7 @@ public class ListaRemedios extends javax.swing.JFrame {
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
     ListaRemedios lista = new ListaRemedios();
-    lista.receber(emailDaPessoa, senhaDaPessoa);
+    lista.receber(pessoa);
     lista.setVisible(true);
     dispose();
     }                                        

@@ -134,7 +134,7 @@ public class EntrarFarmacia extends javax.swing.JFrame {
         } 
         else{
             HomeDaFarmacia tela = new HomeDaFarmacia();
-            tela.receber(emailEntradaE.getText(), senha);
+            tela.receber(farmacia);
             tela.setVisible(true);
             dispose();
         }

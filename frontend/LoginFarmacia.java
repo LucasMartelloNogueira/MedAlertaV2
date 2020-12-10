@@ -6,10 +6,8 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author leosa
- */
+import backend.Endereco;
+import backend.farmacia.PessoaJuridica;
 public class LoginFarmacia extends javax.swing.JFrame {
 
     /**
@@ -31,8 +29,6 @@ public class LoginFarmacia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         nomeFarmacia = new javax.swing.JLabel();
         nomeFarmaciaEntrada = new javax.swing.JTextField();
-        enderecoFarmacia = new javax.swing.JLabel();
-        enderecoFarmaciaEntrada = new javax.swing.JTextField();
         cnpjFarmacia = new javax.swing.JLabel();
         cnpjFarmaciaEntrada = new javax.swing.JTextField();
         proximoFarmacia = new javax.swing.JButton();
@@ -40,8 +36,15 @@ public class LoginFarmacia extends javax.swing.JFrame {
         senhaLF = new javax.swing.JLabel();
         senhaLFE = new javax.swing.JPasswordField();
         emailLFE = new javax.swing.JTextField();
-        numeroFarmacia = new javax.swing.JLabel();
+        telefoneFarmacia = new javax.swing.JLabel();
         numeroDaFarmaciaEntrada = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        complemento = new javax.swing.JLabel();
+        numero = new javax.swing.JLabel();
+        rua = new javax.swing.JLabel();
+        ruaLF = new javax.swing.JTextField();
+        numeroL = new javax.swing.JTextField();
+        complementoLF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,17 +58,6 @@ public class LoginFarmacia extends javax.swing.JFrame {
         nomeFarmaciaEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeFarmaciaEntradaActionPerformed(evt);
-            }
-        });
-
-        enderecoFarmacia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        enderecoFarmacia.setText("Endereço:");
-        enderecoFarmacia.setToolTipText("");
-
-        enderecoFarmaciaEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        enderecoFarmaciaEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enderecoFarmaciaEntradaActionPerformed(evt);
             }
         });
 
@@ -108,9 +100,9 @@ public class LoginFarmacia extends javax.swing.JFrame {
             }
         });
 
-        numeroFarmacia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        numeroFarmacia.setText("Numero:");
-        numeroFarmacia.setToolTipText("");
+        telefoneFarmacia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        telefoneFarmacia.setText("Telefone:");
+        telefoneFarmacia.setToolTipText("");
 
         numeroDaFarmaciaEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         numeroDaFarmaciaEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +110,81 @@ public class LoginFarmacia extends javax.swing.JFrame {
                 numeroDaFarmaciaEntradaActionPerformed(evt);
             }
         });
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Endereço"));
+
+        complemento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        complemento.setText("Complemento:");
+        complemento.setToolTipText("");
+
+        numero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        numero.setText("Número:");
+        numero.setToolTipText("");
+
+        rua.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rua.setText("Nome da rua:");
+        rua.setToolTipText("");
+
+        ruaLF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        ruaLF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ruaLFActionPerformed(evt);
+            }
+        });
+
+        numeroL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        numeroL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroLActionPerformed(evt);
+            }
+        });
+
+        complementoLF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        complementoLF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complementoLFActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(complemento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(complementoLF)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rua)
+                            .addComponent(numero))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numeroL, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ruaLF, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rua)
+                    .addComponent(ruaLF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numero)
+                    .addComponent(numeroL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(complemento)
+                    .addComponent(complementoLF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,67 +196,63 @@ public class LoginFarmacia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cnpjFarmacia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cnpjFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(nomeFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(enderecoFarmacia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(enderecoFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(emailLF, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(senhaLF))
-                                .addGap(67, 67, 67)
+                                .addGap(86, 86, 86)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(senhaLFE, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailLFE, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(proximoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))
+                                    .addComponent(emailLFE, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nomeFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cnpjFarmacia))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cnpjFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(numeroDaFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(84, 209, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(numeroFarmacia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numeroDaFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(telefoneFarmacia)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(117, 117, 117)
+                .addComponent(proximoFarmacia)
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLF)
+                    .addComponent(emailLFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(senhaLF)
+                    .addComponent(senhaLFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeFarmacia)
+                    .addComponent(nomeFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cnpjFarmacia)
+                    .addComponent(cnpjFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telefoneFarmacia)
+                    .addComponent(numeroDaFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(proximoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(emailLF)
-                            .addComponent(emailLFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(senhaLF)
-                            .addComponent(senhaLFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomeFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nomeFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(enderecoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(enderecoFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cnpjFarmacia)
-                            .addComponent(cnpjFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numeroFarmacia)
-                    .addComponent(numeroDaFarmaciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(58, 58, 58)
+                        .addComponent(proximoFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,34 +274,35 @@ public class LoginFarmacia extends javax.swing.JFrame {
 
     }                                                   
 
-    private void enderecoFarmaciaEntradaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
-        // TODO add your handling code here:
-    }                                                       
-
     private void cnpjFarmaciaEntradaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
     }                                                   
 
     private void proximoFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {                                                
-
+        String telefone = numeroDaFarmaciaEntrada.getText();
         String nomenFarmacia = nomeFarmaciaEntrada.getText();
         String cnpjFarmacia = cnpjFarmaciaEntrada.getText();
-        String enderecoFarmacia =  enderecoFarmaciaEntrada.getText();
         String email = emailLFE.getText();
         String senha = String.copyValueOf(senhaLFE.getPassword());
-        if(senha == ""||emailLF.getText().trim().isEmpty()||nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()|| enderecoFarmaciaEntrada.getText().trim().isEmpty()){
+        String nomeRua = ruaLF.getText();
+        String numeroRua = numeroL.getText();
+        String complementoRua = complementoLF.getText();
+        Endereco endereco = new Endereco(nomeRua, numeroRua, complementoRua);
+        if(senha == ""||emailLF.getText().trim().isEmpty()||nomeFarmaciaEntrada.getText().trim().isEmpty()|| cnpjFarmaciaEntrada.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"Precisa preencher todas as opções corretamente!");
             LoginFarmacia login = new LoginFarmacia();
             login.setVisible(true);
             dispose();
         }
         else{
+            PessoaJuridica farmacia = new PessoaJuridica(nomenFarmacia,telefone,email,senha,cnpjFarmacia, endereco);
+            farmacia.salvarDadosArquivo();
             HomeDaFarmacia tela = new HomeDaFarmacia();
-            tela.receber(email,senha);
+            tela.receber(farmacia);
             tela.setVisible(true);
             dispose();
         }
-    }
+    }                                               
 
     private void senhaLFEActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -251,6 +315,18 @@ public class LoginFarmacia extends javax.swing.JFrame {
     private void numeroDaFarmaciaEntradaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
         // TODO add your handling code here:
     }                                                       
+
+    private void ruaLFActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    private void numeroLActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+    }                                       
+
+    private void complementoLFActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }                                             
 
     /**
      * @param args the command line arguments
@@ -291,17 +367,22 @@ public class LoginFarmacia extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JLabel cnpjFarmacia;
     private javax.swing.JTextField cnpjFarmaciaEntrada;
+    private javax.swing.JLabel complemento;
+    private javax.swing.JTextField complementoLF;
     private javax.swing.JLabel emailLF;
     public javax.swing.JTextField emailLFE;
-    private javax.swing.JLabel enderecoFarmacia;
-    private javax.swing.JTextField enderecoFarmaciaEntrada;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel nomeFarmacia;
     public javax.swing.JTextField nomeFarmaciaEntrada;
+    private javax.swing.JLabel numero;
     private javax.swing.JTextField numeroDaFarmaciaEntrada;
-    private javax.swing.JLabel numeroFarmacia;
+    private javax.swing.JTextField numeroL;
     private javax.swing.JButton proximoFarmacia;
+    private javax.swing.JLabel rua;
+    public javax.swing.JTextField ruaLF;
     private javax.swing.JLabel senhaLF;
     private javax.swing.JPasswordField senhaLFE;
+    private javax.swing.JLabel telefoneFarmacia;
     // End of variables declaration                   
 }

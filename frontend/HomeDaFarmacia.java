@@ -13,17 +13,15 @@ import backend.farmacia.PessoaJuridica;
  * @author leosa
  */
 public class HomeDaFarmacia extends javax.swing.JFrame {
-    String email;
-    String senha;
+    PessoaJuridica farmacia;
     /**
      * Creates new form Homefarmacia
      */
     public HomeDaFarmacia() {
     }
     
-    public void receber(String _email, String _senha){
-        email = _email;
-        senha = _senha;
+    public void receber(PessoaJuridica farmacia){
+        this.farmacia = farmacia;
         initComponents();
     }
     /**
@@ -43,8 +41,6 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         enderecoFarmaciaH = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-
-        PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(email, senha, false, false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,8 +137,8 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    Estoque estoque = new Estoque();
-    estoque.receber(email, senha);
+    EstoqueFarmacia estoque = new EstoqueFarmacia();
+    estoque.receber(farmacia);
     estoque.setVisible(true);
     dispose();
     }                                        

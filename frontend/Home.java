@@ -11,17 +11,15 @@ import backend.usuario.PessoaFisica;
  * @author leosa
  */
 public class Home extends javax.swing.JFrame {
-    String emailDaPessoa;
-    String senhaDaPessoa;
+    PessoaFisica pessoa;
     /**
      * Creates new form home
      */
     public Home() {
     }
 
-    public void receber( String _email, String _senha){
-        emailDaPessoa = _email;
-        senhaDaPessoa = _senha;
+    public void receber(PessoaFisica pessoa){
+        this.pessoa = pessoa;
         initComponents();
     }
 
@@ -46,8 +44,6 @@ public class Home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         endereco_home = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-
-        PessoaFisica pessoa = PessoaFisica.resgatarUsuarioArquivo(emailDaPessoa, senhaDaPessoa, false, false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +75,7 @@ public class Home extends javax.swing.JFrame {
         nome_home1.setText(pessoa.getNome());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Idade:");
+        jLabel1.setText("CPF:");
 
         idade_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         idade_home.setText(pessoa.getCpf());
@@ -193,14 +189,14 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     ListaRemedios lista = new ListaRemedios();
-    lista.receber(emailDaPessoa, senhaDaPessoa);
+    lista.receber(pessoa);
     lista.setVisible(true);
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     ContatosMedicos emergencias = new ContatosMedicos();
-    emergencias.receber(emailDaPessoa, senhaDaPessoa);
+    emergencias.receber(pessoa);
     emergencias.setVisible(true);
     dispose();
     // TODO add your handling code here:
@@ -208,7 +204,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     ContatosFarmacias farmacia = new ContatosFarmacias();
-    farmacia.receber(emailDaPessoa, senhaDaPessoa);
+    farmacia.receber(pessoa);
     farmacia.setVisible(true);
     dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

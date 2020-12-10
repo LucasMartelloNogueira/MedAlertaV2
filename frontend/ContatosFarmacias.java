@@ -5,21 +5,21 @@ package frontend;
  * and open the template in the editor.
  */
 
+import backend.usuario.PessoaFisica;
+
 /**
  *
  * @author leosa
  */
 public class ContatosFarmacias extends javax.swing.JFrame {
-    String emailDaPessoa;
-    String senhaDaPessoa;
+    PessoaFisica pessoa;
     /**
      * Creates new form Contatosemergencia
      */
     public ContatosFarmacias() {
     }
-    public void receber( String _email, String _senha){
-        emailDaPessoa = _email;
-        senhaDaPessoa = _senha;
+    public void receber(PessoaFisica pessoa){
+        this.pessoa = pessoa;
         initComponents();
     }
     /**
@@ -190,14 +190,14 @@ public class ContatosFarmacias extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
 
         Home tela = new Home();
-        tela.receber(emailDaPessoa,senhaDaPessoa);
+        tela.receber(pessoa);
         tela.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
     ContatosFarmacias farmacia = new ContatosFarmacias();
-    farmacia.receber(emailDaPessoa,senhaDaPessoa);
+    farmacia.receber(pessoa);
     farmacia.setVisible(true);
     dispose();
     }//GEN-LAST:event_cancelarActionPerformed

@@ -9,7 +9,6 @@ public class Medicamento {
     private String tipoDoRemedio; //comprimido? xarope?
     private String condicoesDeUso; //tomar em jejum? etc
     private boolean restricao; // precisa de receita?
-
     //construtores
 
     public Medicamento(String nome){
@@ -34,8 +33,13 @@ public class Medicamento {
         this.condicoesDeUso = condicoesDeUso;
         this.restricao = restricao;
     }
-
-
+    public Medicamento(String nome, float preco, String tipoDoRemedio, String condicoesDeUso, boolean restricao){
+        this.nome = nome;
+        this.preco = preco;
+        this.tipoDoRemedio = tipoDoRemedio;
+        this.condicoesDeUso = condicoesDeUso;
+        this.restricao = restricao;
+    }
     //getters e setters
 
     public String getNome() {

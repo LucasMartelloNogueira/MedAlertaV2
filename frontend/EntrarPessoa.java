@@ -134,7 +134,7 @@ public class EntrarPessoa extends javax.swing.JFrame {
         } 
         else{
             Home tela = new Home();
-            tela.receber(emailEntradaE.getText(), senha);
+            tela.receber(pessoa);
             tela.setVisible(true);
             dispose();
         }
