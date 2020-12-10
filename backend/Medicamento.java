@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Medicamento {
     private String nome;
-    private int preco;
+    private float preco;
     private String especificacoes;
     private String tipoDoRemedio; //comprimido? xarope?
     private String condicoesDeUso; //tomar em jejum? etc
@@ -16,7 +16,7 @@ public class Medicamento {
         this.nome = nome;
     }
 
-    public Medicamento(String nome, int preco, String especificacoes){
+    public Medicamento(String nome, float preco, String especificacoes){
         this.nome = nome;
         this.preco = preco;
         this.especificacoes = especificacoes;
@@ -42,11 +42,11 @@ public class Medicamento {
         return this.nome;
     }
 
-    public int getPreco(){
+    public float getPreco(){
         return this.preco;
     }
 
-    public void setPreco(int novoPreco){
+    public void setPreco(float novoPreco){
         this.preco = novoPreco;
     }
 
