@@ -90,6 +90,7 @@ public class Medicamento {
     public String toString(){
         ArrayList<String> listaValoresAtributos = new ArrayList<String>();
         listaValoresAtributos.add(this.getNome());
+        listaValoresAtributos.add(String.valueOf(this.getPreco()));
         listaValoresAtributos.add(this.getTipoDoRemedio());
         listaValoresAtributos.add(this.getCondicoesDeUso());
 
