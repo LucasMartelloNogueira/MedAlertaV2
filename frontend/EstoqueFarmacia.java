@@ -132,7 +132,12 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
             }
         });
 
-        excluir.setText("Excluir do estoque");
+        excluir.setText("Clique 2x para excluir do estoque");
+        excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,7 +230,7 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
         HomeDaFarmacia tela = new HomeDaFarmacia();
         tela.receber(farmacia);
         tela.setVisible(true);
-        dispose();        // TODO add your handling code here:
+        dispose();       
     }                                      
 
     private void quantidadeRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                                  
@@ -265,7 +270,15 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
         estoque.receber(farmacia);
         estoque.setVisible(true);
         dispose();
-    }                                      
+    }       
+    private void excluirActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        String nomeRemedioExcluir = tabelaRemedio.getValueAt(tabelaRemedio.getSelectedRow(),0).toString();
+        farmacia.retirarMedicamentoEstoque(nomeRemedioExcluir);
+        EstoqueFarmacia estoque = new EstoqueFarmacia();
+        estoque.receber(farmacia);
+        estoque.setVisible(true);
+        dispose();
+    }
 
     /**
      * @param args the command line arguments

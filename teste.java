@@ -128,8 +128,10 @@ public class teste extends javax.swing.JFrame {
     private void apagarActionPerformed(java.awt.event.ActionEvent evt) {
 
         DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
-        System.out.println(jTable1.getColumnModel());
-		val.removeRow(jTable1.getSelectedRow());
+        System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(),0 ));
+        System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(),1 ));
+        System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(),2 ));
+		//val.removeRow(jTable1.getSelectedRow());
     }                                      
 
     /**

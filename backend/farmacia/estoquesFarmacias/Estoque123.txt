@@ -1,4 +1,0 @@
-aa,15.0,null,null,false,20
-aa,15.5,null,null,false,20
-aa,15.0,null,null,false,20
-aa,15.0,null,null,false,10
