@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Medicamento {
     private String nome;
+    private int preco;
+    private String especificacoes;
     private String tipoDoRemedio; //comprimido? xarope?
     private String condicoesDeUso; //tomar em jejum? etc
     private boolean restricao; // precisa de receita?
@@ -12,6 +14,12 @@ public class Medicamento {
 
     public Medicamento(String nome){
         this.nome = nome;
+    }
+
+    public Medicamento(String nome, int preco, String especificacoes){
+        this.nome = nome;
+        this.preco = preco;
+        this.especificacoes = especificacoes;
     }
 
     public Medicamento(String nome, String tipoDoRemedio, String condicoesDeUso){
@@ -32,6 +40,22 @@ public class Medicamento {
 
     public String getNome() {
         return this.nome;
+    }
+
+    public int getPreco(){
+        return this.preco;
+    }
+
+    public void setPreco(int novoPreco){
+        this.preco = novoPreco;
+    }
+
+    public String getEspecificacoes(){
+        return this.especificacoes;
+    }
+
+    public void setEspecificacoes(String novasEspecificacoes){
+        this.especificacoes = novasEspecificacoes;
     }
 
     public String getTipoDoRemedio() {
