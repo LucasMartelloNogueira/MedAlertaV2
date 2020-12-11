@@ -10,7 +10,6 @@ import java.util.List;
 
 import backend.Agenda;
 import backend.Autenticacao;
-import backend.Contactavel;
 import backend.Endereco;
 import backend.FuncoesArquivos;
 import backend.Pessoa;

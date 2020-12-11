@@ -2,7 +2,7 @@
  * DS Desktop Notify
  * A small utility to show small notifications in your Desktop anytime!
  */
-package dsdesktopnotify;
+package backend.dsdesktopnotify;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

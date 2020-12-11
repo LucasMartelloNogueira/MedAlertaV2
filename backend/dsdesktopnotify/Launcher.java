@@ -2,9 +2,9 @@
  * DS Desktop Notify
  * A small utility to show small notifications in your Desktop anytime!
  */
-package dsdesktopnotify;
+package backend.dsdesktopnotify;
 
-import dsdesktopnotify.service.NotifyService;
+import backend.dsdesktopnotify.service.NotifyService;
 
 /**
  * Static class that serves as launcher.

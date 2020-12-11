@@ -24,7 +24,7 @@ public class Autenticacao {
         }
         String senhaHexa = hexString.toString();
 
-        System.out.println(senhaHexa);
+        //System.out.println(senhaHexa);
 
         return senhaHexa;
     }
@@ -43,26 +43,25 @@ public class Autenticacao {
     }
 
     //main utilizada apenas para fins de teste
-    public static void main(String[] args) {
-        try {
-            encriptarSenha("valesca", "123");
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        try {
-            autenticar = autenticar("valesca", "123", "182734");
-            System.out.println("Autenticado: "+ autenticar);
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+    // public static void main(String[] args) {
+    //     try {
+    //         encriptarSenha("valesca", "123");
+    //     } catch (NoSuchAlgorithmException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     } catch (UnsupportedEncodingException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     }
+    //     try {
+    //         autenticar = autenticar("valesca", "123", "182734");
+    //         System.out.println("Autenticado: "+ autenticar);
+    //     } catch (NoSuchAlgorithmException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     } catch (UnsupportedEncodingException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     }
+    // }
 }

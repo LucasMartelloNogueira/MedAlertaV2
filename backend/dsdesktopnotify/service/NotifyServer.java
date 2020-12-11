@@ -2,7 +2,7 @@
  * DS Desktop Notify
  * A small utility to show small notifications in your Desktop anytime!
  */
-package dsdesktopnotify.service;
+package backend.dsdesktopnotify.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,9 +18,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import dsdesktopnotify.DesktopNotify;
-import dsdesktopnotify.NotificationBuilder;
-import dsdesktopnotify.NotifyTheme;
+import backend.dsdesktopnotify.DesktopNotify;
+import backend.dsdesktopnotify.NotificationBuilder;
+import backend.dsdesktopnotify.NotifyTheme;
 
 /**
  * A {@code NotifyServer} runs a notification service for this host. Other

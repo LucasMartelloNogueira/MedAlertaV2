@@ -10,7 +10,6 @@ import backend.Pessoa;
 import backend.usuario.PessoaFisica;
 import backend.usuario.Uso;
 import backend.Agenda;
-import backend.Contactavel;
 import backend.usuario.Medico;
 
 import java.io.*;
