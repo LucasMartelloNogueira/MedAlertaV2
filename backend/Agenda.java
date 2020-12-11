@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import backend.farmacia.PessoaJuridica;
+import backend.usuario.Medico;
 import backend.usuario.PessoaFisica;
 
 public class Agenda {
@@ -141,7 +142,8 @@ public class Agenda {
             }
 
             if (tipoContato.equals("medico")){
-                // a ser feito 
+                Medico medico = Medico.resgatarMedicoArquivo(nome, senhaFornecida, ignorarSenha);
+                agenda.adicionarContato(medico);
             }
         }
         return agenda;
