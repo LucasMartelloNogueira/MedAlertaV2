@@ -2,3 +2,4 @@ nome,telefone,email,senha,cnpj,endereco,nomeArquivoEstoque,AgendaContatosCliente
 Raia,tel123,raia@gmail.com,F55DAA0B19228CE8E1481A3931E3E2FFA481E5BDE27B755C348D6496280BF314,cnpj123,joao pessoa/18/null/null/null/null/null/null,null,leo@gmail.com/lucas@gmail.com
 123,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,123/123/123/null/null/null/null/null,null,null
 Raia,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,Herotides de oliveira/69/aprt 1301/null/null/null/null/null,null,null
+lucas drogas,123,lucas@gmail.com,DFCD3F99018EA9BB313DD7C6CC7166724ACC45E185F39EC38A617005743AA272,321,Canabis/420/69/null/null/null/null/null,null,null

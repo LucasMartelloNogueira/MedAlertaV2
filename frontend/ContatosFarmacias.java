@@ -65,6 +65,11 @@ public class ContatosFarmacias extends javax.swing.JFrame {
         editarFarmacia.setText("Editar farmacia");
 
         excluirFarmacia.setText("Excluir");
+        excluirFarmacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirFarmaciaActionPerformed(evt);
+            }
+        });
 
         nomeFarmacia.setEnabled(false);
 
@@ -203,12 +208,15 @@ public class ContatosFarmacias extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void novaFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaFarmaciaActionPerformed
-    nomeFarmacia.setEnabled(true);
-    numeroFarmacia.setEnabled(true);
-    enderecoFarmacia.setEnabled(true);
-    salvarFarmacia.setEnabled(true);
-    cancelar.setEnabled(true);// TODO add your handling code here:
-    }//GEN-LAST:event_novaFarmaciaActionPerformed
+        nomeFarmacia.setEnabled(true);
+        numeroFarmacia.setEnabled(true);
+        enderecoFarmacia.setEnabled(true);
+        salvarFarmacia.setEnabled(true);
+        cancelar.setEnabled(true);
+    }
+    private void excluirFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        
+    }
 
     /**
      * @param args the command line arguments

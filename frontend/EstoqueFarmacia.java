@@ -4,16 +4,14 @@ import backend.Medicamento;
 import backend.farmacia.Estoque;
 import backend.farmacia.ItemEstoque;
 import backend.farmacia.PessoaJuridica;
-
 import java.io.File;
-
 import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author leosa
@@ -132,7 +130,7 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
             }
         });
 
-        excluir.setText("Clique 2x para excluir do estoque");
+        excluir.setText("Excluir");
         excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 excluirActionPerformed(evt);
@@ -273,11 +271,15 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
     }       
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {                                        
         String nomeRemedioExcluir = tabelaRemedio.getValueAt(tabelaRemedio.getSelectedRow(),0).toString();
-        farmacia.retirarMedicamentoEstoque(nomeRemedioExcluir);
-        EstoqueFarmacia estoque = new EstoqueFarmacia();
-        estoque.receber(farmacia);
-        estoque.setVisible(true);
-        dispose();
+        try {
+            farmacia.retirarMedicamentoEstoque(nomeRemedioExcluir);   
+        } catch (Exception e) {}
+        finally{
+            EstoqueFarmacia estoque = new EstoqueFarmacia();
+            estoque.receber(farmacia);
+            estoque.setVisible(true);
+            dispose();
+        }
     }
 
     /**

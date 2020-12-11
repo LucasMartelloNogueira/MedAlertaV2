@@ -62,7 +62,7 @@ public class HomeDaFarmacia extends javax.swing.JFrame {
         jLabel3.setText("Endereço:");
 
         enderecoFarmaciaH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        enderecoFarmaciaH.setText(farmacia.getEndereco().toString());
+        enderecoFarmaciaH.setText(farmacia.getEndereco().toStringFront());
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

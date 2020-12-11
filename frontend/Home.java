@@ -84,7 +84,7 @@ public class Home extends javax.swing.JFrame {
         jLabel3.setText("Endereço:");
 
         endereco_home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        endereco_home.setText(pessoa.getEndereco().toString());
+        endereco_home.setText(pessoa.getEndereco().toStringFront());
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -191,7 +191,7 @@ public class Home extends javax.swing.JFrame {
     ListaRemedios lista = new ListaRemedios();
     lista.receber(pessoa);
     lista.setVisible(true);
-    dispose();// TODO add your handling code here:
+    dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -206,7 +206,7 @@ public class Home extends javax.swing.JFrame {
     ContatosFarmacias farmacia = new ContatosFarmacias();
     farmacia.receber(pessoa);
     farmacia.setVisible(true);
-    dispose();        // TODO add your handling code here:
+    dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

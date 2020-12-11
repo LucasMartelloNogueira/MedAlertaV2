@@ -1,27 +1,29 @@
 package frontend;
 
+import backend.Medicamento;
 import backend.usuario.PessoaFisica;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import backend.usuario.Uso;
+import java.io.File;
+import java.lang.reflect.Array;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author leosa
  */
 public class ListaRemedios extends javax.swing.JFrame {
+
     PessoaFisica pessoa;
 
     /**
      * Creates new form listaremedio
      */
-    public ListaRemedios() {
-    }
+    public ListaRemedios() {}
+    
     public void receber(PessoaFisica pessoa){
-    this.pessoa = pessoa;
+        this.pessoa = pessoa;
         initComponents();
     }
 
@@ -52,11 +54,14 @@ public class ListaRemedios extends javax.swing.JFrame {
         novoRemedio = new javax.swing.JButton();
         salvar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-        editar = new javax.swing.JButton();
         excluir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaRemedio = new javax.swing.JTable();
         intervaloRemedio = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        doseRemedio = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        duracaoRemedio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -147,9 +152,12 @@ public class ListaRemedios extends javax.swing.JFrame {
             }
         });
 
-        editar.setText("editar");
-
         excluir.setText("excluir");
+        excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirActionPerformed(evt);
+            }
+        });
 
         tabelaRemedio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +186,24 @@ public class ListaRemedios extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Doses:");
+
+        doseRemedio.setEnabled(false);
+        doseRemedio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doseRemedioActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Duração");
+
+        duracaoRemedio.setEnabled(false);
+        duracaoRemedio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                duracaoRemedioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,9 +212,9 @@ public class ListaRemedios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(intervaloRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(horaRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(intervaloRemedio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(horaRemedio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -199,14 +225,22 @@ public class ListaRemedios extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(segunda)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(terca)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(quarta)
+                                        .addComponent(terca))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(quarta)
+                                    .addComponent(doseRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(quinta)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(sexta)
@@ -214,7 +248,10 @@ public class ListaRemedios extends javax.swing.JFrame {
                                         .addComponent(sabado)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(domingo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(duracaoRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(voltar)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
@@ -225,12 +262,10 @@ public class ListaRemedios extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(nomeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 104, Short.MAX_VALUE)))
+                        .addGap(0, 82, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(172, 172, 172))
             .addGroup(layout.createSequentialGroup()
@@ -247,10 +282,14 @@ public class ListaRemedios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nomeRemedio, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantidadeRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(doseRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(duracaoRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -266,22 +305,35 @@ public class ListaRemedios extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(salvar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(segunda)
-                            .addComponent(terca)
-                            .addComponent(quarta)
-                            .addComponent(quinta)
-                            .addComponent(sexta)
-                            .addComponent(sabado)
-                            .addComponent(domingo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(segunda)
+                                    .addComponent(terca)
+                                    .addComponent(quarta)
+                                    .addComponent(quinta)
+                                    .addComponent(sexta)
+                                    .addComponent(domingo))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(sabado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(excluir)
-                    .addComponent(editar))
+                .addComponent(excluir)
                 .addGap(24, 24, 24))
         );
+        File arquivoEstoque = new File(pessoa.getNomeArquivoUsos());
+        if(arquivoEstoque.exists()){
+            List<Uso> estoque = PessoaFisica.resgatarListaUsoMedicamentosArquivo(pessoa.getNomeArquivoUsos());
+            pessoa.setListaUsoMedicamentos(estoque, false);
+            DefaultTableModel val = (DefaultTableModel) tabelaRemedio.getModel();
+            for(Uso itemRemedio : pessoa.getListaUsoMedicamentos()){
+                String quantidade = String.valueOf(itemRemedio.getQtdDisponivel());
+                String dias = itemRemedio.horariosToString();
+                String hora = String.valueOf(itemRemedio.getHorarioDeInicio());
+                val.addRow(new String[]{itemRemedio.getRemedio().getNome(), quantidade, dias, hora});
+            }
+        }
 
         pack();
         setLocationRelativeTo(null);
@@ -289,10 +341,10 @@ public class ListaRemedios extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
-    Home tela = new Home();
-    tela.receber(pessoa);
-    tela.setVisible(true);
-    dispose();        // TODO add your handling code here:
+        Home tela = new Home();
+        tela.receber(pessoa);
+        tela.setVisible(true);
+        dispose();        // TODO add your handling code here:
     }                                      
 
     private void novoRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -308,14 +360,16 @@ public class ListaRemedios extends javax.swing.JFrame {
         domingo.setEnabled(true);
         salvar.setEnabled(true);
         horaRemedio.setEnabled(true);
+        doseRemedio.setEnabled(true);
+        duracaoRemedio.setEnabled(true);
         
     }                                           
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    ListaRemedios lista = new ListaRemedios();
-    lista.receber(pessoa);
-    lista.setVisible(true);
-    dispose();
+        ListaRemedios lista = new ListaRemedios();
+        lista.receber(pessoa);
+        lista.setVisible(true);
+        dispose();
     }                                        
 
     private void segundaActionPerformed(java.awt.event.ActionEvent evt) {                                        
@@ -331,20 +385,20 @@ public class ListaRemedios extends javax.swing.JFrame {
     }                                       
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        String dias ="";
-        int horaInt;
-        int intervaloInt;
-
         String hora = horaRemedio.getSelectedItem().toString();
         String intervalo = intervaloRemedio.getSelectedItem().toString();
+        ArrayList<String> listaDias = new ArrayList<>();
 
-        if (segunda.isSelected()){dias =  dias +"seg, ";}
-        if (terca.isSelected()){dias =  dias +"ter, ";}
-        if (quarta.isSelected()){dias =  dias +"qua, ";}
-        if (quinta.isSelected()){dias =  dias +"qui, ";}
-        if (sexta.isSelected()){dias =  dias +"sex, ";}
-        if (sabado.isSelected()){dias =  dias +"sab, ";}
-        if (domingo.isSelected()){dias =  dias +"dom, ";}
+        if (segunda.isSelected()){listaDias.add("seg");}
+        if (terca.isSelected()){listaDias.add("ter");}
+        if (quarta.isSelected()){listaDias.add("qua");}
+        if (quinta.isSelected()){listaDias.add("qui");}
+        if (sexta.isSelected()){listaDias.add("sex");}
+        if (sabado.isSelected()){listaDias.add("sab");}
+        if (domingo.isSelected()){listaDias.add("dom");}
+
+        int horaInt = 0;
+        int intervaloInt = 0;
 
         switch (hora){
             case "00hr": horaInt = 0; break;
@@ -387,15 +441,43 @@ public class ListaRemedios extends javax.swing.JFrame {
             case "de 11 em 11 horas": intervaloInt = 11; break;
             case "de 12 em 12 horas": intervaloInt = 12; break;
         }
+        Medicamento remedio = new Medicamento(nomeRemedio.getText());
+        Uso novoUso = new Uso(remedio, Integer.parseInt(doseRemedio.getText()), listaDias, Integer.parseInt(duracaoRemedio.getText()), 
+                                                        Integer.parseInt(quantidadeRemedio.getText()), horaInt, intervaloInt);
+        this.pessoa.adicionarUsoNaListaUsoMedicamentos(novoUso);
+        ListaRemedios lista = new ListaRemedios();
+        lista.receber(pessoa);
+        lista.setVisible(true);
+        dispose();
     }                                      
 
     private void horaRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                            
-    intervaloRemedio.setEnabled(true);        // TODO add your handling code here:
+    intervaloRemedio.setEnabled(true);  
     }                                           
 
     private void intervaloRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
+        
     }                                                
+
+    private void doseRemedioActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       
+    }                                           
+
+    private void duracaoRemedioActionPerformed(java.awt.event.ActionEvent evt) {}     
+
+    private void excluirActionPerformed(java.awt.event.ActionEvent evt) {    
+
+        String nomeRemedioExcluir = tabelaRemedio.getValueAt(tabelaRemedio.getSelectedRow(),0).toString();
+        try {
+            this.pessoa.removerUsoNaListaUsoMedicamentos(nomeRemedioExcluir);
+        } catch (Exception e) {}
+        finally{
+            ListaRemedios lista = new ListaRemedios();
+            lista.receber(pessoa);
+            lista.setVisible(true);
+            dispose();
+        }
+    }                                   
 
     /**
      * @param args the command line arguments
@@ -436,7 +518,8 @@ public class ListaRemedios extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JButton cancelar;
     private javax.swing.JCheckBox domingo;
-    private javax.swing.JButton editar;
+    private javax.swing.JTextField doseRemedio;
+    private javax.swing.JTextField duracaoRemedio;
     private javax.swing.JButton excluir;
     private javax.swing.JComboBox<String> horaRemedio;
     private javax.swing.JComboBox<String> intervaloRemedio;
@@ -444,6 +527,8 @@ public class ListaRemedios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField nomeRemedio;
     private javax.swing.JButton novoRemedio;
