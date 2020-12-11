@@ -9,8 +9,8 @@ public class Uso {
     private String tipoDoRemedio; //comprimido, xarope
     private ArrayList<String> horarios = new ArrayList<>(); //a atualizar
     private int duracaoDoTratamento; //em dias
-    private String horarioDeInicio;
-    private float intervalo;
+    private int horarioDeInicio;
+    private int intervalo;
     private int qtdDisponivel;
 
     //construtor
@@ -42,6 +42,15 @@ public class Uso {
     public int getDuracaoDoTratamento() {
         return duracaoDoTratamento;
     }
+
+    public int getHorarioDeInicio(){
+        return this.horarioDeInicio;
+    }
+
+    public void setHorarioDeInicio(int novoHorario){
+        this.horarioDeInicio = novoHorario;
+    }
+
 
     public int getQtdDisponivel() {
         return qtdDisponivel;
