@@ -4,7 +4,7 @@ import backend.Agenda;
 import backend.Endereco;
 import backend.Gerenciador;
 import backend.Pessoa;
-import backend.TrayIconDemo;
+// import backend.TrayIconDemo;
 import backend.usuario.PessoaFisica;
 import frontend.Inicio;
 
@@ -13,17 +13,17 @@ public class Main {
         //criar thread para tela principal
         //criar thread para gerenciador
 
-        Inicio telaInicial = new Inicio();
-        Thread interfaceComUsuario = new Thread(telaInicial);
-        interfaceComUsuario.start();
+        // Inicio telaInicial = new Inicio();
+        // Thread interfaceComUsuario = new Thread(telaInicial);
+        // interfaceComUsuario.start();
 
-        TrayIconDemo t = new TrayIconDemo();
-        Thread icon = new Thread(t);
-        icon.start();
+        // TrayIconDemo t = new TrayIconDemo();
+        // Thread icon = new Thread(t);
+        // icon.start();
 
-        Gerenciador g = new Gerenciador();
-        Thread gerenciador = new Thread(g);
-        gerenciador.start();
+        // Gerenciador g = new Gerenciador();
+        // Thread gerenciador = new Thread(g);
+        // gerenciador.start();
 
         //linhas de teste
         // Agenda agenda = new Agenda();

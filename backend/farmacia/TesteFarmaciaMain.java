@@ -153,8 +153,16 @@ public class TesteFarmaciaMain {
         // Medico medico1 = Medico.resgatarMedicoArquivo("dr Reid", "senhaMedico", false);
         // System.out.println("especialidade: " + medico1.getEspecialidade());
 
-        Medicamento medicamento = new Medicamento("dorflex");
-        System.out.println("preco: " + medicamento.getPreco());
+        // Medicamento medicamento = new Medicamento("dorflex");
+        // System.out.println("preco: " + medicamento.getPreco());
         
+
+        ArrayList<Integer> lista = new ArrayList<>();
+        lista.add(1);
+        lista.add(2);
+
+        for (Integer a : lista){
+            lista.remove(a);
+        }
     }
 }
