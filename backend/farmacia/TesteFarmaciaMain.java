@@ -156,13 +156,7 @@ public class TesteFarmaciaMain {
         // Medicamento medicamento = new Medicamento("dorflex");
         // System.out.println("preco: " + medicamento.getPreco());
         
-
-        ArrayList<Integer> lista = new ArrayList<>();
-        lista.add(1);
-        lista.add(2);
-
-        for (Integer a : lista){
-            lista.remove(a);
-        }
+        
+        
     }
 }

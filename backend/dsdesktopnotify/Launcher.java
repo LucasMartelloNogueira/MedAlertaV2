@@ -27,10 +27,10 @@ public class Launcher {
 //            "-p", "7"
 //        };
 //        args = new String[] {"-h", "stop"};
-        if (args.length == 0) {
-            Demonstration.main(args);
-            return;
-        }
+        // if (args.length == 0) {
+        //     Demonstration.main(args);
+        //     return;
+        // }
         if (assertArg(args, 0, "-v", "--version")) {
             System.out.println("DS Desktop Notify v0.9 Beta");
         } else if (assertArg(args, 0, "-?", "--help")) {

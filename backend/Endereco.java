@@ -163,6 +163,21 @@ public class Endereco {
         return enderecoString;
     }
 
+    public String toStringFront(){
+        String enderecoStringCompleto = this.toString();
+        String[] dadosEndereco = enderecoStringCompleto.split("/");
+        ArrayList<String> listaTemp = new ArrayList<>();
+
+        for (String s : dadosEndereco){
+            if (!s.equals("null")){
+                listaTemp.add(s);
+            }
+        }
+
+        String enderecoStringFront = String.join(",", listaTemp);
+        return enderecoStringFront;
+    }
+
     public static Endereco stringToEndereco(String enderecoString){
         String[] dadosEndereco = enderecoString.split("/");
         Endereco endereco = new Endereco(dadosEndereco[0], dadosEndereco[1]);
