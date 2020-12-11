@@ -4,26 +4,22 @@ import backend.Agenda;
 import backend.Endereco;
 import backend.Gerenciador;
 import backend.Pessoa;
-import backend.TrayIconDemo;
+import backend.dsdesktopnotify.Notificacao;
 import backend.usuario.PessoaFisica;
 import frontend.Inicio;
 
 public class Main {
     public static void main(String[] args) {
-        //criar thread para tela principal
-        //criar thread para gerenciador
-
+        //thread para tela principal do aplicativo
         Inicio telaInicial = new Inicio();
         Thread interfaceComUsuario = new Thread(telaInicial);
         interfaceComUsuario.start();
-
-        TrayIconDemo t = new TrayIconDemo();
-        Thread icon = new Thread(t);
-        icon.start();
-
+        //thread para gerenciador do aplicativo
         Gerenciador g = new Gerenciador();
         Thread gerenciador = new Thread(g);
         gerenciador.start();
+
+        Notificacao.notificar();
 
         //linhas de teste
         // Agenda agenda = new Agenda();
