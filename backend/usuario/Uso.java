@@ -22,6 +22,16 @@ public class Uso {
         setQtdDisponivel(qtdDisponivel);
     }
 
+    public Uso(Medicamento remedio, int dose, ArrayList<String> horarios, int duracaoDoTratamento, int qtdDisponivel, int horarioInicial, int intervalo){
+        this.remedio = remedio;
+        this.dose = dose;
+        this.horarios = horarios;
+        this.duracaoDoTratamento = duracaoDoTratamento;
+        this.horarioDeInicio = horarioInicial;
+        this.intervalo = intervalo;
+        setQtdDisponivel(qtdDisponivel);
+    }
+
     //getters e setters
     public Medicamento getRemedio() {
         return remedio;
@@ -51,6 +61,13 @@ public class Uso {
         this.horarioDeInicio = novoHorario;
     }
 
+    public int getIntervalo(){
+        return this.intervalo;
+    }
+
+    public void setIntervalo(int novoIntervalo){
+        this.intervalo = novoIntervalo;
+    }
 
     public int getQtdDisponivel() {
         return qtdDisponivel;
@@ -117,6 +134,9 @@ public class Uso {
         listaValoresAtributos.add(this.horariosToString());
         listaValoresAtributos.add(Integer.toString(this.getDuracaoDoTratamento()));
         listaValoresAtributos.add(Integer.toString(this.getQtdDisponivel()));
+        listaValoresAtributos.add(Integer.toString(this.getHorarioDeInicio()));
+        listaValoresAtributos.add(Integer.toString(this.getIntervalo()));
+
 
         String usoString = String.join(",", listaValoresAtributos);
         return usoString;
@@ -130,8 +150,10 @@ public class Uso {
         ArrayList<String> horarios = horariosStringToList(dadosLinha[2]);
         int duracaoDoTratamento = Integer.parseInt(dadosLinha[3]);
         int qtdDisponivel = Integer.parseInt(dadosLinha[4]);
+        int horarioInicial = Integer.parseInt(dadosLinha[5]);
+        int intervalo = Integer.parseInt(dadosLinha[6]);
 
-        Uso uso = new Uso(remedio, dose, horarios, duracaoDoTratamento, qtdDisponivel);
+        Uso uso = new Uso(remedio, dose, horarios, duracaoDoTratamento, qtdDisponivel, horarioInicial, intervalo);
         return uso;
     }
 }
