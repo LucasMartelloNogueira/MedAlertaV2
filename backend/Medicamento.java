@@ -2,7 +2,7 @@ package backend;
 
 import java.util.ArrayList;
 
-public class Medicamento {
+public class Medicamento implements Comparable<Medicamento>{
     private String nome;
     private float preco;
     private String especificacoes;
@@ -125,5 +125,10 @@ public class Medicamento {
 
         String medicamentoString = String.join(",", listaValoresAtributos);
         return medicamentoString;
+    }
+
+    @Override
+    public int compareTo(Medicamento o) {
+        return this.getNome().compareTo(o.getNome());
     }
 }
