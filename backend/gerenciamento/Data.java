@@ -8,6 +8,7 @@ import backend.usuario.Uso;
 //classe responsavel por verificacoes de hora
 public class Data {
     private static boolean duracaoDoTratamentoAtualizada = true;
+    private static int ultimaVerficacaoHorario = 0;
 
     public static boolean horaDoRemedio(Uso uso, Integer horario) {
         boolean ehHoraDoRemedio = false;
@@ -45,11 +46,21 @@ public class Data {
         Calendar c = Calendar.getInstance();
         int horaAtual = c.get(Calendar.HOUR_OF_DAY);
 
-        if(hora == horaAtual){
+        if(hora == horaAtual && verificarUltimaVerificacao(hora)){
             return true;
         }
 
         return false;
+    }
+
+    public static boolean verificarUltimaVerificacao(int hora) {
+        boolean verificacao = true;
+        
+        if(hora == Data.ultimaVerficacaoHorario){
+            verificacao = false;
+        }
+        
+        return verificacao;
     }
 
     public static int formatarDia(String dia) {
