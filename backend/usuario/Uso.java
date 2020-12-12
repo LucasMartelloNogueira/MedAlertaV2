@@ -1,6 +1,8 @@
 package backend.usuario;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 import backend.Medicamento;
 
 public class Uso {
@@ -8,6 +10,7 @@ public class Uso {
     private int dose; //comprimidos, ml
     private String tipoDoRemedio; //comprimido, xarope
     private ArrayList<String> horarios = new ArrayList<>(); //a atualizar
+    private ArrayList<Integer> horariosDeUso = new ArrayList<Integer>();
     private int duracaoDoTratamento; //em dias
     private int horarioDeInicio;
     private int intervalo;
@@ -47,6 +50,10 @@ public class Uso {
 
     public ArrayList<String> getHorarios() {
         return horarios;
+    }
+
+    public ArrayList<Integer> getHorariosDeUso() {
+        return horariosDeUso;
     }
 
     public int getDuracaoDoTratamento() {
@@ -155,5 +162,14 @@ public class Uso {
 
         Uso uso = new Uso(remedio, dose, horarios, duracaoDoTratamento, qtdDisponivel, horarioInicial, intervalo);
         return uso;
+    }
+
+    public void calcularHorariosDeUso() {
+        int horaInicial = this.horarioDeInicio;
+        for(int i = 0; i < 24/intervalo; i++){
+            this.horariosDeUso.add(horaInicial);
+            horaInicial += intervalo;
+        }
+        Collections.sort(horariosDeUso);
     }
 }
