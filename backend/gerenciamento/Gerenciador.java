@@ -10,9 +10,9 @@ public class Gerenciador implements Runnable {
     private static PessoaFisica pessoa;
     private static boolean emEspera = true; // aguardando login ser feito no frontend
 
-    public static void setFimDaEspera(boolean emEspera, PessoaFisica pessoa) {
-        Gerenciador.emEspera = emEspera;
-        Gerenciador.pessoa = pessoa;
+    public static void setFimDaEspera(boolean espera, PessoaFisica p) {
+        Gerenciador.emEspera = espera;
+        Gerenciador.pessoa = p;
     }
 
     private static void atualizarUso(String nomeMedicamento) {
@@ -66,6 +66,19 @@ public class Gerenciador implements Runnable {
         }
 
         while (true) {
+            for (Uso uso : listaDeUsos) {
+                for (Integer horario : uso.getHorariosDeUso()) {
+                    if (Data.horaDoRemedio()) {
+                        enviarNotificacao("Nome do remédio:" + uso.getRemedio().getNome() + "\nEspecificações:"
+                                + uso.getRemedio().getEspecificacoes() + "\nCondições de uso: "
+                                + uso.getRemedio().getCondicoesDeUso() + "\nDose: 1 comprimido\n"
+                                + "Você tomou o remédio às " + horario
+                                + " horas?\n Se sim, clique em SIM para confirmar. Clique em NÂO, caso contrário.",
+                                uso);
+                    }
+                }
+            }
+
             for (Uso uso : listaDeUsos) {
                 for (Integer horario : uso.getHorariosDeUso()) {
                     if (Data.horaDoRemedio()) {
