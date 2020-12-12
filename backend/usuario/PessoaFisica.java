@@ -321,7 +321,7 @@ public class PessoaFisica extends Pessoa {
         }
         else{
             System.out.println("usuario JA existe");
-            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString());
+            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
         }
     }
 
@@ -351,7 +351,7 @@ public class PessoaFisica extends Pessoa {
                 String email = dadosLinha[2];
                 String senha = dadosLinha[3];
 
-                if (emailFornecido.equals(email) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
+                if (email.equals(emailFornecido) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
                     String telefone = dadosLinha[1];
                     String nome = dadosLinha[0];
                     String cpf = dadosLinha[4];

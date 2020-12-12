@@ -130,7 +130,7 @@ public class Agenda {
             ArrayList<String> listaNomesAgenda = new ArrayList<String>();
         
         for (Pessoa pessoa : this.contatos){
-            listaNomesAgenda.add(pessoa.getEmail());
+            listaNomesAgenda.add(pessoa.getNome());
         }
 
         String contatosString = String.join("/", listaNomesAgenda);
@@ -140,20 +140,20 @@ public class Agenda {
 
     public static Agenda stringToAgenda(String agendaString, String senhaFornecida, String tipoContato, Boolean ignorarSenha, Boolean ignorarAgenda){
         Agenda agenda = new Agenda();
-        String[] emailContatos = agendaString.split("/");
+        String[] nomeContatos = agendaString.split("/");
 
-        for (String email : emailContatos){
+        for (String nome : nomeContatos){
             if (tipoContato.equals("usuario")){
-                PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(email, senhaFornecida, ignorarSenha, ignorarAgenda);
+                PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(nome, senhaFornecida, ignorarSenha, ignorarAgenda);
                 agenda.adicionarContato(contato);
             }
             if (tipoContato.equals("farmacia")){
-                PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(email, senhaFornecida, ignorarSenha, ignorarAgenda);
+                PessoaJuridica farmacia = PessoaJuridica.resgatarFarmaciaArquivo(nome, senhaFornecida, ignorarSenha, ignorarAgenda);
                 agenda.adicionarContato(farmacia);
             }
 
             if (tipoContato.equals("medico")){
-                Medico medico = Medico.resgatarMedicoArquivo(email, senhaFornecida, ignorarSenha);
+                Medico medico = Medico.resgatarMedicoArquivo(nome, senhaFornecida, ignorarSenha);
                 agenda.adicionarContato(medico);
             }
         }
