@@ -89,4 +89,27 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         return pessoaString;
     }
 
+    public String PessoaToString(Boolean botarSenhaEncriptada) {
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+
+        listaValoresAtributos.add(this.getNome());
+        listaValoresAtributos.add(this.getTelefone());
+        listaValoresAtributos.add(this.getEmail());
+        String senhaEncriptada = "";
+        if (botarSenhaEncriptada == true){
+            try {
+                senhaEncriptada = Autenticacao.encriptarSenha(this.getEmail(), this.getSenha());
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            listaValoresAtributos.add(senhaEncriptada);
+        }
+        else{
+            listaValoresAtributos.add(this.getSenha());
+        }
+        
+        String pessoaString = String.join(",", listaValoresAtributos);
+        return pessoaString;
+    }
+
 }

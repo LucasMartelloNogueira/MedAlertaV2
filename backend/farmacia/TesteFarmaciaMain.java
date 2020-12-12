@@ -170,9 +170,11 @@ public class TesteFarmaciaMain {
 
         // RESGATANDO USUARIO E FAZENDO ALTERACAO NOS CONTATOS
 
-        // PessoaFisica pessoaFisica1 = PessoaFisica.resgatarUsuarioArquivo("Lucas", "senha2", false, false);
-        // Agenda agendaNova = pessoaFisica1.getContatosMedicos();
-        // agendaNova
-
+        PessoaFisica pessoaFisica1 = PessoaFisica.resgatarUsuarioArquivo("lucas@gmail.com", "senha2", false, false);
+        System.out.println("nome: " + pessoaFisica1.getNome());
+        // Agenda agendaTemp = pessoaFisica1.getContatosMedicos();
+        // agendaTemp.removerContato("dr Reid");
+        // pessoaFisica1.setContatosMedicos(agendaTemp);
+        // pessoaFisica1.salvarDadosArquivo();
     }
 }

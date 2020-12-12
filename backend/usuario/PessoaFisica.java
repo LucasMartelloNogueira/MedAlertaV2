@@ -130,6 +130,13 @@ public class PessoaFisica extends Pessoa {
         this.contatosMedicos = contatosMedicos;
     }
 
+    public void setContatosMedicos(Agenda contatosMedicos, boolean modificarArquivo){
+        this.contatosMedicos = contatosMedicos;
+        if (modificarArquivo == true){
+            this.salvarDadosArquivo();
+        }
+    }
+
     public Agenda getContatosFarmacias(){
         return this.contatosFarmacias;
     }
@@ -138,6 +145,13 @@ public class PessoaFisica extends Pessoa {
         this.contatosFarmacias = contatosFarmacias;
     }
     
+    public void setContatosFarmacias(Agenda contatosFarmacias, boolean modificarArquivo){
+        this.contatosFarmacias = contatosFarmacias;
+        if (modificarArquivo == true){
+            this.salvarDadosArquivo();
+        }
+    }
+
     public void salvarArquivoUsos(){
         ArrayList<String> listaLinhas = new ArrayList<>();
         
@@ -172,7 +186,54 @@ public class PessoaFisica extends Pessoa {
         }
 
         agendaTemp.adicionarContato(farmacia);
-        this.setContatosFarmacias(agendaTemp);
+        this.setContatosFarmacias(agendaTemp, true);
+    }
+
+    public void removerContatoFarmacia(String nomeFarmacia){
+        Agenda agendaTemp = this.getContatosFarmacias();
+
+        if (agendaTemp == null){
+            return;
+        }
+
+        for (Pessoa contatoFarmacia : this.getContatosFarmacias().getContatos()){
+            if (contatoFarmacia.getNome().equals(nomeFarmacia)){
+                agendaTemp.removerContato(nomeFarmacia);
+                break;
+            }
+        }
+        this.setContatosFarmacias(agendaTemp, true);
+    }
+
+    public void adicionarContatoMedico(Medico medico){
+        Agenda agendaTemp;
+
+        if (this.getContatosMedicos() == null){
+            agendaTemp = new Agenda();
+        }
+        else{
+            agendaTemp = this.getContatosMedicos();
+        }
+
+        agendaTemp.adicionarContato(medico);
+        this.setContatosMedicos(agendaTemp, true);
+
+    }
+
+    public void removerContatoMedico(String nomeMedico){
+        Agenda agendaTemp = this.getContatosMedicos();
+
+        if (agendaTemp == null){
+            return;
+        }
+
+        for (Pessoa contatoMedico : this.getContatosMedicos().getContatos()){
+            if (contatoMedico.getNome().equals(nomeMedico)){
+                agendaTemp.removerContato(nomeMedico);
+                break;
+            }
+        }
+        this.setContatosMedicos(agendaTemp, true);
     }
 
     public static String getNomeArquivoUsuarios(){
@@ -218,13 +279,49 @@ public class PessoaFisica extends Pessoa {
         return usuarioString;
     }
 
+    public String toString(boolean encriptarSenha){
+
+        String usuarioString = this.PessoaToString(encriptarSenha);
+
+        ArrayList<String> listaValoresAtributos = new ArrayList<String>();
+        listaValoresAtributos.add(this.getCpf());
+        listaValoresAtributos.add(this.getEndereco().toString());
+
+        if (this.getListaUsoMedicamentos() != null){
+            listaValoresAtributos.add(this.getNomeArquivoUsos());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getContatosMedicos() != null){
+            listaValoresAtributos.add(this.getContatosMedicos().toString());
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        if (this.getContatosFarmacias() != null){
+            listaValoresAtributos.add(this.getContatosFarmacias().toString());    
+        }
+        else{
+            listaValoresAtributos.add("null");
+        }
+
+        String outrosValores = String.join(",", listaValoresAtributos);
+        usuarioString += "," + outrosValores;
+        return usuarioString;
+    }
+
     public void salvarDadosArquivo(){
         boolean usuarioJaExiste = FuncoesArquivos.checarExistenciaNomeArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome());
         if (usuarioJaExiste == false){
+            System.out.println("usuario NAO existe");
             FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString());
         }
         else{
-            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString());
+            System.out.println("usuario JA existe");
+            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
         }
     }
 
