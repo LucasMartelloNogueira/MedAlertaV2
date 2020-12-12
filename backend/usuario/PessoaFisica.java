@@ -113,8 +113,6 @@ public class PessoaFisica extends Pessoa {
         return null;
 
     }
-    
-    
 
     public Endereco getEndereco() {
         return endereco;
@@ -221,9 +219,13 @@ public class PessoaFisica extends Pessoa {
     }
 
     public void salvarDadosArquivo(){
-        List<String> listaLinha = new ArrayList<>();
-        listaLinha.add(this.toString());
-        FuncoesArquivos.salvarListaEmArquivo(nomeArquivoUsuarios, listaLinha, true);
+        boolean usuarioJaExiste = FuncoesArquivos.checarExistenciaNomeArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome());
+        if (usuarioJaExiste == false){
+            FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString());
+        }
+        else{
+            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString());
+        }
     }
 
     public static List<Uso> resgatarListaUsoMedicamentosArquivo(String nomeArquivo){
