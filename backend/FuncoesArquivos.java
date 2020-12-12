@@ -174,9 +174,13 @@ public class FuncoesArquivos {
     
                 if (nome.equals(infoReferencia)){
                     dadosLinha[posColunaInfo] = novaInfo;
-                    linha = String.join(",", dadosLinha);
+                    String novaLinha = String.join(",", dadosLinha);
+                    bw.write(novaLinha);
                 }
-                bw.write(linha);
+                else{
+                    bw.write(linha);
+                }
+                
                 bw.newLine();
                 linha = br.readLine();
             }

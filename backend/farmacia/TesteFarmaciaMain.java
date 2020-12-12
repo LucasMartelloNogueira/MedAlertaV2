@@ -156,7 +156,23 @@ public class TesteFarmaciaMain {
         // Medicamento medicamento = new Medicamento("dorflex");
         // System.out.println("preco: " + medicamento.getPreco());
         
-        
-        
+        // TESTE PARA ALTERAR LISTA DE CONTATOS MEDICOS
+
+        // Endereco enderecoLucas = new Endereco("Jao Pessoa", "95");
+        // PessoaFisica pessoaFisica1 = new PessoaFisica("Lucas", "123", "lucas@gmail.com", "cpf1", "senha2", enderecoLucas);
+        // Medico medico1 = new Medico("dr Reid", "2710", "reid@gmail.com", "senhaMedico", "cardiologista");
+
+        // Agenda contatosMedicos = new Agenda();
+        // contatosMedicos.adicionarContato(medico1);
+        // pessoaFisica1.setContatosMedicos(contatosMedicos);
+        // pessoaFisica1.salvarDadosArquivo();
+        // medico1.salvarDadosArquivo();
+
+        // RESGATANDO USUARIO E FAZENDO ALTERACAO NOS CONTATOS
+
+        // PessoaFisica pessoaFisica1 = PessoaFisica.resgatarUsuarioArquivo("Lucas", "senha2", false, false);
+        // Agenda agendaNova = pessoaFisica1.getContatosMedicos();
+        // agendaNova
+
     }
 }
