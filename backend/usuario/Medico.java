@@ -51,7 +51,7 @@ public class Medico extends Pessoa {
         FuncoesArquivos.salvarListaEmArquivo(nomeArquivoMedicos, listaMedico, true);
     }
 
-    public static Medico resgatarMedicoArquivo(String nomeMedico, String senhaFornecida, boolean ignorarSenha){
+    public static Medico resgatarMedicoArquivo(String nomeFornecido, String senhaFornecida, boolean ignorarSenha){
         try{
             FileReader fr = new FileReader(nomeArquivoMedicos);
             BufferedReader br = new BufferedReader(fr);
@@ -63,7 +63,7 @@ public class Medico extends Pessoa {
                 String nome = dadosLinha[0];
                 String senha = dadosLinha[3];
 
-                if (nome.equals(nomeMedico) && (ignorarSenha == true || senhaFornecida.equals(senha))){
+                if (nome.equals(nomeFornecido) && (ignorarSenha == true || senhaFornecida.equals(senha))){
                     String telefone = dadosLinha[1];
                     String email = dadosLinha[2];
                     String especialidade = dadosLinha[4];

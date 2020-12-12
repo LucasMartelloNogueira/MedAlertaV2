@@ -85,6 +85,11 @@ public class ContatosFarmacias extends javax.swing.JFrame {
 
         salvarFarmacia.setText("Salvar");
         salvarFarmacia.setEnabled(false);
+        salvarFarmacia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarFarmaciaActionPerformed(evt);
+            }
+        });
 
         tabelaFarmacia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -214,6 +219,11 @@ public class ContatosFarmacias extends javax.swing.JFrame {
         salvarFarmacia.setEnabled(true);
         cancelar.setEnabled(true);
     }
+
+    private void salvarFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    
+    }
+
     private void excluirFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {                                                
         
     }

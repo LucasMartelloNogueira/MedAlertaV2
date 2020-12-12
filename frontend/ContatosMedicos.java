@@ -217,9 +217,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
         }
         Medico medico = new Medico(nomeMedico.getText(), numeroMedico.getText(),"a", "b", especialidadeMedico.getText());
         medico.salvarDadosArquivo();
-        agendaTemp.adicionarContato(medico);
-        this.pessoa.setContatosMedicos(agendaTemp);
-        this.pessoa.salvarDadosArquivo();
+        this.pessoa.adicionarContatoMedico(medico);
         ContatosMedicos emergencias = new ContatosMedicos();
         emergencias.receber(pessoa);
         emergencias.setVisible(true);
@@ -232,11 +230,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
         if(agendaTemp == null){
             return;
         }
-        Medico medico = Medico.resgatarMedicoArquivo(nomeMedicoExcluir, "b", true);
-        System.out.println(medico.getNome());
-        agendaTemp.getContatos().remove(medico);
-        this.pessoa.setContatosMedicos(agendaTemp);
-        this.pessoa.salvarDadosArquivo();
+        this.pessoa.removerContatoMedico(nomeMedicoExcluir);
         ContatosMedicos emergencias = new ContatosMedicos();
         emergencias.receber(pessoa);
         emergencias.setVisible(true);

@@ -92,8 +92,15 @@ public class Agenda {
             System.out.println("Contato não encontrado!");
             return false;
         } else {
-            contatos.remove(pos);
-            System.out.println("O telefone de " + contatos.get(pos).getNome() + " foi removido!");
+            ArrayList<Pessoa> novaLista = this.getContatos();
+            
+            for (Pessoa contato : this.getContatos()){
+                if (contato.getNome().equals(nome)){
+                    novaLista.remove(contato);
+                    break;
+                }
+            }
+            this.setContatos(novaLista);
         }
         return true;
     }
@@ -109,6 +116,10 @@ public class Agenda {
         return contatos;
     }
 
+    public void setContatos(ArrayList<Pessoa> novosContatos){
+        this.contatos = novosContatos;
+    }
+
     @Override
     public String toString(){
 
@@ -119,7 +130,7 @@ public class Agenda {
             ArrayList<String> listaNomesAgenda = new ArrayList<String>();
         
         for (Pessoa pessoa : this.contatos){
-            listaNomesAgenda.add(pessoa.getEmail());
+            listaNomesAgenda.add(pessoa.getNome());
         }
 
         String contatosString = String.join("/", listaNomesAgenda);
@@ -129,9 +140,9 @@ public class Agenda {
 
     public static Agenda stringToAgenda(String agendaString, String senhaFornecida, String tipoContato, Boolean ignorarSenha, Boolean ignorarAgenda){
         Agenda agenda = new Agenda();
-        String[] nomesContatos = agendaString.split("/");
+        String[] nomeContatos = agendaString.split("/");
 
-        for (String nome : nomesContatos){
+        for (String nome : nomeContatos){
             if (tipoContato.equals("usuario")){
                 PessoaFisica contato = PessoaFisica.resgatarUsuarioArquivo(nome, senhaFornecida, ignorarSenha, ignorarAgenda);
                 agenda.adicionarContato(contato);
