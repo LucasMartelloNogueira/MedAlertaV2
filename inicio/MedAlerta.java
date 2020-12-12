@@ -1,15 +1,18 @@
+package inicio;
+
 import backend.gerenciamento.Gerenciador;
 import backend.gerenciamento.Notificacao;
 import backend.usuario.PessoaFisica;
 import frontend.Inicio;
+import frontend.Home;
 
-public class Main {
+public class MedAlerta {
     private static PessoaFisica pessoa;
     private static boolean emEspera = true;
 
     public static void setFimDaEspera(boolean emEspera, PessoaFisica pessoa) {
-        Main.pessoa = pessoa;
-        Main.emEspera = emEspera;
+        MedAlerta.pessoa = pessoa;
+        MedAlerta.emEspera = emEspera;
     }
 
     public static void main(String[] args) {
@@ -20,10 +23,14 @@ public class Main {
 
         while (emEspera) {
             try {
-                Thread.sleep(10000); // dorme por 10 segundos
+                Thread.sleep(5000); // dorme por 10 segundos
                 System.out.println("Sistema em espera...");
             } catch (InterruptedException e) {}
         }
+
+        Home tela = new Home();
+        tela.receber(MedAlerta.pessoa);
+        tela.setVisible(true);
     
         // thread para o gerenciador do aplicativo
         Gerenciador.setFimDaEspera(false, pessoa);
