@@ -35,6 +35,19 @@ public class FuncoesArquivos {
         }
     }
 
+    public static void appendLinhaArquivo(String nomeArquivo, String linha){
+        try{
+            FileWriter fw = new FileWriter(nomeArquivo, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(linha);
+            bw.newLine();
+            bw.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void lerArquivo(String nomeArquivo){
         try{
             File arquivo = new File(nomeArquivo);
@@ -180,7 +193,7 @@ public class FuncoesArquivos {
                 else{
                     bw.write(linha);
                 }
-                
+
                 bw.newLine();
                 linha = br.readLine();
             }
@@ -195,6 +208,74 @@ public class FuncoesArquivos {
         catch (Exception e){
             System.out.println("erro, não foi possivel modificar o arquivo");
             e.printStackTrace();
+        }
+    }
+
+    public static void alterarLinhaArquivo(String nomeArquivo, String nomeProcurado, String novaLinha){
+        File arquivoAntigo = new File(nomeArquivo);
+        File temp = new File("temp.txt");
+
+        try{
+            FileReader fr = new FileReader(arquivoAntigo);
+            BufferedReader br = new BufferedReader(fr);
+
+            FileWriter fw = new FileWriter(temp);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            String linha = br.readLine();
+
+            while (linha != null){
+                String[] dadosLinha = linha.split(",");
+                String nome = dadosLinha[0];
+    
+                if (nome.equals(nomeProcurado)){
+                    bw.write(novaLinha);
+                }
+                else{
+                    bw.write(linha);
+                }
+
+                bw.newLine();
+                linha = br.readLine();
+            }
+            br.close();
+            bw.close();
+
+            arquivoAntigo.delete();
+            File destino = new File(nomeArquivo);
+            temp.renameTo(destino);
+
+        }
+        catch (Exception e){
+            System.out.println("erro, não foi possivel modificar o arquivo");
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean checarExistenciaNomeArquivo(String nomeArquivo, String nomeProcurado){
+
+        boolean achou = false;
+
+        try{
+            FileReader fr = new FileReader(nomeArquivo);
+            BufferedReader br = new BufferedReader(fr);
+
+            String linha = br.readLine();
+
+            while (linha != null){
+                String[] dadosLinha = linha.split(",");
+                if (dadosLinha[0].equals(nomeProcurado)){
+                    achou = true;
+                    break;
+                }
+                linha = br.readLine();
+            }
+            br.close();
+            return achou;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
         }
     }
 }
