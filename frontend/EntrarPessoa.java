@@ -6,6 +6,7 @@ package frontend;
  */
 import javax.swing.JOptionPane;
 import backend.usuario.PessoaFisica;
+import backend.gerenciamento.Gerenciador;
 
 /**
  *
@@ -133,6 +134,7 @@ public class EntrarPessoa extends javax.swing.JFrame {
             dispose();
         } 
         else{
+            Gerenciador.setFimDaEspera(false, pessoa);
             Home tela = new Home();
             tela.receber(pessoa);
             tela.setVisible(true);

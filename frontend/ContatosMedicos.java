@@ -2,14 +2,8 @@ package frontend;
 
 import backend.usuario.PessoaFisica;
 import backend.Agenda;
-import backend.Medicamento;
 import backend.Pessoa;
-import backend.usuario.Uso;
-import java.io.File;
-import java.lang.reflect.Array;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import java.util.List;
 import backend.usuario.Medico;
 import backend.FuncoesArquivos;
 /**
@@ -238,6 +232,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
             return;
         }
         Medico medico = Medico.resgatarMedicoArquivo(nomeMedicoExcluir, "b", true);
+        System.out.println(medico.getNome());
         agendaTemp.getContatos().remove(medico);
         this.pessoa.setContatosMedicos(agendaTemp);
         System.out.println(agendaTemp);
