@@ -219,6 +219,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
         medico.salvarDadosArquivo();
         agendaTemp.adicionarContato(medico);
         this.pessoa.setContatosMedicos(agendaTemp);
+        this.pessoa.salvarDadosArquivo();
         ContatosMedicos emergencias = new ContatosMedicos();
         emergencias.receber(pessoa);
         emergencias.setVisible(true);
@@ -235,8 +236,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
         System.out.println(medico.getNome());
         agendaTemp.getContatos().remove(medico);
         this.pessoa.setContatosMedicos(agendaTemp);
-        System.out.println(agendaTemp);
-        FuncoesArquivos.alterarInfoArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.pessoa.getNome(), 7, this.pessoa.getContatosMedicos().toString());
+        this.pessoa.salvarDadosArquivo();
         ContatosMedicos emergencias = new ContatosMedicos();
         emergencias.receber(pessoa);
         emergencias.setVisible(true);

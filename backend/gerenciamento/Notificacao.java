@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import backend.dsdesktopnotify.DesktopNotify;
 
 public class Notificacao {
-    private static int op = -1;
+    private static Integer option = -1;
 
     // método chamado para enviar uma notificação ao usuário
     // o retorno é um true, caso o usuário tenha executado a ação notificada, e
@@ -18,21 +18,20 @@ public class Notificacao {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         Object[] options = { "SIM", "NÃO" };
-                        Object option = JOptionPane.showOptionDialog(null, notificacao,
+                        Integer option = JOptionPane.showOptionDialog(null, notificacao,
                                 "MedAlerta - Hora de tomar o seu remédio", JOptionPane.DEFAULT_OPTION,
                                 JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-                        Notificacao.op = Integer.parseInt(option.toString());
+                        Notificacao.option = Integer.parseInt(option.toString());
                     }
                 });
 
         try {
-            Thread.sleep(300000);
+            Thread.sleep(80000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
-        if(op==0){
+        if(option==0){
             return true;
         }
         return false;

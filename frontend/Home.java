@@ -11,10 +11,9 @@ import backend.usuario.PessoaFisica;
  * @author leosa
  */
 public class Home extends javax.swing.JFrame {
+    
     PessoaFisica pessoa;
-    /**
-     * Creates new form home
-     */
+ 
     public Home() {
     }
 

@@ -2,8 +2,8 @@ package frontend;
 
 import javax.swing.JOptionPane;
 import backend.Endereco;
-import backend.gerenciamento.Gerenciador;
 import backend.usuario.PessoaFisica;
+import inicio.MedAlerta;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -298,10 +298,7 @@ public class LoginPessoa extends javax.swing.JFrame {
             String senha2 = String.copyValueOf(senha);
             PessoaFisica pessoa = new PessoaFisica(nomenCompletoLogin,telefone2,email,cpf,senha2,endereco);
             pessoa.salvarDadosArquivo();
-            Gerenciador.setFimDaEspera(false, pessoa);
-            Home tela = new Home();
-            tela.receber(pessoa);
-            tela.setVisible(true);
+            MedAlerta.setFimDaEspera(false, pessoa);
             dispose();
         }
     }                                      
