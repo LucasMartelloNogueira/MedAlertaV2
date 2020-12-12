@@ -321,7 +321,7 @@ public class PessoaFisica extends Pessoa {
         }
         else{
             System.out.println("usuario JA existe");
-            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
+            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString());
         }
     }
 

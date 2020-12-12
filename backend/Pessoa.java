@@ -96,6 +96,7 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         listaValoresAtributos.add(this.getTelefone());
         listaValoresAtributos.add(this.getEmail());
         String senhaEncriptada = "";
+        
         if (botarSenhaEncriptada == true){
             try {
                 senhaEncriptada = Autenticacao.encriptarSenha(this.getEmail(), this.getSenha());
