@@ -69,7 +69,7 @@ public class EstoqueFarmacia extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome do remedio:");
+        jLabel1.setText("Nome do remédio:");
 
         jLabel2.setText("Quantidade:");
 

@@ -57,7 +57,7 @@ public class LoginPessoa extends javax.swing.JFrame {
         naoMexerNisso.setPreferredSize(new java.awt.Dimension(625, 306));
 
         nome_l.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nome_l.setText("Nome competo:");
+        nome_l.setText("Nome completo:");
         nome_l.setToolTipText("");
 
         nome_l_e.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

@@ -2,16 +2,15 @@ package backend.gerenciamento;
 
 import java.util.ArrayList;
 
+import backend.FuncoesArquivos;
 import backend.usuario.PessoaFisica;
 import backend.usuario.Uso;
 
 public class Gerenciador implements Runnable {
     private static ArrayList<Uso> listaDeUsos = new ArrayList<Uso>();
     private static PessoaFisica pessoa;
-    private static boolean emEspera = true; // aguardando login ser feito no frontend
 
-    public static void setFimDaEspera(boolean espera, PessoaFisica p) {
-        Gerenciador.emEspera = espera;
+    public static void setPessoa(PessoaFisica p) {
         Gerenciador.pessoa = p;
     }
 
@@ -32,7 +31,7 @@ public class Gerenciador implements Runnable {
         return menor;
     }
 
-    public static void enviarNotificacao(String notificacao, Uso uso) {
+    private static void enviarNotificacao(String notificacao, Uso uso) {
         Runnable runNotify = () -> {
             boolean tomouRemedio = Notificacao.notificar(notificacao);
             if (tomouRemedio) {
@@ -43,17 +42,41 @@ public class Gerenciador implements Runnable {
         threadNotify.start();
     }
 
+    private static void enviarNotificacaoCompra(Uso uso) {
+        String notificacao = "Existem apenas "+uso.getQtdDisponivel()+" comprimidos do seu remédio "+uso.getRemedio().getNome()+"\n"+
+        "É nessário comprar mais para terminar seu tratamento!";
+        
+        Runnable runNotify = () -> {
+            boolean tomouRemedio = Notificacao.notificar(notificacao);
+            if (tomouRemedio) {
+                atualizarUso(uso.getRemedio().getNome());
+            }
+        };
+        Thread threadNotify = new Thread(runNotify);
+        threadNotify.start();
+    }
+
+    private static boolean verificarQtdRemedio(Uso uso) {
+        boolean remedioAcabando = false;
+        int qtd = uso.getQtdDisponivel();
+        int duracao = uso.getDuracaoDoTratamento();
+        int qtdAoDia = uso.getHorariosDeUso().size();
+        int qtdNecessaria = duracao*qtdAoDia;
+
+        if(qtdNecessaria > qtd){
+            remedioAcabando = true;
+        }
+        return remedioAcabando;
+    }
+
+    private static void atualizarDuracaoDeUso(Uso uso) {
+        uso.setDuracaoDoTratamento(uso.getDuracaoDoTratamento()-1);
+        String strUso = uso.toString();
+        FuncoesArquivos.alterarLinhaArquivo("Uso"+pessoa.getCpf()+".txt", uso.getRemedio().getNome(), strUso);
+    }
+
     @Override
     public void run() {
-        while (emEspera) {
-            try {
-                Thread.sleep(10000); // dorme por 10 segundos
-                System.out.println("Gerenciador do sistema em espera...");
-            } catch (InterruptedException e) {
-                //
-            }
-        }
-
         // lê usos do arquivo do usuário
         listaDeUsos = (ArrayList<Uso>) PessoaFisica.resgatarListaUsoMedicamentosArquivo(pessoa.getNomeArquivoUsos());
         if (listaDeUsos == null) {
@@ -66,9 +89,10 @@ public class Gerenciador implements Runnable {
         }
 
         while (true) {
+            //enviar notificacao para tomar o medicamento na hora correta
             for (Uso uso : listaDeUsos) {
                 for (Integer horario : uso.getHorariosDeUso()) {
-                    if (Data.horaDoRemedio()) {
+                    if (Data.horaDoRemedio(uso,horario)) {
                         enviarNotificacao("Nome do remédio:" + uso.getRemedio().getNome() + "\nEspecificações:"
                                 + uso.getRemedio().getEspecificacoes() + "\nCondições de uso: "
                                 + uso.getRemedio().getCondicoesDeUso() + "\nDose: 1 comprimido\n"
@@ -79,21 +103,24 @@ public class Gerenciador implements Runnable {
                 }
             }
 
+            //enviar notificacao para comprar remedios caso não seja suficiente para o término do tratamento
             for (Uso uso : listaDeUsos) {
-                for (Integer horario : uso.getHorariosDeUso()) {
-                    if (Data.horaDoRemedio()) {
-                        enviarNotificacao("Nome do remédio:" + uso.getRemedio().getNome() + "\nEspecificações:"
-                                + uso.getRemedio().getEspecificacoes() + "\nCondições de uso: "
-                                + uso.getRemedio().getCondicoesDeUso() + "\nDose: 1 comprimido\n"
-                                + "VOcê tomou o remédio às " + horario
-                                + " horas?\n Se sim, clique em SIM para confirmar. Clique em NÂO, caso contrário.",
-                                uso);
-                    }
-                }
+                if (verificarQtdRemedio(uso)) {
+                    enviarNotificacaoCompra(uso);
+                }  
             }
 
+            //diminui um dia na duracao de uso a cada virada de dia
+            if(Data.ehMeiaNoite()){
+                for (Uso uso : listaDeUsos) {
+                    atualizarDuracaoDeUso(uso);  
+                } 
+            }
+            
+            //gerenciador dorme 
             int menorIntervalo = verificarIntervaloDoGerenciador();
-            long dormir = menorIntervalo * 3600000;
+            //long dormir = menorIntervalo * 3600000;
+            long dormir = 59000;
             try {
                 Thread.sleep(dormir);
             } catch (InterruptedException e) {

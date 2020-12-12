@@ -55,14 +55,14 @@ public class ContatosFarmacias extends javax.swing.JFrame {
             }
         });
 
-        novaFarmacia.setText("Nova Farmacia");
+        novaFarmacia.setText("Nova Farmácia");
         novaFarmacia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novaFarmaciaActionPerformed(evt);
             }
         });
 
-        editarFarmacia.setText("Editar farmacia");
+        editarFarmacia.setText("Editar farmácia");
 
         excluirFarmacia.setText("Excluir");
         excluirFarmacia.addActionListener(new java.awt.event.ActionListener() {
@@ -73,17 +73,17 @@ public class ContatosFarmacias extends javax.swing.JFrame {
 
         nomeFarmacia.setEnabled(false);
 
-        jLabel1.setText("Nome da farmacia:");
+        jLabel1.setText("Nome da farmácia:");
 
-        jLabel2.setText("Numero do telefone:");
+        jLabel2.setText("Número do telefone:");
 
         numeroFarmacia.setEnabled(false);
 
-        jLabel3.setText("endereço da farmacia:");
+        jLabel3.setText("Endereço da farmácia:");
 
         enderecoFarmacia.setEnabled(false);
 
-        salvarFarmacia.setText("salvar");
+        salvarFarmacia.setText("Salvar");
         salvarFarmacia.setEnabled(false);
 
         tabelaFarmacia.setModel(new javax.swing.table.DefaultTableModel(
@@ -91,7 +91,7 @@ public class ContatosFarmacias extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Numero ", "Endereço"
+                "Nome", "Número ", "Endereço"
             }
         ) {
             Class[] types = new Class [] {
@@ -111,7 +111,7 @@ public class ContatosFarmacias extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaFarmacia);
 
-        cancelar.setText("cancelar");
+        cancelar.setText("Cancelar");
         cancelar.setEnabled(false);
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

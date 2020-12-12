@@ -36,4 +36,15 @@ public class Notificacao {
         }
         return false;
     }
+
+    public static void notificarCompra(String notificacao) {
+        DesktopNotify.showDesktopMessage("MedAlerta - Hora de comprar o seu remédio",
+            "Você tem uma nova notificação. Clique aqui para visualizar.", DesktopNotify.TIP, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    JOptionPane.showMessageDialog(null, notificacao, "MedAlerta - Hora de tomar o seu remédio", 1);
+                }
+            }
+        );
+    }
 }

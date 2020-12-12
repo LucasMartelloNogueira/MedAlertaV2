@@ -51,7 +51,7 @@ public class LoginFarmacia extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Login Farmacia"));
 
         nomeFarmacia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nomeFarmacia.setText("Nome da farmacia:");
+        nomeFarmacia.setText("Nome da farmácia:");
         nomeFarmacia.setToolTipText("");
 
         nomeFarmaciaEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

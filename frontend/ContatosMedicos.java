@@ -62,13 +62,13 @@ public class ContatosMedicos extends javax.swing.JFrame {
 
         nomeMedico.setEnabled(false);
 
-        jLabel1.setText("Nome do Medico:");
+        jLabel1.setText("Nome do Médico:");
 
         jLabel2.setText("Numero do telefone:");
 
         numeroMedico.setEnabled(false);
 
-        salvarContato.setText("salvar");
+        salvarContato.setText("Salvar");
         salvarContato.setEnabled(false);
         salvarContato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +81,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Numero ", "Especialidade"
+                "Nome", "Número ", "Especialidade"
             }
         ) {
             Class[] types = new Class [] {
@@ -101,7 +101,7 @@ public class ContatosMedicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaContato);
 
-        cancelar.setText("cancelar");
+        cancelar.setText("Cancelar");
         cancelar.setEnabled(false);
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

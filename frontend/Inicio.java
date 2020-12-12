@@ -60,7 +60,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Fazer cadastro como farmacia.");
+        jLabel1.setText("Fazer cadastro como farmácia.");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Fazer cadastro como pessoa.");
@@ -91,7 +91,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         jLabel3.setText("Fazer login como pessoa.");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Fazer login como farmacia.");
+        jLabel4.setText("Fazer login como farmácia.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
