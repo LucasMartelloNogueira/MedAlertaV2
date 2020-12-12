@@ -82,7 +82,7 @@ public class Gerenciador implements Runnable {
         if (listaDeUsos == null) {
             Thread.interrupted();
         }
-
+ 
         // calcula todos os horários de cada um dos usos
         for (Uso uso : listaDeUsos) {
             uso.calcularHorariosDeUso();
