@@ -316,9 +316,12 @@ public class PessoaFisica extends Pessoa {
     public void salvarDadosArquivo(){
         boolean usuarioJaExiste = FuncoesArquivos.checarExistenciaNomeArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome());
         if (usuarioJaExiste == false){
+            System.out.println("usuario NAO existe, precisa encriptar a senha");
             FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString(true));
         }
         else{
+            System.out.println("usuario JA existe, NAO precisa encriptar a senha");
+            System.out.println("senha atual: " + this.getSenha());
             FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
         }
     }
