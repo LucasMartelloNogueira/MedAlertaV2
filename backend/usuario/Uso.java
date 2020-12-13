@@ -166,10 +166,17 @@ public class Uso {
 
     public void calcularHorariosDeUso() {
         int horaInicial = this.horarioDeInicio;
-        for(int i = 0; i < 24/intervalo; i++){
-            this.horariosDeUso.add(horaInicial);
-            horaInicial += intervalo;
+        
+        if(intervalo==0){
+            horariosDeUso.add(horaInicial);
         }
+        else{
+            for(int i = 0; i < 24/intervalo; i++){
+                this.horariosDeUso.add(horaInicial);
+                horaInicial += intervalo;
+            }
+        }
+
         Collections.sort(horariosDeUso);
     }
 }

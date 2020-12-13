@@ -106,8 +106,8 @@ public class FuncoesArquivos {
             return listaLinhas;
         }
         catch (IOException e){
-            System.out.println("erro");
-            e.printStackTrace();
+            //System.out.println("erro");
+            //e.printStackTrace();
             return listaLinhas;
         }
     }
