@@ -251,7 +251,7 @@ public class PessoaJuridica extends Pessoa{
                 String email = dadosLinha[2];
                 String senha = dadosLinha[3];
 
-                if (email.equals(emailFarmacia) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
+                if (email.equals(emailFarmacia) && (ignorarSenha == true || senha.equals(senhaFornecida))){
                     String telefone = dadosLinha[1];
                     String nome = dadosLinha[0];
                     String cnpj = dadosLinha[4];

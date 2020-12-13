@@ -1,4 +1,5 @@
 nome,telefone,email,senha,cnpj,endereco,nomeArquivoEstoque,AgendaContatosClientes
+<<<<<<< HEAD
 Raia,tel123,raia@gmail.com,F55DAA0B19228CE8E1481A3931E3E2FFA481E5BDE27B755C348D6496280BF314,cnpj123,joao pessoa/18/null/null/null/null/null/null,null,leo@gmail.com/lucas@gmail.com
 123,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,123/123/123/null/null/null/null/null,null,null
 Raia,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,Herotides de oliveira/69/aprt 1301/null/null/null/null/null,null,null
@@ -10,3 +11,7 @@ aaa,123,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,
 raia,2123,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,124/numero/complemento/null/null/null/null/null,null,null
 Raia,11,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,11/numero/complemento/null/null/null/null/null,null,null
 pacheco,1234,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,1234/numero/complemento/null/null/null/null/null,null,null
+=======
+raia,123,raia@gmail.com,123,123,joao pessoa/95/null/null/null/null/null/null,null,null
+pacheco,1223,@gmail,senhaLixo,cnpj,rua azul/numero/complemento/null/null/null/null/null,null,null
+>>>>>>> dff4e860f3a9a17173f1f3d6a7b6bc4738f37ad4
