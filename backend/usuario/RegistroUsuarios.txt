@@ -1,5 +1,6 @@
 nome,telefone,email,senha,cpf,endereco,nomeArquivoUsosMedicamentos,agendaContatosMedicos,agendaContatosFarmacias
 <<<<<<< HEAD
+<<<<<<< HEAD
 teste,123,teste,teste,123,123/123/123/null/null/null/null/null,null,null,null
 =======
 lucas,1,lucas@gmail.com,29CC23387D809619C2817B0C7D21A962322B5D56C6A82B59C2CC578092A4130B,1,1/1/1/null/null/null/null/null,null,null,null
@@ -9,3 +10,5 @@ abc,123,abc,BBB59DA3AF939F7AF5F360F2CEB80A496E3BAE1CD87DDE426DB0AE40677E1C2C,123
 a,5,a,961B6DD3EDE3CB8ECBAACBD68DE040CD78EB2ED5889130CCEB4C49268EA4D506,5,5/5/5/null/null/null/null/null,null,null,null
 b,2,b,3B64DB95CB55C763391C707108489AE18B4112D783300DE38E033B4C98C3DEAF,2,2/2/2/null/null/null/null/null,null,null,null
 c,10,c,355B1BBFC96725CDCE8F4A2708FDA310A80E6D13315AEC4E5EED2A75FE8032CE,10,10/10/10/null/null/null/null/null,null,null,null
+=======
+>>>>>>> 6cdae17fa07d41b2a0844ef146f0cedd12322ea0
