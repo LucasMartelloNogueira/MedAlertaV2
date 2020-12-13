@@ -29,7 +29,7 @@ public class Data {
         Calendar c = Calendar.getInstance();
         int horaAtual = c.get(Calendar.HOUR_OF_DAY);
 
-        if(horaAtual == 15){
+        if(horaAtual == 0){
             // if(duracaoDoTratamentoAtualizada == false){
             //     meiaNoite = true;
             //     Data.duracaoDoTratamentoAtualizada = true;
