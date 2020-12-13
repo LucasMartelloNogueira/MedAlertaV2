@@ -316,7 +316,7 @@ public class PessoaFisica extends Pessoa {
     public void salvarDadosArquivo(){
         boolean usuarioJaExiste = FuncoesArquivos.checarExistenciaNomeArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome());
         if (usuarioJaExiste == false){
-            FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString());
+            FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString(true));
         }
         else{
             FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
