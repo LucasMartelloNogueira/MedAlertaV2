@@ -77,13 +77,7 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         listaValoresAtributos.add(this.getNome());
         listaValoresAtributos.add(this.getTelefone());
         listaValoresAtributos.add(this.getEmail());
-        String senhaEncriptada = "";
-        try {
-            senhaEncriptada = Autenticacao.encriptarSenha(this.getEmail(), this.getSenha());
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        listaValoresAtributos.add(senhaEncriptada);
+        listaValoresAtributos.add(this.getSenha());
         
         String pessoaString = String.join(",", listaValoresAtributos);
         return pessoaString;

@@ -316,13 +316,12 @@ public class PessoaFisica extends Pessoa {
     public void salvarDadosArquivo(){
         boolean usuarioJaExiste = FuncoesArquivos.checarExistenciaNomeArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome());
         if (usuarioJaExiste == false){
-            System.out.println("usuario NAO existe, precisa encriptar a senha");
-            FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString(true));
+            System.out.println("usuario NAO existe");
+            FuncoesArquivos.appendLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.toString());
         }
         else{
-            System.out.println("usuario JA existe, NAO precisa encriptar a senha");
-            System.out.println("senha atual: " + this.getSenha());
-            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString(false));
+            System.out.println("usuario JA existe");
+            FuncoesArquivos.alterarLinhaArquivo(PessoaFisica.getNomeArquivoUsuarios(), this.getNome(), this.toString());
         }
     }
 
@@ -352,7 +351,7 @@ public class PessoaFisica extends Pessoa {
                 String email = dadosLinha[2];
                 String senha = dadosLinha[3];
 
-                if (email.equals(emailFornecido) && (ignorarSenha == true || Autenticacao.autenticar(email, senhaFornecida, senha))){
+                if (email.equals(emailFornecido) && (ignorarSenha == true || senha.equals(senhaFornecida))){
                     String telefone = dadosLinha[1];
                     String nome = dadosLinha[0];
                     String cpf = dadosLinha[4];
