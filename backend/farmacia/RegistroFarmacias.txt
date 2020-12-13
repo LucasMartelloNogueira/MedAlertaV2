@@ -1,2 +1,12 @@
 nome,telefone,email,senha,cnpj,endereco,nomeArquivoEstoque,AgendaContatosClientes
-Pacheco,12345,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,rua 1/numero/complemento/null/null/null/null/null,null,null
+Raia,tel123,raia@gmail.com,F55DAA0B19228CE8E1481A3931E3E2FFA481E5BDE27B755C348D6496280BF314,cnpj123,joao pessoa/18/null/null/null/null/null/null,null,leo@gmail.com/lucas@gmail.com
+123,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,123/123/123/null/null/null/null/null,null,null
+Raia,123,leo@gmail.com,F199BEAEABB436F71AD2229D909A012105D3C2C162E0FFFB016E748F48D763B8,123,Herotides de oliveira/69/aprt 1301/null/null/null/null/null,null,null
+lucas drogas,123,lucas@gmail.com,DFCD3F99018EA9BB313DD7C6CC7166724ACC45E185F39EC38A617005743AA272,321,Canabis/420/69/null/null/null/null/null,null,null
+teste,123,teste,2F2442394496F88CA50DB70F53F6BC7A3B0F402A4F9680E30358128E215BF37B,123,123/123/123/null/null/null/null/null,null,null
+drogarias,1123,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,123/numero/complemento/null/null/null/null/null,null,null
+aaa,111,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,aaa/numero/complemento/null/null/null/null/null,null,null
+aaa,123,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,123/numero/complemento/null/null/null/null/null,null,null
+raia,2123,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,124/numero/complemento/null/null/null/null/null,null,null
+Raia,11,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,11/numero/complemento/null/null/null/null/null,null,null
+pacheco,1234,@gmail,98DABE5E66B5E9282E24ECA0E235BA610EC8138D04EEDB13FE62C12DB3908705,cnpj,1234/numero/complemento/null/null/null/null/null,null,null
