@@ -78,17 +78,24 @@ public class Gerenciador implements Runnable {
     @Override
     public void run() {
         // lê usos do arquivo do usuário
-        listaDeUsos = (ArrayList<Uso>) PessoaFisica.resgatarListaUsoMedicamentosArquivo(pessoa.getNomeArquivoUsos());
-        if (listaDeUsos == null) {
-            Thread.interrupted();
-        }
+        //listaDeUsos = (ArrayList<Uso>) PessoaFisica.resgatarListaUsoMedicamentosArquivo(pessoa.getNomeArquivoUsos());
+        // if (listaDeUsos == null) {
+        //     Thread.interrupted();
+        // }
  
         // calcula todos os horários de cada um dos usos
-        for (Uso uso : listaDeUsos) {
-            uso.calcularHorariosDeUso();
-        }
+        // for (Uso uso : listaDeUsos) {
+        //     uso.calcularHorariosDeUso();
+        // }
+        System.out.println(pessoa.getNome());
 
         while (true) {
+            listaDeUsos = (ArrayList<Uso>) PessoaFisica.resgatarListaUsoMedicamentosArquivo(pessoa.getNomeArquivoUsos());
+            for (Uso uso : listaDeUsos) {
+                uso.calcularHorariosDeUso();
+                System.out.println(uso.getRemedio().getNome()+" "+ pessoa.getNome());
+            }
+
             //enviar notificacao para tomar o medicamento na hora correta
             for (Uso uso : listaDeUsos) {
                 for (Integer horario : uso.getHorariosDeUso()) {
