@@ -10,6 +10,8 @@ public class Data {
     private static boolean duracaoDoTratamentoAtualizada = true;
     private static int ultimaVerficacaoHorario = 0;
 
+    //verifica apenas a hora para fins de simplificacao do prototipo
+    //é enviado uma única vez pois o gerenciador realiza tarefas apenas a cada 1 hora
     public static boolean horaDoRemedio(Uso uso, Integer horario) {
         boolean ehHoraDoRemedio = false;
         
@@ -27,16 +29,17 @@ public class Data {
         Calendar c = Calendar.getInstance();
         int horaAtual = c.get(Calendar.HOUR_OF_DAY);
 
-        if(horaAtual == 0){
-            if(duracaoDoTratamentoAtualizada == false){
-                meiaNoite = true;
-                Data.duracaoDoTratamentoAtualizada = true;
-            }
+        if(horaAtual == 15){
+            // if(duracaoDoTratamentoAtualizada == false){
+            //     meiaNoite = true;
+            //     Data.duracaoDoTratamentoAtualizada = true;
+            // }
+            meiaNoite = true;
         }
 
-        if(duracaoDoTratamentoAtualizada==true && horaAtual != 0){
-            Data.duracaoDoTratamentoAtualizada = false;
-        }
+        // if(duracaoDoTratamentoAtualizada==true && horaAtual != 15){
+        //     Data.duracaoDoTratamentoAtualizada = false;
+        // }
 
         return meiaNoite;
     }
