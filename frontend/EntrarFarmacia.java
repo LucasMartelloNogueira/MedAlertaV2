@@ -6,6 +6,8 @@ package frontend;
  */
 
 import backend.farmacia.PessoaJuridica;
+import inicio.MedAlerta;
+
 import javax.swing.JOptionPane;
 /**
  *
@@ -133,6 +135,7 @@ public class EntrarFarmacia extends javax.swing.JFrame {
             dispose();
         } 
         else{
+            MedAlerta.setFimDaEspera(false);
             HomeDaFarmacia tela = new HomeDaFarmacia();
             tela.receber(farmacia);
             tela.setVisible(true);

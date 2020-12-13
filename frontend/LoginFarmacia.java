@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import backend.Endereco;
 import backend.farmacia.PessoaJuridica;
+import inicio.MedAlerta;
 public class LoginFarmacia extends javax.swing.JFrame {
 
     /**
@@ -297,6 +298,7 @@ public class LoginFarmacia extends javax.swing.JFrame {
         else{
             PessoaJuridica farmacia = new PessoaJuridica(nomenFarmacia,telefone,email,senha,cnpjFarmacia, endereco);
             farmacia.salvarDadosArquivo();
+            MedAlerta.setFimDaEspera(false);
             HomeDaFarmacia tela = new HomeDaFarmacia();
             tela.receber(farmacia);
             tela.setVisible(true);
