@@ -13,9 +13,10 @@ import backend.Autenticacao;
 import backend.Endereco;
 import backend.FuncoesArquivos;
 import backend.Pessoa;
+import backend.SalvavelBancoDeDados;
 import backend.farmacia.PessoaJuridica;
 
-public class PessoaFisica extends Pessoa {
+public class PessoaFisica extends Pessoa implements SalvavelBancoDeDados{
 
     public static final String nomeArquivoUsuarios = "backend\\usuario\\RegistroUsuarios.txt";
     
@@ -386,5 +387,20 @@ public class PessoaFisica extends Pessoa {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public boolean estabelecerConexaoBD(String pathBancoDeDados){
+        return true;
+    }
+
+    public void salvarObejtoBancoDeDados(Object obejto){
+        // salva objeto no arquivo
+        return;
+    }
+
+    public Object recuperarObjetoBancoDeDados(String pathBancoDeDados){
+        // recupera objeto do arquivo
+        Object o = null;
+        return o;
     }
 }

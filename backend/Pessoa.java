@@ -1,11 +1,13 @@
 package backend;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.io.*;
 
 //pessoa no sentido de pessoa fisica ou pessoa juridica
-public abstract class Pessoa implements Comparable<Pessoa> {
+public abstract class Pessoa implements Comparable<Pessoa>, Serializable {
     private String nome; // nome da pessoa ou razao social
     private String telefone;
     private String email;
@@ -105,6 +107,35 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         
         String pessoaString = String.join(",", listaValoresAtributos);
         return pessoaString;
+    }
+
+    // função para gravar objeto no arquivo
+    public void salvarObjetoArquivo(String nomeArquivo, Object objeto){
+        try{
+            FileOutputStream arquivo = new FileOutputStream(nomeArquivo);
+            ObjectOutputStream objetoOut = new ObjectOutputStream(arquivo);
+            objetoOut.writeObject(objeto);
+            objetoOut.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //função para resgatar objeto do arquivo
+    public Object recuperarObjetoArquivo(String nomeArquivo){
+        try{
+            FileInputStream arquivo = new FileInputStream(nomeArquivo);
+            ObjectInputStream objetoIn = new ObjectInputStream(arquivo);
+            Object objeto = objetoIn.readObject();
+            objetoIn.close();
+            return objeto;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        
     }
 
 }

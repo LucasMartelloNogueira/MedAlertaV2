@@ -1,0 +1,137 @@
+Letra a)
+
+implementação atual:
+
+O programa atual armazena os dados em arquivos txt no formato csv. 
+Cada classe possui os metodos toString, que primeiramente transforma 
+todos os dados do objeto em uma string (e no formato csv) para depois salva-los
+no arquivo respectivo de cada classe (por exemplo: objetos do tipo PessoaFisica são salvos 
+no arquivo "RegistroUsuarios.txt" e objetos da classe Pessoa juridica, no arquivo 
+"RegistroFarmácias.txt")
+
+Além disso, objetos da classe PessoaFisica e PessoaJuridica tem metodos de salvar para criar 
+seus próprios arquivos e salvar seus estoques de remedios, ambos usando o mesmo metodo de 
+salvar o arquivo txt em formato csv. 
+
+-Vantagens:
+Essa forma de implementação, uma vez implementada auxilia na implementação de métodos de 
+inserir, remover, listar, buscar, editar, etc. Uma outra vantagem seria que comos os arquivos 
+estão salvos em modo texto, é possível abrir os arquivos e conferi-los de maneira manual se 
+os dados salvos foram corretos.
+
+-Desvantagens:
+A implementação foi demorada, pois cada classe possui suas especificidades, assim
+cada método toString foi diferente, o formato dos arquivos contendo as classes, apesar de seguirem
+uma certa padronização, possuem algumas diferenças. Além disso, essa implementação acaba criando muitos
+arquivos diferentes, o que poderia ser evitado com outros tipos de implementação
+
+
+Novas possibilidades:
+
+duas novas formas poderiam ser implementadas para salvar os dados em arquivos:
+1- utilização da interface Serializable, para salvar objetos inteiros no arquivo
+2- utilização de bancos de dados
+
+em relação a implementação 1, teriamos que fazer algumas mudanças nas classes existentes.
+As classes que salvam os dados nos arquivos teriam que implementar a interface Serializable do 
+Java e utilizar as classes FileOutputStream e objectOuputStream e o metodo objectOuputStream.writeObject para salvar
+os dados do objeto no arquivo.
+
+como Vantagens da implementação 1, a implementação é rápida e fácil pois já estamos utlizando códigos
+já existentes do Java. Além disso, não seria preciso criar os arquivos de estoques d remedios para cada farmacia e usuario,
+pois estas informações ja seriam salvas nos arquivos que contem os objetos usuario e farmácias.
+
+Como Desvantagens, os dados não são salvos em formato de arquivo texto, sendo assim
+não seria possível abir os arquivos e conferir se os dados foram salvos corretamente, teríamos que rodar
+o programa e conferir os dados. Além disso, desta forma, teriamos que primeiro resgatar as informaçoes
+para a memoria principal (no qual o programa roda) e fazer as funções desejadas (como inserção, remoção, busca, edição, etc)
+para depois salvar novamente os dados na memória secundária, o que demandaria mais tempo caso a quantidade
+dados fosse muito grande.
+
+em relação a implementação 2 (banco de dados), apesar de não possuir familiaridade com banco de dados,
+imagino que para cada classe (as que salvam os dados em arquivos) deveriam posuir no mínimo dois métodos.
+O primeiro seria inicilamente para conectar ao banco de dados utilizado e o segundo seria para salvar corretamente 
+os dados do objeto em questao no local certo do banco de dados.
+
+As vantagens dessa implementação seriam imensas, pois bancos de dados são otimas maneiras de salvar
+informações e funções como inserção, remoção, busca e edição já foram optimizadas, ou seja, além de já terem sido escritas,
+são eficientes. Sua única desvantagem é que nenhum membro do grupo possui familiaridade com bancos de dados, o que toraria
+muito dificil a sua implementação no caso do grupo.
+
+Pesando no trabalho já feito, a solução 1 (da interface erializable) seria melhor paa o desempho do projeto.
+Ela só não foi utilizada por que o grupo começou a parte de salvar os dados em arquivos antes dessa maneira ser conhecida por nós.
+Ou seja, o código já estava padronizado em usar arquivos txt e teriamos que relaizar muitas mudanças para fazer com que
+esta solução fosse implementada.
+
+
+Letra B) 
+
+em relação a implementação 1 (interface Serializable), como as classes PessoaFisica(usuário), 
+PessoaJuridica(farmácias) e Medico, herdam ca Classe Pessoa, eu pensei em implemnatar a interface
+Serializable em Pessoa e de implementar os metodos na classe Pessoa.
+
+// foram implemetadas de fato na Classe Pessoa (linha 112)
+
+public class Pessoa implements Serializable{
+
+    // função para gravar objeto no arquivo
+    public void salvarObjetoArquivo(String nomeArquivo, Object objeto){
+        try{
+            FileOutputStream arquivo = new FileOutputStream(nomeArquivo);
+            ObjectOutputStream objetoOut = new ObjectOutputStream(arquivo);
+            objetoOut.writeObject(objeto);
+            objetoOut.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //função para resgatar objeto do arquivo
+    public Object recuperarObjetoArquivo(String nomeArquivo){
+        try{
+            FileInputStream arquivo = new FileInputStream(nomeArquivo);
+            ObjectInputStream objetoIn = new ObjectInputStream(arquivo);
+            Object objeto = objetoIn.readObject();
+            objetoIn.close();
+            return objeto;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        
+    }
+
+    // como as classes PessoaFisica, PessoaJuridica e Medico herdam esses métodos,
+    // elas teriam só que especificar a classe do objeto em questão nos métodos, assim estariamos
+    // fazendo uso de polimorfimso também
+
+    // as outras funções (buscar, deletar, inserir, editar, etc) teriam que primeiro
+    // usar o método recuperarObjetoArquivo, usar a função que for, e depois salva-lo novamente
+    // usando o metodo salvarObjetoArquivo, para salvar as mudanças nos arquivos de fato.
+}
+
+
+em relação a implementação do banco de dados, não sei como que é feito de fato a conexão com
+um banco de dados com o Java. Mas como disse anteriormente que deveria usar no mínimo dois metodos
+para salvar os dados, pensei em criar uma interface para esses métodos.
+
+interface SalvavelBancoDeDados.java foi criada de fato, está na pasta backend
+
+public interface SalvavelBancoDeDados{
+    
+    // função que faria a conexão com o banco de dados
+    // retorna true se conectou e false se não conseguiu
+    public abstract boolean estabelecerConexaoBD(String pathBancoDeDados);
+
+    public abstract void salvarObejtoBancoDeDados(Object obejto);
+
+    public abstract void recuperarObjetoBancoDeDados(Object objeto);
+}
+
+novamente,  usarei "ClasseGenerica" para simbolizar as classes PessoaFisica(usuário), 
+PessoaJuridica(farmácias) e Medico. Bastaria agr a ClasseGenerica implemetar os metodos da
+interface SalvavelBancoDeDados
+
+implementei de fato na classe PessoaFisica só para ilustrar como seria, começa na linha 391
