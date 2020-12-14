@@ -1,2 +1,0 @@
-Rivotril,1,seg/ter/qua/qui/sex/sab/dom,14,10,21,0
-Paracetamol,1,dom,2,8,20,0

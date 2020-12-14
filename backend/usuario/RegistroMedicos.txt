@@ -1,2 +1,4 @@
 nome,telefone,email,senha,especialidade
 Alberto,12345678,a,b,cardiologista
+joaquim,12347896,a,b,pediatra
+joaquim,99998888,a,b,pediatra
